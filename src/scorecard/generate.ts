@@ -39,10 +39,6 @@ const DESC = [
   'Industries', 'Solutions', 'Foundry',
 ];
 const LEGAL = ['Inc.', 'LLC', 'Corp.', 'Co.'];
-const OWNERS = [
-  'A. Reyes', 'J. Park', 'M. Donnelly', 'S. Okafor', 'T. Bauer', 'L. Nguyen',
-  'R. Castellano', 'D. Whitfield', 'P. Sandoval', 'K. Abara', 'C. Mercer', 'E. Volkov',
-];
 
 const COUNTRY_STD = ['United States', 'United Kingdom', 'Germany', 'Canada', 'Australia'];
 const COUNTRY_BAD: Record<string, string[]> = {
@@ -104,7 +100,6 @@ interface Ctx {
   country: number;
   industry: number;
   region: number;
-  owner: string;
   emp: string;
   rev: string;
   parent: string;
@@ -142,8 +137,6 @@ function makeValue(key: string, standardized: boolean, c: Ctx, r: Rand): string 
       if (standardized) return `+1 ${area}-555-0${line}`;
       return pick(r, [`(${area}) 555.0${line}`, `${area}5550${line}`, `${area}-555-0${line} x14`]);
     }
-    case 'owner':
-      return c.owner;
     case 'parent':
       return c.parent;
     default:
@@ -163,7 +156,6 @@ function generateRecord(r: Rand, i: number): AccountRecord {
     country: Math.floor(r() * COUNTRY_STD.length),
     industry: Math.floor(r() * INDUSTRY_STD.length),
     region: Math.floor(r() * REGION_STD.length),
-    owner: pick(r, OWNERS),
     emp: pick(r, EMP),
     rev: pick(r, REV),
     parent: `${pick(r, PREFIX)} ${pick(r, DESC)} Holdings`,

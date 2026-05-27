@@ -31,7 +31,6 @@ export const FIELDS: FieldDef[] = [
   { key: 'revenue', label: 'Annual Revenue', tier: 'supporting', dimensions: ['completeness', 'accuracy'] },
   { key: 'region', label: 'State / Region', tier: 'supporting', dimensions: ['completeness', 'standardization', 'accuracy'] },
   { key: 'phone', label: 'Phone', tier: 'supplemental', dimensions: ['completeness', 'standardization'] },
-  { key: 'owner', label: 'Account Owner', tier: 'supplemental', dimensions: ['completeness'] },
   { key: 'parent', label: 'Parent Account', tier: 'supplemental', dimensions: ['completeness', 'accuracy'] },
 ];
 
