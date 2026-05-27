@@ -77,9 +77,9 @@ I am a Salesforce Certified Administrator with a BFA in Communication Design fro
 Open to the right full-time role. Selective consulting through Page Frignoca LLC.
 
 **Body**
-The strongest full-time fit is a company that has decided account, contact, or lead data quality is foundational, not janitorial. Senior IC or lead roles in RevOps, GTM Systems, Data Quality, or CRM Strategy. Salesforce-centric, AI-curious, willing to fund the program rather than the task.
+The strongest full-time fit is a company that already understands account, contact, or lead data quality is foundational, not janitorial. Senior IC or lead roles in RevOps, GTM Systems, Data Quality, CRM Strategy, or Salesforce-centered AI operations. The best match is Salesforce-centric, AI-curious, and ready to fund the operating model, not just another cleanup ticket.
 
-I also take selective consulting and contract work through Page Frignoca LLC. An engagement typically looks like a defined data-quality assessment against a tiered, gated scoring model, a vendor benchmark, a governance design that names owners and cadence, and a monitoring layer that keeps the result honest after handoff. Scoped to weeks, not quarters.
+I also take selective consulting and contract work through Page Frignoca LLC. A typical engagement looks like a defined data-quality assessment against a tiered, gated scoring model; a vendor benchmark; a governance design that names owners and cadence; and a monitoring layer that keeps the result honest after handoff. Scoped in weeks, not quarters.
 
 **Pull line**
 If your CRM data is not ready for the AI workflows you are about to point at it, that is the work I do.
