@@ -61,11 +61,11 @@ It is the work that has to exist before AI workflows on top of CRM data are anyt
 Design school, then a decade in GTM systems.
 
 **Body**
-Most recently, Senior Data Quality Specialist at Cockroach Labs, where I built the Core Account Profile program from the ground up: the framework, the scoring, the vendor benchmark, the hierarchy automation, the live monitoring. That is the case study on this site. The role ended in a company-wide restructuring in May 2026.
+Most recently, I was a Senior Data Quality Specialist at Cockroach Labs, where I built the Core Account Profile program from the ground up: the framework, scoring model, vendor benchmark, hierarchy automation, and live monitoring layer. That work became the case study on this site. My role ended during a company-wide restructuring in May 2026.
 
-Before that, four-plus years at Lansweeper, a separate company, where I owned the GTM applications stack as GTM Applications Analyst and then Sales Operations Analyst. Salesforce administration, lead routing rebuild, deduplication and matching, zero-friction address collection, the operator's view of why this work matters. Earlier still, sales roles at Embarcadero Technologies.
+Before that, I spent four-plus years at Lansweeper as a GTM Applications Analyst and Sales Operations Analyst, owning the GTM applications stack from the operator's seat: Salesforce administration, lead routing rebuilds, deduplication and matching, cleaner address collection, and the process work that makes CRM data usable in the first place. Earlier still, I worked in sales roles at Embarcadero Technologies, which is part of why I care so much about how GTM systems actually behave for the people using them.
 
-I am a Salesforce Certified Administrator. The degree is a BFA in Communication Design from Texas State University, which is the reason this site reads like a product and not a template.
+I am a Salesforce Certified Administrator with a BFA in Communication Design from Texas State University, which is the reason this site reads like a product and not a template.
 
 [Build note: career arc stays short and abstracted. Cockroach Labs and Lansweeper are separate companies, never implied as continuous. No headcount, revenue, reporting-line, or quantified-outcome specifics.]
 
