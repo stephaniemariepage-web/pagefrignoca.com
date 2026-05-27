@@ -1,0 +1,166 @@
+---
+title: HG Insights Hierarchy Auto-Population
+summary: >-
+  A governed n8n workflow that populates Salesforce Parent Account
+  relationships from enrichment hierarchy data, with no-overwrite safeguards,
+  self-parent prevention, and a master-record selection waterfall. Designed
+  with a Salesforce operator and implemented through Claude Code.
+type: AI build
+employer: Cockroach Labs
+featured: false
+order: 2
+
+hero:
+  eyebrow: Case study
+  intro: >-
+    Cockroach Labs' Salesforce Accounts had corporate hierarchy data sitting
+    in an enrichment dataset, which company was the parent, which was the
+    global headquarters, but the Parent Account field stayed empty. This is
+    the story of the automation that connected them, built with Claude Code
+    as the implementation partner.
+
+overview:
+  headline: The hierarchy data was already there. The automation to use it was not.
+  paragraphs:
+    - >-
+      Salesforce Accounts at Cockroach Labs were enriched with hierarchy
+      information from an external vendor. That data named the corporate
+      parent and the global headquarters for tens of thousands of accounts.
+      None of it was being written back to the Parent Account field, so
+      hierarchy stayed broken inside Salesforce, where reporting, rollups,
+      routing, and account planning all rely on it.
+    - >-
+      The reason was not laziness. Mass-updating hierarchy is one of the more
+      dangerous Salesforce operations to automate. Overwrite a manually set
+      parent and a downstream owner loses context. Choose the wrong master
+      record from a group of duplicates and reporting bends in a way that
+      takes weeks to unwind. The build needed to be careful before it was
+      fast.
+  pullLine: Automation against living data should be safe by default, not fast by default.
+
+problem:
+  headline: Five constraints, before line one of code.
+  intro: >-
+    The shape of the build was set by what could go wrong, not by what was
+    possible.
+  items:
+    - title: Hierarchy data lived in one object, hierarchy fields in another.
+      body: >-
+        Corporate-parent and global-headquarters identifiers sat on the
+        enrichment object. The Parent Account field sat on Account. Nothing
+        moved between them automatically.
+    - title: Manual triage did not scale.
+      body: >-
+        Tens of thousands of accounts, hundreds of eligible parent
+        relationships, and a Salesforce admin team already running flat.
+        Updating relationships by hand was both error-prone and impossibly
+        slow.
+    - title: Overwriting existing relationships was not an option.
+      body: >-
+        Where a Parent Account was already set, by a human or a prior
+        process, that relationship carried context the automation did not
+        have. The build had to fill only the empty slots.
+    - title: Self-parenting would loop and fail the job.
+      body: >-
+        When an account's own enrichment ID matched both the corporate and
+        global IDs, parenting it to itself would cause a circular reference
+        and abort the run. The logic had to detect and skip those before
+        attempting the write.
+    - title: Multiple candidates for one parent.
+      body: >-
+        When several Salesforce accounts shared the same enrichment parent
+        ID, there was no obvious "right" pick. Selection needed to follow a
+        deterministic rule waterfall, not a coin flip.
+  pullLine: A safe automation looks boring from the outside. From the inside, it is mostly the rules that decided what not to do.
+
+builds:
+  headline: One workflow, six layers of care.
+  items:
+    - title: The hierarchy decision logic.
+      body: >-
+        For each account, check the corporate parent ID first. If it is
+        populated and different from the account's own enrichment ID, use it.
+        Otherwise fall back to the global headquarters ID under the same
+        constraint. If both equal the account's own ID, do nothing. The
+        order matters: corporate-parent first, global-HQ as backup, never
+        self.
+    - title: Direct SOQL via REST.
+      body: >-
+        The first cut used the n8n Salesforce node's built-in search and
+        retrieval actions. The search resource turned out to use SOSL, not
+        SOQL, and the custom-object retrieval returned record IDs without
+        the enrichment fields. The fix was to call the Salesforce Query REST
+        API directly via HTTP Request nodes, which returned exactly the
+        fields requested.
+    - title: The master-record selection waterfall.
+      body: >-
+        When multiple Salesforce accounts shared one enrichment parent ID, a
+        deterministic eleven-rule waterfall selected the master, starting
+        with a direct name match between the candidate parent and the
+        enrichment parent name, then cascading through account stage,
+        domain match, ownership type, opportunity history, and created
+        date. Reused, in spirit, the duplicate-resolution logic already
+        running in the org.
+    - title: Safeguards in front of every write.
+      body: >-
+        No-overwrite check: skip any account whose Parent Account field is
+        already populated. Self-parent check: skip any account whose own
+        enrichment ID matches the candidate parent's. Bad-record handling:
+        on a single-record error, log and continue rather than fail the
+        batch.
+    - title: Scheduled batch, chunked processing.
+      body: >-
+        A daily run at 2:00 AM picks up newly eligible accounts. Chunked
+        processing keeps memory and API limits in check on larger datasets,
+        without holding the whole result set in one operation.
+    - title: Documentation as part of the build.
+      body: >-
+        Workflow overview document. Master-record rules document. Mermaid
+        diagrams for the workflow, the hierarchy decision tree, and the
+        Salesforce data model. A short slide deck for the team review.
+        Documentation shipped with the automation, not after it.
+
+outcomes:
+  headline: What changed.
+  items:
+    - Roughly 86,000 enrichment records processed in a single sandbox run; 46 eligible child accounts identified; 34 parent relationships matched and written, with the remainder correctly skipped by the safeguards.
+    - A production-ready automation built, tested, and documented in hours, against an alternative timeline of weeks of n8n and Salesforce REST learning.
+    - A reusable safety pattern, no-overwrite, self-parent prevention, master-record waterfall, that applies to any future Salesforce write automation.
+    - Hierarchy integrity now feeds account planning, reporting, routing, rollups, and book selection without manual stitching.
+  pullLine: The interesting number was not 34 records updated. It was zero records corrupted.
+
+portablePOV:
+  headline: What carries to any AI-assisted build.
+  intro: >-
+    The tools change. The collaboration pattern does not.
+  points:
+    - title: Domain expertise is the limiting reagent.
+      body: >-
+        The AI can write SOQL. It cannot tell you which hierarchy IDs to
+        trust, which fields are safe to overwrite, or which edge cases will
+        wreck a quarterly report.
+    - title: Safe defaults beat fast defaults.
+      body: >-
+        No-overwrite, self-parent prevention, and master-record selection
+        rules existed before the first node was placed. The result was an
+        automation that could be turned on without fear.
+    - title: The point of AI is not speed.
+      body: >-
+        It is being able to ship something correct when the alternative was
+        not shipping at all. A working, tested, documented automation in
+        hours is a different category than a half-built workflow in weeks.
+  pullLine: Robots can write the workflow. They cannot tell you which fields are sacred.
+
+closing:
+  headline: This was one of six builds inside the Core Account Profile program.
+  body: >-
+    Parent Account auto-population sat alongside the scoring model, the
+    diagnostic slices, the vendor benchmark, the Salesforce write-back, and
+    the live monitoring dashboard. Each one made the others more useful.
+  primaryCta:
+    label: Read the CAP case study
+    href: /work/core-account-profile
+  secondaryCta:
+    label: Open the Scorecard
+    href: /scorecard
+---
