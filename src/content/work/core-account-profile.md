@@ -1,33 +1,32 @@
 ---
 title: Core Account Profile
 summary: >-
-  The Cockroach Labs program that defined what GTM-ready means: a tiered,
-  gated scoring model, vendor benchmark, hierarchy automation, and live
-  monitoring layer, applied to roughly 99,000 accounts.
+  The program that defined what GTM-ready means: a tiered, gated scoring
+  model, vendor benchmark, hierarchy automation, and live monitoring layer,
+  applied to roughly 99,000 accounts.
 type: Framework
-employer: Cockroach Labs
 featured: true
 order: 1
 
 hero:
   eyebrow: Case study
   intro: >-
-    The program behind the framework. At Cockroach Labs, the Core Account
-    Profile defined what a ready account record looks like, scored roughly
-    99,000 of them, benchmarked the enrichment vendors writing to them,
-    automated the hierarchy underneath them, and put the result back into
-    Salesforce where the GTM teams actually work.
+    The program behind the framework. The Core Account Profile defined what
+    a ready account record looks like, scored roughly 99,000 of them,
+    benchmarked the enrichment vendors writing to them, automated the
+    hierarchy underneath them, and put the result back into Salesforce
+    where the GTM teams actually work.
 
 overview:
   headline: Account data is the foundation every GTM motion is built on. Nobody owned whether it was any good.
   paragraphs:
     - >-
       Segmentation, territory planning, ICP modeling, routing, reporting, and
-      increasingly AI workflows all run on account data. At Cockroach Labs,
-      the quality of that data varied with when a record was created, who
-      created it, and how it entered the system. There was no shared
-      definition of a GTM-ready account, and no single owner for account
-      data quality.
+      increasingly AI workflows all run on account data. In the org where
+      this program ran, the quality of that data varied with when a record
+      was created, who created it, and how it entered the system. There was
+      no shared definition of a GTM-ready account, and no single owner for
+      account data quality.
     - >-
       The Core Account Profile set that definition and built the measurement
       around it. It defines which fields matter, how account quality is

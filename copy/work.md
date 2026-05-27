@@ -3,7 +3,7 @@
 **Status:** Draft v1 for review, 2026-05-22
 **Page:** `/work`
 **Voice check:** no em dashes. Crisp, confident, slightly cheeky, enterprise-credible, operator-first.
-**Confidentiality (locked):** Names the employer, Cockroach Labs. Every internal specific stays abstracted. No named individuals, no proprietary internal data, no vendor-by-vendor benchmark results, no internal field acronyms, no exact weights. The framework and the methodology are the publishable part.
+**Confidentiality (locked, updated 2026-05-27):** Case studies do not name the employer. The work is positioned by what was built, not by where. Every internal specific stays abstracted. No named individuals, no proprietary internal data, no vendor-by-vendor benchmark results, no internal field acronyms, no exact weights. The framework and the methodology are the publishable part.
 
 Brackets `[ ]` are build/design notes, not copy.
 
@@ -16,7 +16,7 @@ Brackets `[ ]` are build/design notes, not copy.
 **Title:** Core Account Profile
 
 **Standfirst:**
-The program behind the framework. At Cockroach Labs, the Core Account Profile defined what a ready account record looks like, scored roughly 99,000 of them, benchmarked the enrichment vendors writing to them, automated the hierarchy underneath them, and put the result back into Salesforce where the GTM teams actually work.
+The program behind the framework. The Core Account Profile defined what a ready account record looks like, scored roughly 99,000 of them, benchmarked the enrichment vendors writing to them, automated the hierarchy underneath them, and put the result back into Salesforce where the GTM teams actually work.
 
 [Build note: replaces the current placeholder paragraph and the "In progress" card on `/work`.]
 
@@ -28,7 +28,7 @@ The program behind the framework. At Cockroach Labs, the Core Account Profile de
 Account data is the foundation every GTM motion is built on. Nobody owned whether it was any good.
 
 **Body**
-Segmentation, territory planning, ICP modeling, routing, reporting, and increasingly AI workflows all run on account data. At Cockroach Labs, the quality of that data varied with when a record was created, who created it, and how it entered the system. There was no shared definition of a GTM-ready account, and no single owner for account data quality.
+Segmentation, territory planning, ICP modeling, routing, reporting, and increasingly AI workflows all run on account data. In the org where this program ran, the quality of that data varied with when a record was created, who created it, and how it entered the system. There was no shared definition of a GTM-ready account, and no single owner for account data quality.
 
 The Core Account Profile set that definition and built the measurement around it. It defines which fields matter, how account quality is scored, which vendors to trust for which fields, and where in the process quality breaks down. It scored the full account base, roughly 99,000 records, against that standard.
 

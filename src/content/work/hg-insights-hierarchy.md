@@ -6,29 +6,28 @@ summary: >-
   self-parent prevention, and a master-record selection waterfall. Designed
   with a Salesforce operator and implemented through Claude Code.
 type: AI build
-employer: Cockroach Labs
 featured: false
 order: 2
 
 hero:
   eyebrow: Case study
   intro: >-
-    Cockroach Labs' Salesforce Accounts had corporate hierarchy data sitting
-    in an enrichment dataset, which company was the parent, which was the
-    global headquarters, but the Parent Account field stayed empty. This is
-    the story of the automation that connected them, built with Claude Code
-    as the implementation partner.
+    A Salesforce org's Accounts had corporate hierarchy data sitting in an
+    enrichment dataset, which company was the parent, which was the global
+    headquarters, but the Parent Account field stayed empty. This is the
+    story of the automation that connected them, built with Claude Code as
+    the implementation partner.
 
 overview:
   headline: The hierarchy data was already there. The automation to use it was not.
   paragraphs:
     - >-
-      Salesforce Accounts at Cockroach Labs were enriched with hierarchy
-      information from an external vendor. That data named the corporate
-      parent and the global headquarters for tens of thousands of accounts.
-      None of it was being written back to the Parent Account field, so
-      hierarchy stayed broken inside Salesforce, where reporting, rollups,
-      routing, and account planning all rely on it.
+      Salesforce Accounts were enriched with hierarchy information from an
+      external vendor. That data named the corporate parent and the global
+      headquarters for tens of thousands of accounts. None of it was being
+      written back to the Parent Account field, so hierarchy stayed broken
+      inside Salesforce, where reporting, rollups, routing, and account
+      planning all rely on it.
     - >-
       The reason was not laziness. Mass-updating hierarchy is one of the more
       dangerous Salesforce operations to automate. Overwrite a manually set

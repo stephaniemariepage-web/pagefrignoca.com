@@ -5,7 +5,7 @@ const workEntry = z.object({
   title: z.string(),
   summary: z.string(),
   type: z.enum(['Framework', 'AI build', 'Systems build', 'Reference']),
-  employer: z.string(),
+  employer: z.string().optional(),
   featured: z.boolean().default(false),
   order: z.number().default(99),
   draft: z.boolean().default(false),

@@ -107,7 +107,7 @@ Entirely client-side. No upload, no storage, no account, no sign-in.
 I built this for a Salesforce org with roughly 99,000 account records.
 
 **Body**
-At Cockroach Labs, the Core Account Profile program defined what a ready account record looks like and built the measurement around it. It scored the full account base, benchmarked enrichment vendors into a graded source hierarchy, automated parent-account hierarchy population, and stood up live monitoring across Salesforce and Snowflake.
+The Core Account Profile program defined what a ready account record looks like and built the measurement around it. It scored the full account base, benchmarked enrichment vendors into a graded source hierarchy, automated parent-account hierarchy population, and stood up live monitoring across Salesforce and Snowflake.
 
 [CTA link] Read the case study  →  routes to `/work/core-account-profile`
 

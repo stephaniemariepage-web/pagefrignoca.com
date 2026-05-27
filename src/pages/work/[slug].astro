@@ -31,9 +31,11 @@ const d = entry.data;
         <span class="rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted">
           {d.type}
         </span>
-        <span class="rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted">
-          {d.employer}
-        </span>
+        {d.employer && (
+          <span class="rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-muted">
+            {d.employer}
+          </span>
+        )}
       </div>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
         {d.hero.intro}
