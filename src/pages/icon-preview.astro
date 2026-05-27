@@ -48,6 +48,11 @@ const checkVariants = [
     label: 'Check, mostly mint + orange tip',
     description: 'Most of the check is mint, just the final tip lands in orange.',
   },
+  {
+    key: 'R',
+    label: 'Hexagon + Q-style check (mostly mint, orange tip)',
+    description: 'I and Q combined. Hex container, bold check, mostly mint with just the tip orange.',
+  },
 ];
 
 const illustrative = [
@@ -472,6 +477,13 @@ const illustrative = [
                     <path d="M44 28 L52 18" stroke={ORANGE} stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 )}
+                {opt.key === 'R' && (
+                  <svg width="22" height="22" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                    <path d="M32 6 L54 19 L54 45 L32 58 L10 45 L10 19 Z" stroke={MINT} stroke-width="2.5" stroke-linejoin="round" />
+                    <path d="M20 33 L30 43 L41 30" stroke={MINT} stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M41 30 L46 25" stroke={ORANGE} stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
                 <span class="text-[13px] text-muted">[ nav links ]</span>
               </div>
             </div>
@@ -498,6 +510,13 @@ const illustrative = [
                 <svg width="96" height="96" viewBox="0 0 64 64" fill="none" aria-hidden="true">
                   <path d="M14 32 L28 46 L44 28" stroke={MINT} stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M44 28 L52 18" stroke={ORANGE} stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              )}
+              {opt.key === 'R' && (
+                <svg width="96" height="96" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M32 6 L54 19 L54 45 L32 58 L10 45 L10 19 Z" stroke={MINT} stroke-width="2.5" stroke-linejoin="round" />
+                  <path d="M20 33 L30 43 L41 30" stroke={MINT} stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M41 30 L46 25" stroke={ORANGE} stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               )}
             </div>
