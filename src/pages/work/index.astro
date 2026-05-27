@@ -1,0 +1,137 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('work', (e) => !e.data.draft);
+entries.sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  return a.data.order - b.data.order;
+});
+
+const featured = entries.filter((e) => e.data.featured);
+const rest = entries.filter((e) => !e.data.featured);
+---
+
+<Base title="The Work | Stephanie Frignoca">
+  <!-- Page header -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+      style="background: radial-gradient(48% 50% at 50% -6%, rgba(79,209,165,0.10), transparent 72%)"
+    >
+    </div>
+    <div class="container-x relative py-20 lg:py-28">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">The Work</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+        Frameworks, scoring models, and systems for the upstream layer.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+        Each entry is a real program I built, generalized and scrubbed of
+        proprietary specifics. The flagship is Core Account Profile. More
+        entries ship as I write them up.
+      </p>
+    </div>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="border-t border-line/60">
+      <div class="container-x py-16 lg:py-20">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Featured</p>
+        <div class="mt-6 grid gap-5">
+          {featured.map((entry) => (
+            <a
+              href={`/work/${entry.id}`}
+              class="group relative overflow-hidden rounded-2xl border border-line bg-surface p-8 transition hover:border-accent/60 sm:p-10"
+            >
+              <div
+                class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full"
+                style="background: radial-gradient(closest-side, rgba(79,209,165,0.12), transparent)"
+              >
+              </div>
+              <div class="relative">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-medium text-muted">
+                    {entry.data.type}
+                  </span>
+                  <span class="rounded-full border border-line bg-bg px-3 py-1 text-xs font-medium text-muted">
+                    {entry.data.employer}
+                  </span>
+                </div>
+                <h2 class="mt-5 text-2xl font-bold tracking-tight sm:text-3xl">
+                  {entry.data.title}
+                </h2>
+                <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+                  {entry.data.summary}
+                </p>
+                <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition group-hover:brightness-110">
+                  Read the case study
+                  <span aria-hidden="true">&rarr;</span>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {rest.length > 0 && (
+    <section class="border-t border-line/60">
+      <div class="container-x py-16 lg:py-20">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">More entries</p>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          {rest.map((entry) => (
+            <a
+              href={`/work/${entry.id}`}
+              class="group rounded-xl border border-line bg-surface p-6 transition hover:border-accent/60"
+            >
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="rounded-full border border-line bg-bg px-2.5 py-0.5 text-[11px] font-medium text-muted">
+                  {entry.data.type}
+                </span>
+                <span class="rounded-full border border-line bg-bg px-2.5 py-0.5 text-[11px] font-medium text-muted">
+                  {entry.data.employer}
+                </span>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold tracking-tight">
+                {entry.data.title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted">
+                {entry.data.summary}
+              </p>
+              <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition group-hover:brightness-110">
+                Read more
+                <span aria-hidden="true">&rarr;</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Coming soon -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-16 lg:py-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Coming soon</p>
+      <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+        <li class="rounded-xl border border-dashed border-line/70 p-5 text-sm text-muted">
+          <span class="font-semibold text-fg">HG Insights Hierarchy Auto-Population</span>
+          <span class="block text-xs uppercase tracking-wide text-accent/80">AI build</span>
+        </li>
+        <li class="rounded-xl border border-dashed border-line/70 p-5 text-sm text-muted">
+          <span class="font-semibold text-fg">Salesforce Business Glossary</span>
+          <span class="block text-xs uppercase tracking-wide text-accent/80">Reference</span>
+        </li>
+        <li class="rounded-xl border border-dashed border-line/70 p-5 text-sm text-muted">
+          <span class="font-semibold text-fg">CAP Monitoring Dashboard</span>
+          <span class="block text-xs uppercase tracking-wide text-accent/80">AI build</span>
+        </li>
+        <li class="rounded-xl border border-dashed border-line/70 p-5 text-sm text-muted">
+          <span class="font-semibold text-fg">Lansweeper systems builds</span>
+          <span class="block text-xs uppercase tracking-wide text-accent/80">Systems build</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Base>

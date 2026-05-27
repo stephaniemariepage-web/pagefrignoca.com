@@ -19,7 +19,7 @@ Stop grading your CRM data on a curve.
 A strong average hides the records that are quietly broken. Your routing, scoring, reporting, and AI workflows act on those records one at a time, not on the curve.
 
 [Primary CTA button] Run the Scorecard  →  routes to `/scorecard`
-[Secondary CTA link] Read the case study  →  routes to `/work`
+[Secondary CTA link] Read the case study  →  routes to `/work/core-account-profile`
 
 [Visual: a compact "readiness card" for a single record. On load it shows a composite score of 88 with a Near Ready label, looking healthy. Three thin dimension bars then animate in: Completeness and Standardization sit high, Accuracy drops below a marked floor line. The card flips to a failing state (Low Readiness, Not Ready). Plays once, restrained motion. No stock imagery. Built from type, bars, and a floor line, Linear-style. Final asset locked with the design system.]
 
@@ -109,7 +109,7 @@ I built this for a Salesforce org with roughly 99,000 account records.
 **Body**
 At Cockroach Labs, the Core Account Profile program defined what a ready account record looks like and built the measurement around it. It scored the full account base, benchmarked enrichment vendors into a graded source hierarchy, automated parent-account hierarchy population, and stood up live monitoring across Salesforce and Snowflake.
 
-[CTA link] Read the case study  →  routes to `/work`
+[CTA link] Read the case study  →  routes to `/work/core-account-profile`
 
 [Note: this section stays Account-specific on purpose. It is a real program (Core Account Profile) that ran on Salesforce Accounts. The framework it produced is object-agnostic, which is what the rest of the site sells.]
 
@@ -156,9 +156,9 @@ Every clickable element on the Home page and where it goes:
 | Element | Section | Destination | What the visitor sees |
 |---|---|---|---|
 | Run the Scorecard | Hero | `/scorecard` | The interactive demo. Scores a synthetic 100-record CRM, refreshable on click. |
-| Read the case study | Hero | `/work` | The Core Account Profile case study, full story. |
+| Read the case study | Hero | `/work/core-account-profile` | The Core Account Profile case study, full story. |
 | Open the Scorecard | Section 5 | `/scorecard` | Same as Run the Scorecard. |
-| Read the case study | Section 6 | `/work` | Same as the hero case study link. |
+| Read the case study | Section 6 | `/work/core-account-profile` | Same as the hero case study link. |
 | More about Stephanie | Section 7 | `/about` | Bio, the lane, how to work with her, contact. |
 | Email Stephanie | Section 8 | `mailto:` | Opens the visitor's email client, addressed to Stephanie. |
 | Connect on LinkedIn | Section 8 | LinkedIn profile | Her LinkedIn, new tab. |
