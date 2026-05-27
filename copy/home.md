@@ -118,7 +118,7 @@ At Cockroach Labs, the Core Account Profile program defined what a ready account
 ## Section 7 — About teaser
 
 **Body**
-I am Stephanie Frignoca, a GTM data quality and CRM systems strategist. I turn messy GTM data into trusted, AI-ready revenue infrastructure: the frameworks, scoring models, and governance systems underneath segmentation, routing, and AI workflows. Salesforce Certified Administrator, with a BFA in design, which is why this site reads like a product and not a template.
+I am Stephanie Frignoca, a GTM data quality and CRM systems strategist. I turn messy GTM data into trusted, AI-ready revenue infrastructure: the frameworks, scoring models, and governance systems underneath segmentation, routing, and AI workflows. Salesforce Certified Administrator, with a BFA in design, which is why this site reads like a product: structured, intentional, and built to be used.
 
 [CTA link] More about Stephanie  →  routes to `/about`
 
