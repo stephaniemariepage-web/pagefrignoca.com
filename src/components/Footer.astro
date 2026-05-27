@@ -1,0 +1,32 @@
+---
+const year = new Date().getFullYear();
+const email = 'stephaniemariepage@gmail.com';
+const linkedin = 'https://linkedin.com/in/stephaniepagefrignoca';
+---
+
+<footer class="border-t border-line/70">
+  <div class="container-x py-12">
+    <p class="max-w-md text-sm leading-relaxed text-muted">
+      Turning messy GTM data into trusted, AI-ready revenue infrastructure.
+    </p>
+
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <a href={`mailto:${email}`} class="text-muted transition hover:text-fg">Email</a>
+      <a href={linkedin} target="_blank" rel="noopener" class="text-muted transition hover:text-fg">LinkedIn</a>
+      <a href="/scorecard" class="text-muted transition hover:text-fg">Scorecard</a>
+      <a href="/work" class="text-muted transition hover:text-fg">Work</a>
+      <a href="/about" class="text-muted transition hover:text-fg">About</a>
+      <a
+        href={`mailto:${email}?subject=pagefrignoca.com%20feedback`}
+        class="text-accent/90 transition hover:text-accent"
+      >
+        Spot something? Tell me.
+      </a>
+    </div>
+
+    <div class="mt-8 flex flex-col gap-1 border-t border-line/60 pt-6 text-xs text-muted">
+      <span>Designed and coded by Stephanie Frignoca. Astro and Tailwind.</span>
+      <span>Page Frignoca LLC, {year}.</span>
+    </div>
+  </div>
+</footer>

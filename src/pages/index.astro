@@ -1,0 +1,354 @@
+---
+import Base from '../layouts/Base.astro';
+import ReadinessCard from '../components/ReadinessCard.astro';
+
+const email = 'stephaniemariepage@gmail.com';
+const linkedin = 'https://linkedin.com/in/stephaniepagefrignoca';
+
+const dimensions = [
+  { name: 'Completeness', note: 'Is the field populated.' },
+  { name: 'Standardization', note: 'Is the value in a consistent, usable format.' },
+  { name: 'Accuracy', note: 'Is the value actually correct.' },
+];
+
+const tiers = [
+  { name: 'Core', note: 'highest weight' },
+  { name: 'Supporting', note: 'moderate weight' },
+  { name: 'Supplemental', note: 'lowest weight' },
+];
+
+const classes = [
+  { name: 'Ready', band: '90 to 100', dot: 'bg-ok' },
+  { name: 'Near Ready', band: '70 to 89', dot: 'bg-ok' },
+  { name: 'Partially Ready', band: '50 to 69', dot: 'bg-warn' },
+  { name: 'Low Readiness', band: '30 to 49', dot: 'bg-bad' },
+  { name: 'Not Ready', band: '0 to 29', dot: 'bg-bad' },
+];
+
+const proofPoints = [
+  '~99K records scored',
+  'Vendor report card',
+  'Parent-account automation',
+  'Live monitoring',
+];
+---
+
+<Base title="Stephanie Frignoca | CRM data quality, measured honestly">
+  <!-- Section 1 — Hero -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-[620px]"
+      style="background: radial-gradient(52% 56% at 50% -6%, rgba(79,209,165,0.13), transparent 72%)"
+    >
+    </div>
+    <div class="container-x relative grid gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-28">
+      <div class="animate-rise">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          CRM data quality, measured honestly
+        </p>
+        <h1 class="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+          Stop grading your CRM data <span class="text-accent">on a curve.</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          A strong average hides the records that are quietly broken. Your routing,
+          scoring, reporting, and AI workflows act on those records one at a time,
+          not on the curve.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="/scorecard"
+            class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
+          >
+            Run the Scorecard
+          </a>
+          <a
+            href="/work"
+            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
+          >
+            Read the case study
+          </a>
+        </div>
+      </div>
+      <div class="animate-rise" style="animation-delay:0.12s">
+        <ReadinessCard />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 — Averages lie -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          A 95%-complete record can still be unusable.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          A composite data quality score rolls three different questions into one
+          number: is the field filled in, is the value formatted consistently, is the
+          value actually correct. One strong answer carries two weak ones, and the
+          record reads as healthy when it is not.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Take a record that is 95% complete, perfectly standardized, and 20% accurate.
+          A composite score calls it Near Ready. In reality, one in five of its
+          values is wrong, and every workflow downstream is making decisions on those
+          wrong values.
+        </p>
+      </div>
+      <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
+        If teams have to verify it somewhere else, it is not the system of record.
+        No curve rounds that up.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 3 — AI inherits your worst dimension -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          AI workflows don't average your data. They act on it.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          Routing, scoring, segmentation, reporting, and AI agents consume your records
+          one at a time. Each one inherits the worst dimension of the record in front
+          of it, not the dataset average. A data foundation that looks fine in a
+          quarterly dashboard can still feed wrong inputs into every automated decision
+          you have.
+        </p>
+        <p class="mt-6 text-lg font-medium leading-relaxed">
+          Robots can handle BAU once the data underneath them is trustworthy. They
+          cannot fix a foundation that was never operationally defined as ready.
+        </p>
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener"
+          class="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition hover:brightness-110"
+        >
+          Discuss this on LinkedIn
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — The framework: gated readiness -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">The framework</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          Gated readiness: every dimension clears a floor, or the record is not ready.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          The honest alternative to a blended score is to measure each dimension on its
+          own and refuse to average them away.
+        </p>
+      </div>
+
+      <!-- Three dimensions -->
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        {dimensions.map((d) => (
+          <div class="rounded-xl border border-line bg-surface p-5">
+            <div class="text-sm font-semibold uppercase tracking-wide text-accent">{d.name}</div>
+            <p class="mt-2 text-muted">{d.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-6 max-w-3xl text-sm leading-relaxed text-muted">
+        Data quality has a standard vocabulary: completeness, validity, consistency,
+        timeliness, uniqueness, accuracy. This framework consolidates it into the
+        three dimensions that decide whether a record can be trusted for GTM, and
+        scores each one on its own.
+      </p>
+
+      <!-- Field tiers -->
+      <div class="mt-10">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.15em] text-muted">Field tiers</h3>
+        <p class="mt-3 max-w-3xl text-muted">
+          Not every field carries equal weight. Fields are tiered into Core, Supporting,
+          and Supplemental, and the scoring reflects what actually matters for a record
+          you can use.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          {tiers.map((t) => (
+            <div class="rounded-lg border border-line bg-surface px-4 py-2 text-sm">
+              <span class="font-semibold">{t.name}</span>
+              <span class="text-muted"> &middot; {t.note}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Five readiness classes -->
+      <div class="mt-10">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.15em] text-muted">
+          Five readiness classes
+        </h3>
+        <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          {classes.map((c) => (
+            <div class="rounded-lg border border-line bg-surface p-4">
+              <div class={`h-1.5 w-8 rounded-full ${c.dot}`}></div>
+              <div class="mt-3 text-sm font-semibold">{c.name}</div>
+              <div class="mt-0.5 text-xs text-muted">{c.band}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- The gate -->
+      <div class="mt-10 rounded-xl border border-accent/30 bg-accent/[0.05] p-6 sm:p-7">
+        <div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-accent">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="2.5" y="8" width="15" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M6 8V5.5a4 4 0 0 1 8 0V8" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          The gate
+        </div>
+        <p class="mt-3 text-lg leading-relaxed">
+          If any critical dimension falls below its floor, the record drops to a failing
+          class, no matter how strong the composite looks. A great average cannot buy
+          back a fatal weakness.
+        </p>
+        <p class="mt-3 text-muted">
+          That single rule is the difference between a score that flatters you and a
+          score you can run a GTM motion on.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — The Scorecard -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="relative overflow-hidden rounded-2xl border border-line bg-surface p-8 sm:p-12">
+        <div
+          class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full"
+          style="background: radial-gradient(closest-side, rgba(79,209,165,0.16), transparent)"
+        >
+        </div>
+        <div class="relative max-w-2xl">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+            Score your own data. Right here. Nothing leaves your browser.
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-muted">
+            The Scorecard is a generalized, public version of the framework. Load a
+            built-in sample dataset or paste your own rows. It scores every record
+            across the three dimensions, applies the field tiers and the gate, and
+            returns a readiness class per record, including a count of how many records
+            the gate caught that a composite score would have waved through.
+          </p>
+          <div class="mt-5 inline-flex items-center gap-2 rounded-full border border-line bg-bg px-3 py-1 text-xs text-muted">
+            <svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="4" y="9" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M7 9V6.5a3 3 0 0 1 6 0V9" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+            100% client-side &middot; no upload &middot; no sign-in
+          </div>
+          <div class="mt-7">
+            <a
+              href="/scorecard"
+              class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
+            >
+              Open the Scorecard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6 — Proof: the case study -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Case study</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          I built this for a Salesforce org with roughly 99,000 account records.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          At Cockroach Labs, the Core Account Profile program defined what a ready
+          account record looks like and built the measurement around it. It scored the
+          full account base, benchmarked enrichment vendors into a graded source
+          hierarchy, automated parent-account hierarchy population, and stood up live
+          monitoring across Salesforce and Snowflake.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-2.5">
+        {proofPoints.map((p) => (
+          <span class="rounded-lg border border-line bg-surface px-3 py-1.5 text-sm text-muted">
+            {p}
+          </span>
+        ))}
+      </div>
+      <div class="mt-8">
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
+        >
+          Read the case study
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7 — About teaser -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">About</p>
+        <p class="mt-5 text-xl leading-relaxed sm:text-2xl">
+          I am Stephanie Frignoca, a GTM data quality and CRM systems strategist. I turn
+          messy GTM data into trusted, AI-ready revenue infrastructure: the frameworks,
+          scoring models, and governance systems underneath segmentation, routing, and
+          AI workflows. Salesforce Certified Administrator, with a BFA in design, which
+          is why this site reads like a product and not a template.
+        </p>
+        <div class="mt-7">
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
+          >
+            More about Stephanie
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8 — Contact / closing CTA -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-28">
+      <div
+        class="rounded-2xl border border-line p-8 text-center sm:p-14"
+        style="background: linear-gradient(180deg, #0f1214 0%, #08090b 100%)"
+      >
+        <h2 class="mx-auto max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+          Open to the right full-time role, and to consulting through Page Frignoca LLC.
+        </h2>
+        <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted">
+          If your CRM data is not ready for the AI workflows you are about to point at
+          it, that is the work I do. Let's talk.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a
+            href={`mailto:${email}`}
+            class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
+          >
+            Email Stephanie
+          </a>
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

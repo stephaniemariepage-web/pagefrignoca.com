@@ -1,0 +1,64 @@
+---
+// Hero illustration: a single record that looks healthy on average
+// but fails the gate. Carries the whole thesis of the page.
+const floor = 60;
+const dims = [
+  { name: 'Completeness',    value: 94, bar: 'bg-ok',  text: 'text-ok'  },
+  { name: 'Standardization', value: 89, bar: 'bg-ok',  text: 'text-ok'  },
+  { name: 'Accuracy',        value: 33, bar: 'bg-bad', text: 'text-bad' },
+];
+---
+
+<div class="rounded-2xl border border-line bg-surface p-6 shadow-xl shadow-black/40">
+  <div class="flex items-center justify-between">
+    <span class="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Sample record</span>
+    <span class="rounded-md border border-line px-2 py-0.5 text-xs text-muted">Account</span>
+  </div>
+  <div class="mt-3 text-lg font-semibold">Acme Robotics, Inc.</div>
+
+  <div class="mt-5 space-y-4">
+    {dims.map((d, i) => (
+      <div>
+        <div class="flex items-baseline justify-between text-sm">
+          <span class="text-muted">{d.name}</span>
+          <span class={`font-semibold ${d.text}`}>{d.value}</span>
+        </div>
+        <div class="relative mt-1.5 h-2 rounded-full bg-white/[0.06]">
+          <div
+            class={`bar-fill h-full rounded-full ${d.bar}`}
+            style={`width:${d.value}%;animation-delay:${0.3 + i * 0.12}s`}
+          >
+          </div>
+          <div
+            class="absolute -top-1 -bottom-1 w-px border-l border-dashed border-white/45"
+            style={`left:${floor}%`}
+          >
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-3 text-xs text-muted">Dashed line marks the 60 readiness floor.</p>
+
+  <div class="mt-5 border-t border-line pt-4">
+    <div class="flex items-center justify-between text-sm">
+      <span class="text-muted">Composite average</span>
+      <span class="font-medium">72 <span class="text-muted">· reads as Near Ready</span></span>
+    </div>
+    <div class="mt-3 rounded-lg border border-bad/30 bg-bad/10 p-3">
+      <div class="flex items-center gap-2 font-semibold text-bad">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M10 2.5 1.8 16.5h16.4L10 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M10 8v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="10" cy="13.7" r="0.95" fill="currentColor"/>
+        </svg>
+        Not ready
+      </div>
+      <p class="mt-1 text-sm text-muted">
+        Accuracy (33) is below the 60 floor. Gated readiness: Low Readiness. A strong
+        average can't buy that back.
+      </p>
+    </div>
+  </div>
+</div>

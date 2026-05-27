@@ -1,0 +1,196 @@
+---
+import Base from '../layouts/Base.astro';
+
+const email = 'stephaniemariepage@gmail.com';
+const linkedin = 'https://linkedin.com/in/stephaniepagefrignoca';
+
+const laneItems = [
+  'Defining what a complete, standardized, accurate record means for your business, at the field level, with tiers and weights that reflect what your GTM motion actually needs.',
+  'Building scoring models that measure each dimension on its own and refuse to average a fatal weakness away.',
+  'Benchmarking enrichment vendors against each other on real records, by field, so source-of-record decisions stop being assumption-based.',
+  'Automating the parts of the data foundation that are mechanical (hierarchy population, matching, deduplication, routing) so the humans can focus on the parts that are not.',
+  'Designing the governance and process so the definition holds after the consultant leaves. Ownership, review cadence, monitoring. The part that makes it durable.',
+];
+---
+
+<Base title="About | Stephanie Frignoca">
+  <!-- Page header -->
+  <section class="relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+      style="background: radial-gradient(48% 50% at 50% -6%, rgba(79,209,165,0.10), transparent 72%)"
+    >
+    </div>
+    <div class="container-x relative py-20 lg:py-28">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">About</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+        Stephanie Frignoca
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+        GTM data quality and CRM systems strategist. I build the frameworks, scoring
+        models, and governance systems that make enterprise data trustworthy enough to
+        run a GTM motion on, and increasingly, an AI workflow.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 1 — The positioning -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Positioning</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          I work upstream of the dashboard that keeps breaking.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          Most data work I see is reactive. A report goes wrong, a vendor gets blamed,
+          a quarter of records gets a one-time cleanup, the next report goes wrong.
+          The pattern under all of it is the same: there is no operational definition
+          of what a usable record looks like, so there is no honest way to say whether
+          the data is ready for anything.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          The lane I work in is the upstream one. The frameworks, the scoring models,
+          the field tiers, the gating logic, the governance. The parts that decide
+          whether the data your routing, segmentation, reporting, and AI workflows
+          are about to run on can actually be trusted, record by record.
+        </p>
+      </div>
+      <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
+        Quality is what you measure repeatedly, not what you clean up once.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2 — The lane -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">The lane</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          Not data cleanup. Operational definitions of ready.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          The work is specific. It looks like:
+        </p>
+      </div>
+
+      <ul class="mt-8 grid gap-3 lg:grid-cols-2">
+        {laneItems.map((item) => (
+          <li class="flex gap-3 rounded-xl border border-line bg-surface p-5">
+            <span class="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent"></span>
+            <span class="text-muted">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p class="mt-10 max-w-3xl text-lg font-medium leading-relaxed">
+        It is the work that has to exist before AI workflows on top of CRM data are
+        anything other than a confidence trick.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 3 — Background -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Background</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          Design school, then a decade in GTM systems.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          Most recently, Senior Data Quality Specialist at Cockroach Labs, where I
+          built the Core Account Profile program from the ground up: the framework,
+          the scoring, the vendor benchmark, the hierarchy automation, the live
+          monitoring. That is the case study on this site. The role ended in a
+          company-wide restructuring in May 2026.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Before that, four-plus years at Lansweeper, a separate company, where I
+          owned the GTM applications stack as GTM Applications Analyst and then Sales
+          Operations Analyst. Salesforce administration, lead routing rebuild,
+          deduplication and matching, zero-friction address collection, the
+          operator's view of why this work matters. Earlier still, sales roles at
+          Embarcadero Technologies.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          I am a Salesforce Certified Administrator. The degree is a BFA in
+          Communication Design from Texas State University, which is the reason this
+          site reads like a product and not a template.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — How to work with me -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-24">
+      <div class="max-w-3xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">How to work with me</p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          Open to the right full-time role. Selective consulting through Page
+          Frignoca LLC.
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-muted">
+          The strongest full-time fit is a company that has decided account, contact,
+          or lead data quality is foundational, not janitorial. Senior IC or lead
+          roles in RevOps, GTM Systems, Data Quality, or CRM Strategy.
+          Salesforce-centric, AI-curious, willing to fund the program rather than the
+          task.
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          I also take selective consulting and contract work through Page Frignoca
+          LLC. An engagement typically looks like a defined data-quality assessment
+          against a tiered, gated scoring model, a vendor benchmark, a governance
+          design that names owners and cadence, and a monitoring layer that keeps
+          the result honest after handoff. Scoped to weeks, not quarters.
+        </p>
+      </div>
+      <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
+        If your CRM data is not ready for the AI workflows you are about to point
+        at it, that is the work I do.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 5 — Contact -->
+  <section class="border-t border-line/60">
+    <div class="container-x py-20 lg:py-28">
+      <div
+        class="rounded-2xl border border-line p-8 sm:p-14"
+        style="background: linear-gradient(180deg, #0f1214 0%, #08090b 100%)"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Contact</p>
+        <h2 class="mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+          Best ways to reach me.
+        </h2>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+          Based in Austin, TX.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href={`mailto:${email}`}
+            class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
+          >
+            Email Stephanie
+          </a>
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
+          >
+            Connect on LinkedIn
+          </a>
+          <a
+            href={`mailto:${email}?subject=pagefrignoca.com%20feedback`}
+            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-muted transition hover:border-accent hover:text-accent"
+          >
+            Spot something? Tell me.
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

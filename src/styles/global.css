@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* ---- Design tokens (Linear / Clay-inspired dark system) ---- */
+@theme {
+  --color-bg: #08090b;
+  --color-surface: #0f1214;
+  --color-elevated: #161a1e;
+  --color-line: #242b30;
+  --color-fg: #e9eef1;
+  --color-muted: #8b959b;
+  --color-accent: #4fd1a5;
+  --color-ok: #4fd1a5;
+  --color-warn: #e3b341;
+  --color-bad: #ec6a4d;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #08090b;
+  }
+  body {
+    color: #e9eef1;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background-color: #4fd1a5;
+    color: #06231b;
+  }
+}
+
+/* ---- Layout helper ---- */
+.container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1140px;
+  padding-inline: 1.5rem;
+}
+
+/* ---- Restrained motion ---- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes barfill {
+  from { transform: scaleX(0); }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.bar-fill {
+  transform-origin: left;
+  animation: barfill 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .bar-fill { animation: none; }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,23 @@
+# build output
+dist/
+# generated types
+.astro/
+# dependencies
+node_modules/
+# logs
+npm-debug.log*
+# environment
+.env
+.env.production
+# macOS
+.DS_Store
+
+# internal CAP material (do not publish)
+_source-material/
+CAP_Exec Summary*.jpg
+CAP Slide Deck Video*.mov
+*.docx
+
+# early scratch (pre-Astro)
+portfolio/
+mockups/

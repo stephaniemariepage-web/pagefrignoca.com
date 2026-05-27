@@ -1,0 +1,122 @@
+# About — Full Copy (v1)
+
+**Status:** Draft v1 for review, 2026-05-26
+**Page:** `/about`
+**Voice check:** no em dashes. Crisp, confident, slightly cheeky, enterprise-credible, operator-first.
+**Confidentiality (locked):** Names employers (Cockroach Labs, Lansweeper) as separate companies, never as continuous tenure. No internal data, no named individuals, no proprietary specifics, no headcount, revenue, or reporting-line claims.
+
+Brackets `[ ]` are build/design notes, not copy.
+
+---
+
+## Page header
+
+**Eyebrow:** About
+
+**Title:** Stephanie Frignoca
+
+**Standfirst:**
+GTM data quality and CRM systems strategist. I build the frameworks, scoring models, and governance systems that make enterprise data trustworthy enough to run a GTM motion on, and increasingly, an AI workflow.
+
+[Build note: optional single photo of Stephanie at right of the standfirst, per the design system. Type-led layout also works.]
+
+---
+
+## Section 1 — The positioning
+
+**Headline**
+I work upstream of the dashboard that keeps breaking.
+
+**Body**
+Most data work I see is reactive. A report goes wrong, a vendor gets blamed, a quarter of records gets a one-time cleanup, the next report goes wrong. The pattern under all of it is the same: there is no operational definition of what a usable record looks like, so there is no honest way to say whether the data is ready for anything.
+
+The lane I work in is the upstream one. The frameworks, the scoring models, the field tiers, the gating logic, the governance. The parts that decide whether the data your routing, segmentation, reporting, and AI workflows are about to run on can actually be trusted, record by record.
+
+**Pull line**
+Quality is what you measure repeatedly, not what you clean up once.
+
+---
+
+## Section 2 — The lane
+
+**Headline**
+Not data cleanup. Operational definitions of ready.
+
+**Body**
+The work is specific. It looks like:
+
+- Defining what a complete, standardized, accurate record means for your business, at the field level, with tiers and weights that reflect what your GTM motion actually needs.
+- Building scoring models that measure each dimension on its own and refuse to average a fatal weakness away.
+- Benchmarking enrichment vendors against each other on real records, by field, so source-of-record decisions stop being assumption-based.
+- Automating the parts of the data foundation that are mechanical (hierarchy population, matching, deduplication, routing) so the humans can focus on the parts that are not.
+- Designing the governance and process so the definition holds after the consultant leaves. Ownership, review cadence, monitoring. The part that makes it durable.
+
+It is the work that has to exist before AI workflows on top of CRM data are anything other than a confidence trick.
+
+---
+
+## Section 3 — Background
+
+**Headline**
+Design school, then a decade in GTM systems.
+
+**Body**
+Most recently, Senior Data Quality Specialist at Cockroach Labs, where I built the Core Account Profile program from the ground up: the framework, the scoring, the vendor benchmark, the hierarchy automation, the live monitoring. That is the case study on this site. The role ended in a company-wide restructuring in May 2026.
+
+Before that, four-plus years at Lansweeper, a separate company, where I owned the GTM applications stack as GTM Applications Analyst and then Sales Operations Analyst. Salesforce administration, lead routing rebuild, deduplication and matching, zero-friction address collection, the operator's view of why this work matters. Earlier still, sales roles at Embarcadero Technologies.
+
+I am a Salesforce Certified Administrator. The degree is a BFA in Communication Design from Texas State University, which is the reason this site reads like a product and not a template.
+
+[Build note: career arc stays short and abstracted. Cockroach Labs and Lansweeper are separate companies, never implied as continuous. No headcount, revenue, reporting-line, or quantified-outcome specifics.]
+
+---
+
+## Section 4 — How to work with me
+
+**Headline**
+Open to the right full-time role. Selective consulting through Page Frignoca LLC.
+
+**Body**
+The strongest full-time fit is a company that has decided account, contact, or lead data quality is foundational, not janitorial. Senior IC or lead roles in RevOps, GTM Systems, Data Quality, or CRM Strategy. Salesforce-centric, AI-curious, willing to fund the program rather than the task.
+
+I also take selective consulting and contract work through Page Frignoca LLC. An engagement typically looks like a defined data-quality assessment against a tiered, gated scoring model, a vendor benchmark, a governance design that names owners and cadence, and a monitoring layer that keeps the result honest after handoff. Scoped to weeks, not quarters.
+
+**Pull line**
+If your CRM data is not ready for the AI workflows you are about to point at it, that is the work I do.
+
+---
+
+## Section 5 — Contact
+
+**Body**
+Best ways to reach me:
+
+[CTA button] Email Stephanie  →  opens `mailto:stephaniemariepage@gmail.com`
+[CTA link] Connect on LinkedIn  →  opens linkedin.com/in/stephaniepagefrignoca in a new tab
+[CTA link] Spot something on this site? Tell me.  →  opens the private feedback form
+
+Based in Austin, TX.
+
+---
+
+## CTA + routing map (reference)
+
+Every clickable element on the About page and where it goes:
+
+| Element | Section | Destination | What the visitor sees |
+|---|---|---|---|
+| Run the Scorecard (nav) | Header nav | `/scorecard` | The interactive tool. |
+| Read the case study | within copy if linked | `/work` | The Core Account Profile case study, full story. |
+| Email Stephanie | Section 5 | `mailto:` | Opens the visitor's email client, addressed to Stephanie. |
+| Connect on LinkedIn | Section 5 | LinkedIn profile | Her LinkedIn, new tab. |
+| Spot something on this site? Tell me | Section 5 + Footer | Private feedback form | A short form, results go only to Stephanie. Not public comments. |
+
+---
+
+## Open questions for review
+
+1. **Restructuring mention.** Section 3 names the May 2026 restructuring as the reason the Cockroach Labs role ended. Keep, soften, or remove. (Argument to keep: it is the honest, operator-first version and contextualizes why she is open to roles. Argument to remove: the site already says she is open; the date is enough.)
+2. **Photo.** Standfirst block currently allows for one real photo. Confirm whether one exists for v1 or the page stays type-led at launch.
+3. **Career break.** Background notes a 2016–2021 break for raising two sons, "not featured, not hidden." Current draft does not mention it. Confirm that's the right call for v1, or add a one-line acknowledgment.
+4. **Availability line.** Currently says "Based in Austin, TX." Nothing about remote / hybrid / on-site preference. Add a line, or leave it for the conversation.
+5. **Pull line in Section 1.** "Quality is what you measure repeatedly, not what you clean up once." Replaces the "robots cannot fix a foundation" line from Home so the two pages don't repeat verbatim. Confirm direction.

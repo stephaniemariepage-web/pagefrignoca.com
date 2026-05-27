@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Scorecard from '../components/Scorecard.tsx';
+---
+
+<Base title="Scorecard | Stephanie Frignoca">
+  <section class="container-x py-16 lg:py-24">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Interactive</p>
+    <h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+      The CRM Data Health Scorecard
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+      A generalized, public version of the gated-readiness framework. It scores a
+      synthetic dataset with a known answer key, so every dimension, including
+      Accuracy, is measured for real. It runs entirely in your browser. Nothing is
+      uploaded, stored, or sent anywhere.
+    </p>
+
+    <Scorecard client:load />
+
+    <!-- Paste your own data -->
+    <div class="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-line bg-surface p-6">
+      <div class="max-w-xl">
+        <div class="flex items-center gap-2">
+          <h2 class="text-base font-semibold">Score your own data</h2>
+          <span class="rounded-full border border-line px-2.5 py-0.5 text-xs font-semibold text-muted">
+            Coming soon
+          </span>
+        </div>
+        <p class="mt-2 text-sm leading-relaxed text-muted">
+          Paste a CSV export from your own CRM and score it with the same client-side
+          privacy. Releasing after a short review of the handling details.
+        </p>
+      </div>
+      <button
+        type="button"
+        disabled
+        class="cursor-not-allowed rounded-lg border border-line px-4 py-2 text-sm font-semibold text-muted/70"
+      >
+        Paste your own data
+      </button>
+    </div>
+
+    <!-- Methodology note -->
+    <div class="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
+      <p class="font-semibold text-fg">How to read this</p>
+      <p class="mt-2">
+        Completeness, standardization, and accuracy are an operational cut of the
+        established data quality dimensions. Each record is scored on those three,
+        weighted by field tier. The composite is their plain average. The gate is the
+        rule that a composite cannot override: if any dimension falls below 60, the
+        record is classed by its weakest dimension, not its average. This is a
+        generalized model for illustration, not a vendor product. Real implementations
+        tune the tiers and floors to their own system of record.
+      </p>
+    </div>
+
+    <a
+      href="/"
+      class="mt-10 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition hover:brightness-110"
+    >
+      <span aria-hidden="true">&larr;</span>
+      Back to home
+    </a>
+  </section>
+</Base>
