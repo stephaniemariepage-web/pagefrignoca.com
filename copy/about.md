@@ -16,7 +16,7 @@ Brackets `[ ]` are build/design notes, not copy.
 **Title:** Stephanie Frignoca
 
 **Standfirst:**
-GTM data quality and CRM systems strategist. I build the frameworks, scoring models, and governance systems that make enterprise data trustworthy enough to run a GTM motion on, and increasingly, an AI workflow.
+I build the systems that turn messy GTM data into trusted revenue infrastructure: scored, governed, automated, and ready for AI.
 
 [Build note: optional single photo of Stephanie at right of the standfirst, per the design system. Type-led layout also works.]
 
