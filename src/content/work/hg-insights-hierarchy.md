@@ -123,11 +123,12 @@ builds:
 outcomes:
   headline: What changed.
   items:
-    - Roughly 86,000 enrichment records processed in a single sandbox run; 46 eligible child accounts identified; 34 parent relationships matched and written, with the remainder correctly skipped by the safeguards.
+    - Roughly 2,800 parent relationships matched and written on the first production run, against an account base of about 99,000, with the remainder correctly skipped by the safeguards.
+    - The scheduled daily run continued to pick up between two and ten new or newly-enriched accounts each day for the following two weeks, exactly the long-tail pattern you would expect once the backlog cleared.
     - A production-ready automation built, tested, and documented in hours, against an alternative timeline of weeks of n8n and Salesforce REST learning.
     - A reusable safety pattern, no-overwrite, self-parent prevention, master-record waterfall, that applies to any future Salesforce write automation.
     - Hierarchy integrity now feeds account planning, reporting, routing, rollups, and book selection without manual stitching.
-  pullLine: The interesting number was not 34 records updated. It was zero records corrupted.
+  pullLine: The interesting number was not 2,800 records parented. It was zero records corrupted.
 
 portablePOV:
   headline: What carries to any AI-assisted build.
