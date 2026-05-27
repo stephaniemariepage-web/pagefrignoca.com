@@ -4,6 +4,7 @@ const links = [
   { href: '/scorecard', label: 'Scorecard' },
   { href: '/work', label: 'Work' },
   { href: '/about', label: 'About' },
+  { href: '/field-notes', label: 'Field Notes' },
 ];
 const isActive = (href: string) => path === href || path === href + '/';
 ---
@@ -31,10 +32,6 @@ const isActive = (href: string) => path === href || path === href + '/';
           {l.label}
         </a>
       ))}
-      <span class="hidden items-center gap-1 text-muted/55 sm:flex" aria-disabled="true">
-        Writing
-        <span class="rounded border border-line px-1 py-px text-[10px] uppercase tracking-wide text-accent/80">soon</span>
-      </span>
     </div>
   </nav>
 </header>

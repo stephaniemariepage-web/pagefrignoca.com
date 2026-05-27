@@ -28,9 +28,9 @@ I build the systems that turn messy GTM data into trusted revenue infrastructure
 I work upstream of the dashboard that keeps breaking.
 
 **Body**
-Most data work I see is reactive. A report breaks, a vendor gets blamed, a quarter of records gets cleaned once, and then the next report breaks for the same reason.
+Most data work I see is reactive. A report breaks, a vendor gets blamed, a batch of records gets cleaned once, and then the next report breaks for the same reason.
 
-The pattern underneath is usually the same: no shared definition of what a usable record looks like, no scoring logic, no source-of-truth rules, and no operating model to keep the data honest.
+Underneath it is usually the same issue: no shared definition of what a usable record actually looks like.
 
 I work in the upstream layer: the frameworks, scoring models, field tiers, gated readiness logic, vendor benchmarks, and governance systems that decide whether the data behind routing, segmentation, reporting, and AI workflows can actually be trusted.
 
@@ -51,9 +51,9 @@ The work is specific. It looks like:
 - Building scoring models that measure each dimension on its own and refuse to average a fatal weakness away.
 - Benchmarking enrichment vendors against each other on real records, by field, so source-of-record decisions stop being assumption-based.
 - Automating the parts of the data foundation that are mechanical (hierarchy population, matching, deduplication, routing) so the humans can focus on the parts that are not.
-- Designing the governance and process so the definition holds after the consultant leaves. Ownership, review cadence, monitoring. The part that makes it durable.
+- Designing the governance and process so the definition holds after launch. Ownership, review cadence, monitoring. The part that makes it durable.
 
-It is the work that has to exist before AI workflows on top of CRM data are anything other than a confidence trick.
+It is the work that has to exist before AI workflows on top of CRM data become anything more than expensive guesswork.
 
 ---
 
@@ -65,7 +65,7 @@ Design school, then a decade in GTM systems.
 **Body**
 Most recently, I was a Senior Data Quality Specialist at Cockroach Labs, where I built the Core Account Profile program from the ground up: the framework, scoring model, vendor benchmark, hierarchy automation, and live monitoring layer. That work became the case study on this site. My role ended during a company-wide restructuring in May 2026.
 
-Before that, I spent four-plus years at Lansweeper as a GTM Applications Analyst and Sales Operations Analyst, owning the GTM applications stack from the operator's seat: Salesforce administration, lead routing rebuilds, deduplication and matching, cleaner address collection, and the process work that makes CRM data usable in the first place. Earlier still, I worked in sales roles at Embarcadero Technologies, which is part of why I care so much about how GTM systems actually behave for the people using them.
+Before that, I spent four-plus years at Lansweeper as a GTM Applications Analyst and Sales Operations Analyst, owning and operating across the GTM applications stack from the operator's seat: Salesforce administration, lead routing rebuilds, deduplication and matching, cleaner address collection, and the process work that makes CRM data usable in the first place. Earlier still, I worked in sales roles at Embarcadero Technologies, which is part of why I care so much about how GTM systems actually behave for the people using them.
 
 I am a Salesforce Certified Administrator with a BFA in Communication Design from Texas State University, which is the reason this site reads like a product and not a template.
 
@@ -95,7 +95,7 @@ Best ways to reach me:
 
 [CTA button] Email Stephanie  →  opens `mailto:stephaniemariepage@gmail.com`
 [CTA link] Connect on LinkedIn  →  opens linkedin.com/in/stephaniepagefrignoca in a new tab
-[CTA link] Spot something on this site? Tell me.  →  opens the private feedback form
+[CTA link] See something useful, weird, or worth arguing with? Tell me.  →  opens the private feedback form
 
 Based in Austin, TX.
 
@@ -111,7 +111,8 @@ Every clickable element on the About page and where it goes:
 | Read the case study | within copy if linked | `/work` | The Core Account Profile case study, full story. |
 | Email Stephanie | Section 5 | `mailto:` | Opens the visitor's email client, addressed to Stephanie. |
 | Connect on LinkedIn | Section 5 | LinkedIn profile | Her LinkedIn, new tab. |
-| Spot something on this site? Tell me | Section 5 + Footer | Private feedback form | A short form, results go only to Stephanie. Not public comments. |
+| See something useful, weird, or worth arguing with? Tell me | Section 5 | Private feedback form | A short form, results go only to Stephanie. Not public comments. |
+| Feedback always welcome | Footer | Private feedback form | Same form as the contact CTA, shorter footer label. |
 
 ---
 

@@ -143,7 +143,7 @@ If your CRM data is not ready for the AI workflows you are about to point at it,
 Turning messy GTM data into trusted, AI-ready revenue infrastructure.
 
 [Links] Email | LinkedIn | Scorecard | Work | About
-[Feedback] Spot something? Tell me.  →  opens the private feedback form
+[Feedback] Feedback always welcome.  →  opens the private feedback form
 [Build credit] Designed and coded by Stephanie Frignoca. Astro and Tailwind.
 [Legal] Page Frignoca LLC, 2026.
 
@@ -163,7 +163,7 @@ Every clickable element on the Home page and where it goes:
 | Email Stephanie | Section 8 | `mailto:` | Opens the visitor's email client, addressed to Stephanie. |
 | Connect on LinkedIn | Section 8 | LinkedIn profile | Her LinkedIn, new tab. |
 | Footer links | Footer | Each page / mailto / LinkedIn | Standard footer nav. |
-| Spot something? Tell me | Footer | Private feedback form | A short form, results go only to Stephanie. Not public comments. |
+| Feedback always welcome | Footer | Private feedback form | A short form, results go only to Stephanie. Not public comments. |
 
 ## Visual assets (intent, pending design system)
 
