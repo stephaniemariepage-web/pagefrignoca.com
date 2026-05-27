@@ -92,7 +92,7 @@ If any critical dimension falls below its floor, the record drops to a failing c
 See the framework run on a synthetic CRM, right in your browser.
 
 **Body**
-A live demo of the gated readiness model applied to a generated 60-record dataset. The scoring engine, the field tiers, the gate, and the five readiness classes all run client-side. Hit Refresh to draw a fresh sample. The rollup shows how many records the gate caught that a composite score would have waved through.
+A live demo of the gated readiness model applied to a generated 100-record dataset. The scoring engine, the field tiers, the gate, and the five readiness classes all run client-side. Hit Refresh to draw a fresh sample. The rollup shows how many records the gate caught that a composite score would have waved through.
 
 **Privacy line**
 Entirely client-side. No upload, no storage, no account, no sign-in.
@@ -155,7 +155,7 @@ Every clickable element on the Home page and where it goes:
 
 | Element | Section | Destination | What the visitor sees |
 |---|---|---|---|
-| Run the Scorecard | Hero | `/scorecard` | The interactive demo. Scores a synthetic 60-record CRM, refreshable on click. |
+| Run the Scorecard | Hero | `/scorecard` | The interactive demo. Scores a synthetic 100-record CRM, refreshable on click. |
 | Read the case study | Hero | `/work` | The Core Account Profile case study, full story. |
 | Open the Scorecard | Section 5 | `/scorecard` | Same as Run the Scorecard. |
 | Read the case study | Section 6 | `/work` | Same as the hero case study link. |

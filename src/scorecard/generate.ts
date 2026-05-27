@@ -198,7 +198,7 @@ function generateRecord(r: Rand, i: number): AccountRecord {
   };
 }
 
-export function generateDataset(seed: number, count = 60): AccountRecord[] {
+export function generateDataset(seed: number, count = 100): AccountRecord[] {
   const r = mulberry32(seed);
   return Array.from({ length: count }, (_, i) => generateRecord(r, i));
 }
