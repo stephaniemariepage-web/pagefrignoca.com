@@ -12,11 +12,13 @@ order: 2
 hero:
   eyebrow: Case study
   intro: >-
-    A Salesforce org's Accounts had corporate hierarchy data sitting in an
-    enrichment dataset, which company was the parent, which was the global
-    headquarters, but the Parent Account field stayed empty. This is the
-    story of the automation that connected them, built with Claude Code as
-    the implementation partner.
+    This automation lifted known parent-account coverage from 6.4% to 10.2%
+    across an account base of roughly 101,000, a 59% relative increase, with
+    zero records corrupted. A governed n8n workflow wrote Salesforce Parent
+    Account relationships from enrichment hierarchy data, with no-overwrite
+    safeguards, self-parent prevention, and a master-record selection
+    waterfall, designed with a Salesforce operator and implemented through
+    Claude Code.
 
 overview:
   headline: The hierarchy data was already there. The automation to use it was not.
@@ -122,6 +124,7 @@ builds:
 outcomes:
   headline: What changed.
   items:
+    - Across an account org of roughly 101,000, accounts with a known parent relationship grew from 6,476 (6.4%) to 10,276 (10.2%) after the automation went live, a 59% lift in hierarchy coverage.
     - Roughly 2,800 parent relationships matched and written on the first production run, against an account base of about 99,000, with the remainder correctly skipped by the safeguards.
     - The scheduled daily run continued to pick up between two and ten new or newly-enriched accounts each day for the following two weeks, exactly the long-tail pattern you would expect once the backlog cleared.
     - A production-ready automation built, tested, and documented in hours, against an alternative timeline of weeks of n8n and Salesforce REST learning.
