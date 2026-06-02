@@ -12,8 +12,8 @@ order: 4
 hero:
   eyebrow: Case study
   intro: >-
-    Treating any single vendor as the source of truth is how Salesforce data
-    ends up disagreeing with itself. The Vendor Report Card graded six
+    Treating any single vendor as the source of truth is how GTM teams end up
+    debating the data instead of using it. The Vendor Report Card graded six
     enrichment and prospecting vendors against a 75-company reference
     sample, field by field, and produced a Best Source by Field hierarchy
     that replaced vendor-reputation assumptions with evidence.
