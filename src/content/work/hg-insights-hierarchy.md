@@ -14,11 +14,11 @@ hero:
   intro: >-
     This automation lifted known parent-account coverage from 6.4% to 10.2%
     across an account base of roughly 101,000, a 59% relative increase, with
-    zero records corrupted. A governed n8n workflow wrote Salesforce Parent
-    Account relationships from enrichment hierarchy data, with no-overwrite
-    safeguards, self-parent prevention, and a master-record selection
-    waterfall, designed with a Salesforce operator and implemented through
-    Claude Code.
+    zero records corrupted. I designed a governed n8n workflow to write
+    Salesforce Parent Account relationships from enrichment hierarchy data,
+    using no-overwrite safeguards, self-parent prevention, and a
+    deterministic master-record waterfall. Claude Code accelerated the
+    implementation; the operating logic came from the Salesforce rules.
 
 overview:
   headline: The hierarchy data was already there. The automation to use it was not.
@@ -31,7 +31,7 @@ overview:
       inside Salesforce, where reporting, rollups, routing, and account
       planning all rely on it.
     - >-
-      The reason was not laziness. Mass-updating hierarchy is one of the more
+      The reason was not neglect. Mass-updating hierarchy is one of the more
       dangerous Salesforce operations to automate. Overwrite a manually set
       parent and a downstream owner loses context. Choose the wrong master
       record from a group of duplicates and reporting bends in a way that
@@ -100,8 +100,9 @@ builds:
         with a direct name match between the candidate parent and the
         enrichment parent name, then cascading through account stage,
         domain match, ownership type, opportunity history, and created
-        date. Reused, in spirit, the duplicate-resolution logic already
-        running in the org.
+        date. It reused the same operational pattern as duplicate
+        resolution: deterministic rules first, human judgment only where
+        the data could not safely decide.
     - title: Safeguards in front of every write.
       body: >-
         No-overwrite check: skip any account whose Parent Account field is
@@ -127,7 +128,7 @@ outcomes:
     - Across an account org of roughly 101,000, accounts with a known parent relationship grew from 6,476 (6.4%) to 10,276 (10.2%) after the automation went live, a 59% lift in hierarchy coverage.
     - Roughly 2,800 parent relationships matched and written on the first production run, against an account base of about 99,000, with the remainder correctly skipped by the safeguards.
     - The scheduled daily run continued to pick up between two and ten new or newly-enriched accounts each day for the following two weeks, exactly the long-tail pattern you would expect once the backlog cleared.
-    - A production-ready automation built, tested, and documented in hours, against an alternative timeline of weeks of n8n and Salesforce REST learning.
+    - A production-ready automation built, tested, and documented in hours, compressing what would normally have been a multi-week build and learning curve.
     - A reusable safety pattern, no-overwrite, self-parent prevention, master-record waterfall, that applies to any future Salesforce write automation.
     - Hierarchy integrity now feeds account planning, reporting, routing, rollups, and book selection without manual stitching.
   pullLine: The interesting number was not 2,800 records parented. It was zero records corrupted.
@@ -137,22 +138,23 @@ portablePOV:
   intro: >-
     The tools change. The collaboration pattern does not.
   points:
-    - title: Domain expertise is the limiting reagent.
+    - title: Domain expertise is the part AI cannot fake.
       body: >-
-        The AI can write SOQL. It cannot tell you which hierarchy IDs to
-        trust, which fields are safe to overwrite, or which edge cases will
-        wreck a quarterly report.
+        AI can help write SOQL and wire workflow nodes. It cannot tell you
+        which hierarchy IDs to trust, which Salesforce fields are safe to
+        overwrite, or which edge cases will wreck a quarterly report.
     - title: Safe defaults beat fast defaults.
       body: >-
         No-overwrite, self-parent prevention, and master-record selection
         rules existed before the first node was placed. The result was an
         automation that could be turned on without fear.
-    - title: The point of AI is not speed.
+    - title: The point of AI is not speed by itself.
       body: >-
-        It is being able to ship something correct when the alternative was
-        not shipping at all. A working, tested, documented automation in
-        hours is a different category than a half-built workflow in weeks.
-  pullLine: Robots can write the workflow. They cannot tell you which fields are sacred.
+        The point is being able to ship something correct when the
+        alternative was not shipping at all. A tested, documented workflow
+        in hours is only valuable if the rules are safe enough to trust
+        in production.
+  pullLine: AI can help write the workflow. It cannot tell you which fields are sacred.
 
 closing:
   headline: This was one of six builds inside the Core Account Profile program.

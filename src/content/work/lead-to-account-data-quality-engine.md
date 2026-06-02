@@ -1,5 +1,5 @@
 ---
-title: Lead-to-Account Data Quality Engine
+title: Lead-to-Account Intake Quality Engine
 summary: >-
   An end-to-end automation for incoming GTM records: enrichment governance,
   normalization, a deterministic account-matching waterfall, deduplication, and
@@ -12,11 +12,11 @@ order: 3
 hero:
   eyebrow: Case study
   intro: >-
-    Incoming leads and contacts arrived enriched but misshapen: duplicate
+    Incoming leads and contacts arrived enriched but still messy: duplicate
     accounts, mismatched lead-to-account pairings, inconsistent country and
-    industry values, and a routing engine that punished every gap. This is
-    the story of the upstream layer that turned that mess into records the
-    rest of the GTM stack could trust at the point of routing.
+    industry values, and routing logic that punished every gap. This is the
+    story of the intake layer that turned top-of-funnel data into records
+    the rest of the GTM stack could trust at the point of routing.
 
 overview:
   headline: Routing is a data quality problem with a routing tax.
@@ -31,8 +31,8 @@ overview:
       The fix was not a better routing rule. It was a layer upstream of routing
       that enforced what a record should look like before any downstream
       system was asked to act on it. Enrichment governance, normalization,
-      deterministic account matching, deduplication, and a readiness gate, run
-      on every incoming record, every time.
+      deterministic account matching, deduplication, and readiness logic
+      applied before downstream systems were asked to act.
   pullLine: The cleanest routing rule cannot save a record that arrived as nine slightly different versions of itself.
 
 problem:
@@ -47,7 +47,7 @@ problem:
         Enrichment refreshed account and lead fields on a schedule. Without
         a rule for which sources could write to which fields, a manual
         correction could be reverted by the next enrichment cycle, and
-        downstream logic consumed whatever value won the last write.
+        downstream logic consumed whatever value won the most recent write.
     - title: Duplicate accounts created at intake.
       body: >-
         New leads created accounts that already existed under a slightly
@@ -82,8 +82,8 @@ builds:
         refreshes, manual corrections, and lead-to-account stitching each
         had a defined right to update certain fields and not others.
         Lower-trust sources could not overwrite higher-trust values.
-        Operations OS-style governance, enforced as plumbing rather than
-        asked of users.
+        Governance was built into the plumbing instead of handed to users
+        as another thing to remember.
     - title: Normalization in front of matching.
       body: >-
         Country, state, industry, employee-count band, and company-name
@@ -126,8 +126,8 @@ builds:
 outcomes:
   headline: What changed downstream.
   items:
-    - The hand-fix loop on the same patterns stopped. Operations time moved off recurring intake cleanup and onto exceptions only.
-    - Routing accuracy improved because the inputs were consistent and the matches were governed, not because the routing rules themselves changed.
+    - The hand-fix loop moved from default behavior to exception handling. Operations time moved off recurring intake cleanup and onto exceptions only.
+    - Routing became more trustworthy because the inputs were consistent and the matches were governed, not because the routing rules got more complicated.
     - Account roll-ups, segmentation, attribution, and reporting stabilized once intake stopped creating duplicate parents and conflicting field values.
     - The pattern was portable inside the org. The same matching waterfall powered dedup, lead-to-account stitching, and merge tiebreakers, with one set of rules to debug instead of three.
   pullLine: The interesting outcome was not that routing got faster. It was that routing could be trusted at the point it ran.
@@ -158,7 +158,7 @@ portablePOV:
       body: >-
         Operations should not need to remember to do the right thing on every
         record. The pipeline should make it hard to do the wrong one.
-  pullLine: Robots can normalize a country code. They cannot tell you which process should be allowed to overwrite a human's correction.
+  pullLine: Automation can normalize a country code. It cannot decide which process should be allowed to overwrite a human's correction.
 
 closing:
   headline: The upstream layer underneath the rest of the GTM stack.

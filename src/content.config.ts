@@ -62,6 +62,12 @@ const workEntry = z.object({
         z.object({
           title: z.string(),
           body: z.string(),
+          link: z
+            .object({
+              label: z.string(),
+              href: z.string(),
+            })
+            .optional(),
         }),
       ),
     })

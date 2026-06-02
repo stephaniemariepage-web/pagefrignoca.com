@@ -1,9 +1,9 @@
 ---
 title: Core Account Profile
 summary: >-
-  The program that defined what GTM-ready means: a tiered, gated scoring
-  model, vendor benchmark, hierarchy automation, and live monitoring layer,
-  applied to roughly 99,000 accounts.
+  The program that defined what GTM-ready account data means: tiered field
+  standards, gated scoring, vendor benchmarking, hierarchy automation,
+  Salesforce write-back, and live monitoring across roughly 99,000 accounts.
 type: Framework
 featured: true
 order: 1
@@ -11,11 +11,11 @@ order: 1
 hero:
   eyebrow: Case study
   intro: >-
-    The program behind the framework. The Core Account Profile defined what
-    a ready account record looks like, scored roughly 99,000 of them,
-    benchmarked the enrichment vendors writing to them, automated the
-    hierarchy underneath them, and put the result back into Salesforce
-    where the GTM teams actually work.
+    The program behind the framework. Core Account Profile defined what a
+    GTM-ready account record looks like, scored roughly 99,000 records
+    against that standard, benchmarked the enrichment vendors writing to
+    those fields, automated the hierarchy layer underneath them, and wrote
+    readiness back into Salesforce where GTM teams actually work.
 
 overview:
   headline: Account data is the foundation every GTM motion is built on. Nobody owned whether it was any good.
@@ -23,10 +23,9 @@ overview:
     - >-
       Segmentation, territory planning, ICP modeling, routing, reporting, and
       increasingly AI workflows all run on account data. In the org where
-      this program ran, the quality of that data varied with when a record
-      was created, who created it, and how it entered the system. There was
-      no shared definition of a GTM-ready account, and no single owner for
-      account data quality.
+      this program ran, account quality varied by creation date, creating
+      team, and creation source. There was no shared definition of a
+      GTM-ready account, and no single owner for account data quality.
     - >-
       The Core Account Profile set that definition and built the measurement
       around it. It defines which fields matter, how account quality is
@@ -53,8 +52,8 @@ problem:
     - title: Inconsistent records at the door.
       body: >-
         Accounts entered from more than thirty sources. Some produced clean,
-        structured records. Long-tail sources introduced inconsistency that
-        weakened the whole base.
+        structured records. Long-tail sources introduced inconsistent values
+        that quietly weakened the account base.
     - title: Standardization gaps broke downstream systems.
       body: >-
         Inconsistent country, industry, vertical, and address values quietly
@@ -81,9 +80,9 @@ framework:
   paragraphs:
     - >-
       Fields are tiered first. Core fields carry the most weight, Supporting
-      fields less, Supplemental fields little or none, so a record cannot
-      look ready on the strength of nice-to-have metadata while missing what
-      matters.
+      fields carry moderate weight, and Supplemental fields carry little or
+      none, so nice-to-have metadata cannot make a strategically unusable
+      account look ready.
     - >-
       The three dimension scores roll up into one Core Account Readiness
       result. The rule that keeps the result honest is the gate: if any
@@ -109,18 +108,24 @@ builds:
         a map of where in the process quality was breaking down.
     - title: The Vendor Report Card.
       body: >-
-        A benchmark of the enrichment and prospecting vendors against a
-        roughly 75-company reference sample, graded by field instead of by
-        vendor reputation. The output was a Platinum, Gold, Silver, and
-        Bronze hierarchy and a Best Source by Field model, which replaced
+        A benchmark of enrichment and prospecting vendors against a roughly
+        75-company reference set, graded by field instead of by vendor
+        reputation. The output was a Platinum, Gold, Silver, and Bronze
+        hierarchy and a Best Source by Field model, which replaced
         assumption-based source-of-record decisions with evidence.
+      link:
+        label: Read the full case study
+        href: /work/vendor-report-card
     - title: Parent Account auto-population.
       body: >-
         An n8n workflow that populated account hierarchy from corporate-parent
         and global-headquarters identifiers, with self-parenting prevention,
         overwrite protection so existing values were never clobbered, and a
-        master-record selection waterfall for when multiple accounts shared
-        a parent.
+        master-record selection waterfall for picking which parent a child
+        should nest under when more than one candidate existed.
+      link:
+        label: Read the full case study
+        href: /work/hg-insights-hierarchy
     - title: Readiness, written back to Salesforce.
       body: >-
         The score and grade for each dimension and for overall readiness were
@@ -128,12 +133,17 @@ builds:
         automatically on a schedule. Readiness stopped living in a workbook
         and started living in the CRM, where it could drive list views,
         reporting, routing, and prioritization directly.
-    - title: Continuous monitoring.
+    - title: An AI-assisted Command Center.
       body: >-
-        An AI-assisted dashboard connecting Salesforce and Snowflake,
-        tracking readiness by team, source, and timeframe, so data quality
-        could be watched as an operating metric instead of audited once a
-        year.
+        Continuous monitoring shipped as a product, not a one-off dashboard.
+        A joined Salesforce and Snowflake data layer let revenue teams
+        filter by team, source, or timeframe and pull the cohort of records
+        in any given readiness state, surfaced as GTM-readable signals on
+        top of the raw scores. The operator design, what to surface, how
+        to filter, which decisions to support, came from me. Claude Code
+        and an internal enterprise AI assistant accelerated the build,
+        compressing what would have been a multi-month engineering backlog
+        item into something I could ship, observe, and iterate on directly.
 
 outcomes:
   headline: What changed.
@@ -141,7 +151,7 @@ outcomes:
     - A baseline readiness score across the full account base, usable for prioritization, remediation, and book selection.
     - A vendor hierarchy grounded in benchmarked evidence, replacing "this vendor is just better" with "this vendor is better for this field."
     - Automated hierarchy population, improving roll-up reporting and enterprise account visibility.
-    - Readiness scores live in Salesforce and on a live dashboard, so data quality became visible to the teams who create the data and depend on it.
+    - Readiness scores lived in Salesforce and in the monitoring layer, making account quality visible to the teams that created the data and the teams that depended on it.
   pullLine: The goal was never a cleaner spreadsheet. It was account data the business could make decisions on.
 
 portablePOV:

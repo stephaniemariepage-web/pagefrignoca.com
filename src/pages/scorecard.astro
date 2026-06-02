@@ -15,6 +15,11 @@ import Scorecard from '../components/Scorecard.tsx';
       Accuracy, is measured for real. It runs entirely in your browser. Nothing is
       uploaded, stored, or sent anywhere.
     </p>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+      The point is not to prove the sample data is good. The point is to show how
+      many records a blended score would wave through that a gated model correctly
+      stops.
+    </p>
 
     <Scorecard client:load />
 
@@ -28,8 +33,9 @@ import Scorecard from '../components/Scorecard.tsx';
           </span>
         </div>
         <p class="mt-2 text-sm leading-relaxed text-muted">
-          Paste a CSV export from your own CRM and score it with the same client-side
-          privacy. Releasing after a short review of the handling details.
+          CSV scoring is not live yet. The current demo uses synthetic records only.
+          The next version will let you test your own CRM export client-side, after
+          the handling details are reviewed.
         </p>
       </div>
       <button
@@ -37,7 +43,7 @@ import Scorecard from '../components/Scorecard.tsx';
         disabled
         class="cursor-not-allowed rounded-lg border border-line px-4 py-2 text-sm font-semibold text-muted/70"
       >
-        Paste your own data
+        CSV scoring coming soon
       </button>
     </div>
 
@@ -45,13 +51,13 @@ import Scorecard from '../components/Scorecard.tsx';
     <div class="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
       <p class="font-semibold text-fg">How to read this</p>
       <p class="mt-2">
-        Completeness, standardization, and accuracy are an operational cut of the
-        established data quality dimensions. Each record is scored on those three,
-        weighted by field tier. The composite is their plain average. The gate is the
-        rule that a composite cannot override: if any dimension falls below 60, the
-        record is classed by its weakest dimension, not its average. This is a
-        generalized model for illustration, not a vendor product. Real implementations
-        tune the tiers and floors to their own system of record.
+        Completeness, Standardization, and Accuracy are the operational cut of data
+        quality I use for GTM records. Each record is scored on those three
+        dimensions, weighted by field tier. The composite is the plain average. The
+        gate is the rule that keeps the average honest: if any dimension falls below
+        60, the record is classed by its weakest dimension, not rescued by its
+        average. This demo is generalized for illustration. Real implementations
+        tune fields, tiers, weights, and floors to the actual system of record.
       </p>
     </div>
 
