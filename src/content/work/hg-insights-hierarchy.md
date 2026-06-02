@@ -5,7 +5,7 @@ summary: >-
   relationships from enrichment hierarchy data, with no-overwrite safeguards,
   self-parent prevention, and a master-record selection waterfall. Designed
   with a Salesforce operator and implemented through Claude Code.
-type: AI build
+type: AI-assisted automation
 featured: false
 order: 2
 
