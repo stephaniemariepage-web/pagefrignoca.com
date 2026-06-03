@@ -3,7 +3,7 @@ title: Core Account Profile
 summary: >-
   The program that defined what GTM-ready account data means: tiered field
   standards, gated scoring, vendor benchmarking, hierarchy automation,
-  Salesforce write-back, and live monitoring across roughly 99,000 accounts.
+  Salesforce write-back, and live monitoring across approximately 100,000 accounts.
 type: Framework
 featured: true
 order: 1
@@ -12,7 +12,7 @@ hero:
   eyebrow: Case study
   intro: >-
     The program behind the framework. Core Account Profile defined what a
-    GTM-ready account record looks like, scored roughly 99,000 records
+    GTM-ready account record looks like, scored approximately 100,000 records
     against that standard, benchmarked the enrichment vendors writing to
     those fields, automated the hierarchy layer underneath them, and wrote
     readiness back into Salesforce where GTM teams actually work.
@@ -32,7 +32,7 @@ overview:
       around it. It defines which fields matter, how account quality is
       scored, which vendors to trust for which fields, and where in the
       process quality breaks down. It scored the full account base, roughly
-      99,000 records, against that standard.
+      100,000 records, against that standard.
   pullLine: A field having a value is not the same as a field you can run a GTM motion on.
 
 problem:
@@ -100,7 +100,7 @@ builds:
       body: >-
         A weighted, tiered model that scores Completeness, Standardization,
         and Accuracy for each account, applies the gate, and returns a
-        readiness class. Run against the full account base, roughly 99,000
+        readiness class. Run against the full account base, approximately 100,000
         records, to establish a baseline.
     - title: Diagnostic slices.
       body: >-
