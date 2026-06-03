@@ -108,10 +108,11 @@ builds:
         a map of where in the process quality was breaking down.
     - title: The Vendor Report Card.
       body: >-
-        A benchmark of enrichment and prospecting vendors against a roughly
-        75-company reference set, graded by field instead of by vendor
-        reputation. The output was a Platinum, Gold, Silver, and Bronze
-        hierarchy and a Best Source by Field model, which replaced
+        A benchmark of enrichment and prospecting vendors against a
+        200-company reference set, with ground-truth values scrubbed directly
+        from each company's own website, graded by field instead of by
+        vendor reputation. The output was a Platinum, Gold, Silver, and
+        Bronze hierarchy and a Best Source by Field model, which replaced
         assumption-based source-of-record decisions with evidence.
       link:
         label: Read the full case study

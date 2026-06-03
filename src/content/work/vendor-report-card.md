@@ -2,9 +2,10 @@
 title: The Vendor Report Card
 summary: >-
   A field-level benchmark of six enrichment and prospecting vendors against a
-  curated 75-company reference sample, producing a Best Source by Field
-  hierarchy that replaced vendor-reputation assumptions with evidence and
-  fed the Vendor Source Strength lens of CAP Accuracy.
+  200-company ground-truth reference set scrubbed directly from each
+  company's own website, producing a Best Source by Field hierarchy that
+  replaced vendor-reputation assumptions with evidence and fed the Vendor
+  Source Strength lens of CAP Accuracy.
 type: Framework
 featured: false
 order: 4
@@ -14,9 +15,9 @@ hero:
   intro: >-
     Treating any single vendor as the source of truth is how GTM teams end up
     debating the data instead of using it. The Vendor Report Card graded six
-    enrichment and prospecting vendors against a 75-company reference
-    sample, field by field, and produced a Best Source by Field hierarchy
-    that replaced vendor-reputation assumptions with evidence.
+    enrichment and prospecting vendors against a 200-company ground-truth
+    reference set, field by field, and produced a Best Source by Field
+    hierarchy that replaced vendor-reputation assumptions with evidence.
 
 overview:
   headline: Vendor reputation is a marketing signal. Source-of-record needs an evidence signal.
@@ -28,12 +29,13 @@ overview:
       counts can be wrong about countries, and the org has no way to tell
       which call to trust.
     - >-
-      The Vendor Report Card tested six vendors against a 75-company
-      reference sample, scoring each on specific fields. The output was not
-      a "best vendor" winner. It was a grid: this vendor wins for this
-      field; that vendor wins for that one. From that grid came a Best
-      Source by Field hierarchy: Platinum, Gold, Silver, and Bronze tiers,
-      assigned per field, not per vendor.
+      The Vendor Report Card tested six vendors against a 200-company
+      reference set, with the ground-truth values scrubbed directly from
+      each company's own website. Each vendor was scored on specific
+      fields. The output was not a "best vendor" winner. It was a grid:
+      this vendor wins for this field; that vendor wins for that one. From
+      that grid came a Best Source by Field hierarchy: Platinum, Gold,
+      Silver, and Bronze tiers, assigned per field, not per vendor.
   pullLine: A field-level benchmark replaces "we use this vendor" with "we use this vendor for this field."
 
 problem:
@@ -62,20 +64,21 @@ problem:
       body: >-
         A vendor could be losing accuracy quarter over quarter and nobody
         would know until a downstream report fell apart. Without a
-        reference sample to test against, there was no signal until it was
-        already too late.
-  pullLine: A vendor is not a source. A source is a vendor demonstrably best at this field, on this reference sample, this quarter.
+        ground-truth reference set to test against, there was no signal
+        until it was already too late.
+  pullLine: A vendor is not a source. A source is a vendor demonstrably best at this field, on this ground-truth reference set, this quarter.
 
 builds:
   headline: One benchmark, two outputs.
   items:
-    - title: A 75-company reference sample.
+    - title: A 200-company ground-truth reference set.
       body: >-
-        A curated set of roughly 75 companies, chosen to span industries,
-        sizes, and geographies, served as the ground-truth test bed.
-        Reference values for each field were established through cross-source
-        agreement and manual verification, then held stable so vendor
-        accuracy could be measured against a constant.
+        A curated set of 200 companies, chosen to span industries, sizes, and
+        geographies, served as the ground truth. The reference values for
+        each field were scrubbed directly from each company's own website,
+        the most authoritative source for what a company actually says it
+        is, then held stable so vendor accuracy could be measured against a
+        constant.
     - title: Field-level vendor grading.
       body: >-
         Six vendors (ZoomInfo, Crunchbase, HG Insights, Lusha, LeadIQ, and
@@ -126,10 +129,10 @@ portablePOV:
         A vendor is not "good" or "bad." A vendor is good at some fields
         and bad at others. Grading the wrong unit is most of what makes
         vendor decisions feel arbitrary.
-    - title: A reference sample is non-negotiable.
+    - title: A ground-truth reference set is non-negotiable.
       body: >-
-        Without a test set you control, vendor accuracy claims are
-        advertising. With a test set, they are a measurement.
+        Without a ground-truth set you control, vendor accuracy claims are
+        advertising. With one, they become measurements.
     - title: Source-of-record is downstream of vendor benchmarking, not upstream of it.
       body: >-
         You cannot decide "which source wins" without first knowing which
