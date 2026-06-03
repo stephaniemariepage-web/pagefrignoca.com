@@ -18,14 +18,15 @@ hero:
     readiness back into Salesforce where GTM teams actually work.
 
 overview:
-  headline: Account data is the foundation every GTM motion is built on. Nobody owned whether it was any good.
+  headline: Account data is the foundation every GTM motion runs on. Most orgs do not yet have a shared definition of what counts as good.
   paragraphs:
     - >-
       Segmentation, territory planning, ICP modeling, routing, reporting, and
       increasingly AI workflows all run on account data. In the org where
-      this program ran, account quality varied by creation date, creating
-      team, and creation source. There was no shared definition of a
-      GTM-ready account, and no single owner for account data quality.
+      this program ran, like many fast-scaling GTM orgs, account quality
+      varied by creation date, creating team, and creation source. A shared
+      operational definition of a GTM-ready account, and a single
+      accountable owner for account data quality, did not yet exist.
     - >-
       The Core Account Profile set that definition and built the measurement
       around it. It defines which fields matter, how account quality is
@@ -35,34 +36,34 @@ overview:
   pullLine: A field having a value is not the same as a field you can run a GTM motion on.
 
 problem:
-  headline: Five failures, compounding.
+  headline: Five recurring patterns, compounding.
   intro: >-
-    Account data quality was not one issue. It was five, and each one made
-    the others worse.
+    Account data quality was not one issue. It was five common patterns,
+    and each one amplified the others.
   items:
-    - title: No shared definition of a complete account.
+    - title: Definitions of ready varied by team.
       body: >-
-        No documented minimum field standard, so every team worked from its
-        own assumption about what "good" looked like.
-    - title: Fragmented ownership.
+        Without a documented minimum field standard, each team worked from
+        its own assumption about what "good" looked like.
+    - title: Distributed ownership without a single accountable owner.
       body: >-
-        Revenue Operations, Marketing Operations, Enablement, and Sales all
-        wrote to account data through different tools and cadences, with no
-        single owner for its quality.
+        Account data was written and updated by multiple functions, through
+        different tools and cadences, without one operational owner
+        accountable for its quality end to end.
     - title: Inconsistent records at the door.
       body: >-
         Accounts entered from more than thirty sources. Some produced clean,
         structured records. Long-tail sources introduced inconsistent values
         that quietly weakened the account base.
-    - title: Standardization gaps broke downstream systems.
+    - title: Standardization gaps amplified downstream.
       body: >-
         Inconsistent country, industry, vertical, and address values quietly
         degraded territory assignment, segmentation, reporting, and
         automation.
-    - title: No accuracy validation.
+    - title: Accuracy lacked a validation backbone.
       body: >-
-        Multiple vendors wrote to the same key fields with no defined source
-        hierarchy, and values were rarely revalidated once populated.
+        Multiple sources wrote to the same key fields without a defined
+        source hierarchy, and values were rarely revalidated once populated.
   pullLine: Field population was being treated as field quality. They are not the same measurement.
 
 framework:
