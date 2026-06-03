@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Format: <from> <to> <status>
+
+# Renamed 2026-06-02: align URL with the displayed title "HG Insights Hierarchy Auto-Population".
+/work/hg-insights-hierarchy /work/hg-insights-hierarchy-auto-population 301
