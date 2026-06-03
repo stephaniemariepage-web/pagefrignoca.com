@@ -88,34 +88,74 @@ builds:
       body: >-
         Country, state, industry, employee-count band, and company-name
         variants were normalized to the org's vocabulary before any matching
-        or routing logic ran. Downstream rules could keep treating fields as
-        exact strings because the strings were now consistent.
-    - title: Deterministic account-matching waterfall.
+        or routing logic ran. Country names resolved to common forms
+        (USA to United States), and to ISO 3166-1 alpha-2 codes where
+        downstream consumers expected them. State codes expanded to full
+        names. Company suffixes abbreviated to a single form (Microsoft
+        Incorporated to Microsoft Inc.). Compass directions and street
+        types abbreviated. URLs truncated to the apex domain. Each rule
+        had a transformation, an example value, and the downstream
+        consumer it served.
+    - title: Three-way matching on every incoming record.
       body: >-
-        A cascading match logic replaced the single brittle rule. Exact
-        domain first. Root-domain match next. Enrichment ID after that.
-        Normalized company name with disambiguation rules. A manual queue at
-        the bottom, for the small set the rules could not decide. Every step
-        had a written reason it sat where it did.
-    - title: Deduplication on intake and on demand.
+        Every incoming lead was evaluated against three existing record
+        types before any new record was created. Match-to-Contact ran
+        first, with auto-convert and merge into the existing contact when
+        found. Match-to-Lead ran second, with auto-merge into the existing
+        lead. Match-to-Account ran third, linking the new lead via Related
+        Account. Each pass used its own deterministic rule set, and the
+        three passes produced one of three outcomes: existing record
+        updated, new record created and account-linked, or held for manual
+        review.
+    - title: A deterministic Lead-to-Account matching waterfall.
       body: >-
-        Dedup-on-create caught the obvious cases before a duplicate ever
-        existed. Scheduled ad-hoc dedup runs caught the rest, with
-        deterministic master-record selection so merges did not pick
-        arbitrarily. Reused, in spirit, the same waterfall pattern as
-        matching.
-    - title: Lead-to-account stitching using the same waterfall.
+        The Lead-to-Account pass evaluated six rule groups in order, with
+        progressive specificity. ZoomInfo Company ID exact match first,
+        when the enrichment vendor had already linked the lead to a known
+        company entity. Corporate domain extracted from the lead's email,
+        matched against the account's domain, next. Corporate domain plus
+        account name tightened the match when one domain belonged to
+        several accounts. Corporate domain plus account name (loose) plus
+        HQ country anchored the match when company names were ambiguous.
+        Corporate domain plus account name (loose) plus country as a
+        fallback when HQ country was missing. Corporate domain alone as a
+        last resort, only after stricter rules had failed. A manual review
+        queue caught the small remainder. Every step had a written reason
+        it sat where it did.
+    - title: Master Record Rules for the merge tiebreaker.
       body: >-
-        New leads and contacts were stitched to the right existing account
-        using the same match logic that governed dedup. One rule, applied in
-        two contexts, instead of two systems with different opinions about
-        the same company.
-    - title: ARR and attribution context attached at the point of match.
+        When matching surfaced multiple candidate masters, the Master
+        Record Rules picked the winner deterministically. The Account
+        rules favored, in order: domain integrity (the account whose
+        domain or website actually matched the corporate domain), Active
+        status over inactive, Active ARR greater than zero
+        (revenue-generating accounts), Open Opportunities greater than
+        zero (currently engaged), Closed Won history greater than zero (a
+        proven customer relationship), and the highest Active ARR among
+        ties. The rule said the loudest thing: in a tie, pick the customer
+        that is actually paying.
+    - title: Surviving Field Value Rules.
       body: >-
-        Once a record matched to an account, account-level value and
-        attribution context were attached so routing and scoring could make
-        decisions in business terms, not just record terms. The same
-        waterfall that matched the account also carried that signal forward.
+        Even after the master was selected, certain field values had to be
+        protected from the merge. The Surviving Field Value Rules locked
+        Lead Source to the value from the oldest record, propagated
+        opt-out flags as true if either record was true, and forced
+        active/inactive status to the correct state. A merge could lose a
+        record. It could not lose the operational context that record
+        carried.
+    - title: Sixteen always-on scheduled tasks.
+      body: >-
+        A library of scheduled RingLead tasks ran the intake layer's
+        continuous governance, on cadences from hourly to daily. The set
+        covered owner sync between contacts and account owners, forecast
+        and currency hygiene on closed-won opportunities, ARR field
+        maintenance across the opportunity types where a formula could not
+        carry the motion, GTM segmentation field updates when segment,
+        region, or motion landed null and a match was now available,
+        conversion-record stitching where the related contact or lead now
+        had an account, and queue-routing fixes for intake edge cases.
+        None of the tasks were dramatic alone. Together they were the
+        intake layer running 24/7 instead of waiting for a human to notice.
     - title: A routing-readiness gate.
       body: >-
         Records that passed normalization and matched to an account with
@@ -129,6 +169,7 @@ outcomes:
     - The hand-fix loop moved from default behavior to exception handling. Operations time moved off recurring intake cleanup and onto exceptions only.
     - Routing became more trustworthy because the inputs were consistent and the matches were governed, not because the routing rules got more complicated.
     - Account roll-ups, segmentation, attribution, and reporting stabilized once intake stopped creating duplicate parents and conflicting field values.
+    - A historical backfill linked years of unconverted legacy leads to their existing accounts, using an expanded version of the live matching waterfall and the same Master Record Rules to pick the right account when more than one candidate existed. Account history finally reflected what had actually happened upstream of conversion.
     - The pattern was portable inside the org. The same matching waterfall powered dedup, lead-to-account stitching, and merge tiebreakers, with one set of rules to debug instead of three.
   pullLine: The interesting outcome was not that routing got faster. It was that routing could be trusted at the point it ran.
 
