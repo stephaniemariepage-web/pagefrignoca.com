@@ -1,5 +1,5 @@
 ---
-title: Lead-to-Account Intake Quality Engine
+title: Lead-to-Account Data Quality Engine
 summary: >-
   An end-to-end automation for incoming GTM records: enrichment governance,
   normalization, a deterministic account-matching waterfall, deduplication, and
