@@ -8,7 +8,7 @@ summary: >-
   Source Strength lens of CAP Accuracy.
 type: Framework
 featured: false
-order: 4
+order: 2
 
 hero:
   eyebrow: Case study
@@ -150,7 +150,9 @@ closing:
   body: >-
     The Core Account Profile uses four lenses to score Accuracy. Vendor
     Source Strength is one. The Vendor Report Card is what made that lens
-    credible, instead of "we trust the data."
+    credible, instead of "we trust the data." The same source-trust pattern
+    applies to any data product where the answer needs to be defensible per
+    field, not per vendor.
   primaryCta:
     label: Read the CAP case study
     href: /work/core-account-profile

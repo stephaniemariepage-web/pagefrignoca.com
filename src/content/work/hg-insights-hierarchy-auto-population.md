@@ -7,7 +7,7 @@ summary: >-
   with a Salesforce operator and implemented through Claude Code.
 type: AI-assisted automation
 featured: false
-order: 2
+order: 3
 
 hero:
   eyebrow: Case study

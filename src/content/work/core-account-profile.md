@@ -175,7 +175,9 @@ closing:
   body: >-
     The Scorecard is a generalized, public version of what Core Account
     Profile does at scale. It scores a synthetic dataset against the same
-    three dimensions, tiers, and gate, right in your browser.
+    three dimensions, tiers, and gate, right in your browser. The framework
+    is not GTM-specific. The same field-level scoring and gating apply to
+    any data product where customers depend on the answer being trustworthy.
   primaryCta:
     label: Open the Scorecard
     href: /scorecard

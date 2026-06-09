@@ -7,7 +7,7 @@ summary: >-
   by the systems that act on it one record at a time.
 type: Systems build
 featured: false
-order: 3
+order: 4
 
 hero:
   eyebrow: Case study
