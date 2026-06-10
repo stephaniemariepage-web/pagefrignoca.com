@@ -57,15 +57,50 @@ const INDUSTRY_BAD: Record<string, string[]> = {
   Retail: ['retail & ecommerce', 'E-commerce', 'Consumer'],
   Logistics: ['Supply Chain', 'logistics / transport', 'Transportation'],
 };
-const REGION_STD = ['California', 'Texas', 'New York', 'Washington', 'Illinois', 'Massachusetts'];
-const REGION_BAD: Record<string, string[]> = {
-  California: ['CA', 'Calif.', 'calif'],
-  Texas: ['TX', 'Tex.'],
-  'New York': ['NY', 'N.Y.'],
-  Washington: ['WA', 'Wash.'],
-  Illinois: ['IL', 'Ill.'],
-  Massachusetts: ['MA', 'Mass.'],
+// Regions belong to a country. A region drawn from the wrong country is a
+// cross-field accuracy failure: a real place name that contradicts the country,
+// the kind of thing only consistency logic (not age) catches.
+interface RegionDef {
+  std: string;
+  bad: string[];
+}
+const REGION_BY_COUNTRY: Record<string, RegionDef[]> = {
+  'United States': [
+    { std: 'California', bad: ['CA', 'Calif.', 'calif'] },
+    { std: 'Texas', bad: ['TX', 'Tex.'] },
+    { std: 'New York', bad: ['NY', 'N.Y.'] },
+    { std: 'Washington', bad: ['WA', 'Wash.'] },
+    { std: 'Illinois', bad: ['IL', 'Ill.'] },
+    { std: 'Massachusetts', bad: ['MA', 'Mass.'] },
+  ],
+  'United Kingdom': [
+    { std: 'England', bad: ['Eng.', 'ENG'] },
+    { std: 'Scotland', bad: ['Scot.', 'SCT'] },
+    { std: 'Wales', bad: ['Cymru', 'WLS'] },
+    { std: 'Greater London', bad: ['London', 'Ldn'] },
+  ],
+  Germany: [
+    { std: 'Bavaria', bad: ['Bayern', 'BY'] },
+    { std: 'Berlin', bad: ['BE', 'Berlin-Brandenburg'] },
+    { std: 'Hesse', bad: ['Hessen', 'HE'] },
+    { std: 'North Rhine-Westphalia', bad: ['NRW', 'Nordrhein-Westfalen'] },
+  ],
+  Canada: [
+    { std: 'Ontario', bad: ['ON', 'Ont.'] },
+    { std: 'Quebec', bad: ['QC', 'Québec'] },
+    { std: 'British Columbia', bad: ['BC', 'B.C.'] },
+    { std: 'Alberta', bad: ['AB', 'Alta.'] },
+  ],
+  Australia: [
+    { std: 'New South Wales', bad: ['NSW', 'N.S.W.'] },
+    { std: 'Victoria', bad: ['VIC', 'Vic.'] },
+    { std: 'Queensland', bad: ['QLD', 'Qld.'] },
+    { std: 'Western Australia', bad: ['WA', 'W.A.'] },
+  ],
 };
+// Share of records whose region is drawn from the wrong country: a deliberate,
+// visible cross-field error that Accuracy is meant to catch.
+const REGION_MISMATCH_RATE = 0.16;
 const EMP = ['12', '35', '80', '140', '320', '650', '1,200', '2,400', '5,200'];
 const REV = ['$3M', '$8M', '$15M', '$30M', '$60M', '$120M', '$240M', '$500M'];
 
@@ -99,7 +134,8 @@ interface Ctx {
   legal: string;
   country: number;
   industry: number;
-  region: number;
+  regionDef: RegionDef;
+  regionMismatch: boolean; // region belongs to a different country than `country`
   emp: string;
   rev: string;
   parent: string;
@@ -126,7 +162,7 @@ function makeValue(key: string, standardized: boolean, c: Ctx, r: Rand): string 
     case 'industry':
       return standardized ? INDUSTRY_STD[c.industry] : pick(r, INDUSTRY_BAD[INDUSTRY_STD[c.industry]]);
     case 'region':
-      return standardized ? REGION_STD[c.region] : pick(r, REGION_BAD[REGION_STD[c.region]]);
+      return standardized ? c.regionDef.std : pick(r, c.regionDef.bad);
     case 'employees':
       return c.emp;
     case 'revenue':
@@ -149,13 +185,23 @@ function generateRecord(r: Rand, i: number): AccountRecord {
   const source = pick(r, SOURCES);
   const timeframe = pick(r, TIMEFRAME_POOL);
 
+  const country = Math.floor(r() * COUNTRY_STD.length);
+  const countryName = COUNTRY_STD[country];
+  // Most regions belong to their country; a minority are drawn from elsewhere.
+  const regionMismatch = r() < REGION_MISMATCH_RATE;
+  const regionCountry = regionMismatch
+    ? pick(r, COUNTRY_STD.filter((c) => c !== countryName))
+    : countryName;
+  const regionDef = pick(r, REGION_BY_COUNTRY[regionCountry]);
+
   const ctx: Ctx = {
     prefix: pick(r, PREFIX),
     desc: pick(r, DESC),
     legal: pick(r, LEGAL),
-    country: Math.floor(r() * COUNTRY_STD.length),
+    country,
     industry: Math.floor(r() * INDUSTRY_STD.length),
-    region: Math.floor(r() * REGION_STD.length),
+    regionDef,
+    regionMismatch,
     emp: pick(r, EMP),
     rev: pick(r, REV),
     parent: `${pick(r, PREFIX)} ${pick(r, DESC)} Holdings`,
@@ -179,6 +225,9 @@ function generateRecord(r: Rand, i: number): AccountRecord {
       accurate = !f.dimensions.includes('accuracy')
         ? true
         : r() < clamp(accBase + (q - 0.7) * 0.28 + (r() - 0.5) * 0.24, 0.04, 0.98);
+      // Cross-field rule: a region that names a place outside its country is
+      // wrong no matter how recent the record is. Age can't redeem it.
+      if (f.key === 'region' && ctx.regionMismatch) accurate = false;
     }
 
     cells[f.key] = {
