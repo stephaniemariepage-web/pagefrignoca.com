@@ -1,5 +1,5 @@
 ---
-title: HG Insights Hierarchy Auto-Population
+title: Account Hierarchy Auto-Population
 summary: >-
   A governed n8n workflow that populates Salesforce Parent Account
   relationships from enrichment hierarchy data, with no-overwrite safeguards,

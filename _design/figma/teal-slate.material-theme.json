@@ -1,0 +1,21 @@
+{
+  "description": "pagefrignoca.com — Variant 3: Teal Slate. Brutalist-Swiss palette. Brand/interactive color = deep teal (primary), data-tech feel with no emerald/mint. Error = data-failure red. Extended colors carry the exact readiness data-viz scale plus the paper/ink base tones, set harmonized:false so they keep their true hue.",
+  "seed": "#0E6E73",
+  "coreColors": {
+    "primary": "#0E6E73",
+    "secondary": "#5FA8AD",
+    "tertiary": "#DD6A50",
+    "neutral": "#85857A",
+    "neutralVariant": "#828578",
+    "error": "#B0241F"
+  },
+  "extendedColors": [
+    { "name": "Ready", "color": "#0E6E73", "description": "Readiness 90-100 (best)", "harmonized": false },
+    { "name": "Near Ready", "color": "#5FA8AD", "description": "Readiness 70-89", "harmonized": false },
+    { "name": "Partial", "color": "#8F8B7F", "description": "Readiness 50-69 (gray midpoint)", "harmonized": false },
+    { "name": "Low", "color": "#DD6A50", "description": "Readiness 30-49", "harmonized": false },
+    { "name": "Not Ready", "color": "#B0241F", "description": "Readiness 0-29 / gate failure (worst)", "harmonized": false },
+    { "name": "Paper", "color": "#ECEAE1", "description": "Background canvas (warm neutral)", "harmonized": false },
+    { "name": "Ink", "color": "#16140D", "description": "Text, borders, dark blocks", "harmonized": false }
+  ]
+}

@@ -1,0 +1,512 @@
+---
+// Brutalist-Swiss design prototype with a palette switcher.
+// Fully self-contained: does NOT import global.css or Base.astro, so the live
+// site is untouched. Throwaway page. Switch palettes with ?v=1..5 or the strip
+// under the nav. Promote the chosen system into global.css once approved.
+
+type Theme = {
+  name: string;
+  paper: string;
+  paper2: string;
+  ink: string;
+  accent: string;
+  accentDark: string; // accent legible on the dark take banner
+  fail: string;
+  scale: [string, string, string, string, string]; // NotReady -> Ready
+  note?: string;
+};
+
+const themes: Record<string, Theme> = {
+  '1': {
+    name: 'Trusted Cobalt',
+    paper: '#edeae2', paper2: '#e2ded3', ink: '#1a1a18',
+    accent: '#15539e', accentDark: '#6fa8e8', fail: '#b0241f',
+    scale: ['#b0241f', '#de7257', '#8f8b7f', '#6f9fc7', '#15539e'],
+    note: 'Calm, serious risk-report. Brand color = the ready-data blue. The grounded default.',
+  },
+  '2': {
+    name: 'Clinical Ultramarine',
+    paper: '#f6f5f1', paper2: '#e9e7e0', ink: '#111111',
+    accent: '#1b3bd0', accentDark: '#7e92f4', fail: '#d11a1a',
+    scale: ['#d11a1a', '#e76a4e', '#9a968b', '#7e8fe0', '#1b3bd0'],
+    note: 'Near-white, true-black ink, electric ultramarine. Starkest and highest-contrast.',
+  },
+  '3': {
+    name: 'Teal Slate',
+    paper: '#eceae1', paper2: '#dfddd0', ink: '#16140d',
+    accent: '#0e6e73', accentDark: '#4fc2c7', fail: '#b0241f',
+    scale: ['#b0241f', '#dd6a50', '#8f8b7f', '#5fa8ad', '#0e6e73'],
+    note: 'Deep teal, not mint. Data-tech feel without the emerald cliche.',
+  },
+  '4': {
+    name: 'Signal Orange',
+    paper: '#edeae2', paper2: '#e2ded3', ink: '#1a1a18',
+    accent: '#c8501e', accentDark: '#f0905b', fail: '#a11c18',
+    scale: ['#a11c18', '#de7257', '#8f8b7f', '#6f9fc7', '#15539e'],
+    note: 'The heat option. Burnt-orange brand, data scale stays red->blue. Busiest, most energetic.',
+  },
+  '5': {
+    name: 'Forest',
+    paper: '#ece7db', paper2: '#e0dac9', ink: '#17160f',
+    accent: '#235c43', accentDark: '#6fb892', fail: '#b0241f',
+    scale: ['#b0241f', '#c56a3a', '#8f8b7f', '#6fa77e', '#235c43'],
+    note: 'Warm cream + bottle green. Proves green can work if it is dark and serious. Caveat: red->green scale has a mild colorblindness tradeoff (mitigated by gray midpoint + always-on numerals).',
+  },
+};
+
+const order = ['1', '2', '3', '4', '5'];
+const v = Astro.url.searchParams.get('v') || '1';
+const t = themes[v] ?? themes['1'];
+
+const bodyVars = [
+  `--paper:${t.paper}`, `--paper-2:${t.paper2}`, `--ink:${t.ink}`,
+  `--accent:${t.accent}`, `--accent-dark:${t.accentDark}`, `--r-bad:${t.fail}`,
+  `--r-low:${t.scale[1]}`, `--r-mid:${t.scale[2]}`, `--r-near:${t.scale[3]}`, `--r-ready:${t.scale[4]}`,
+].join(';');
+
+const coreSwatches: [string, string][] = [
+  ['PAPER', t.paper], ['INK', t.ink], ['ACCENT', t.accent], ['FAIL', t.fail],
+];
+const scaleSteps: [string, string, string][] = [
+  ['Not Ready', '0–29', t.scale[0]],
+  ['Low', '30–49', t.scale[1]],
+  ['Partial', '50–69', t.scale[2]],
+  ['Near Ready', '70–89', t.scale[3]],
+  ['Ready', '90–100', t.scale[4]],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proto · {t.name} · pagefrignoca.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #edeae2;
+        --paper-2: #e2ded3;
+        --ink: #1a1a18;
+        --accent: #15539e;
+        --accent-dark: #6fa8e8;
+        --r-ready: #15539e;
+        --r-near: #6f9fc7;
+        --r-mid: #8f8b7f;
+        --r-low: #de7257;
+        --r-bad: #b0241f;
+        --grid: 1100px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Archivo", system-ui, sans-serif;
+        font-size: 17px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; }
+      ::selection { background: var(--accent); color: var(--paper); }
+
+      .wrap { max-width: var(--grid); margin-inline: auto; padding-inline: 24px; }
+      .mono {
+        font-family: "Space Mono", ui-monospace, monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 12px;
+      }
+
+      /* ---- Top meta bar ---- */
+      .meta { border-bottom: 2px solid var(--ink); background: var(--ink); color: var(--paper); }
+      .meta .wrap { display: flex; justify-content: space-between; gap: 16px; padding-block: 7px; flex-wrap: wrap; }
+      .meta .mono { font-size: 11px; letter-spacing: 0.14em; }
+
+      /* ---- Palette switcher strip ---- */
+      .switch { border-bottom: 2px solid var(--ink); background: var(--paper-2); }
+      .switch .wrap { display: flex; align-items: center; gap: 12px; padding-block: 9px; flex-wrap: wrap; }
+      .switch .lbl { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; }
+      .switch .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+      .switch a { font-family: "Space Mono", monospace; font-size: 12px; text-decoration: none; border: 2px solid var(--ink); padding: 4px 10px; background: var(--paper); }
+      .switch a[aria-current] { background: var(--ink); color: var(--paper); }
+      .switch .desc { margin-left: auto; font-size: 12.5px; max-width: 52ch; color: #5f5b4d; }
+
+      /* ---- Nav ---- */
+      nav.bar { border-bottom: 2px solid var(--ink); position: sticky; top: 0; background: var(--paper); z-index: 50; }
+      nav.bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
+      .brand { display: inline-flex; align-items: baseline; gap: 9px; text-decoration: none; }
+      .brand .glyph { font-family: "Space Mono", monospace; font-weight: 700; font-size: 18px; border: 2px solid var(--ink); padding: 2px 7px; line-height: 1; }
+      .brand .word { font-weight: 800; letter-spacing: -0.01em; font-size: 15px; }
+      .links { display: flex; align-items: center; gap: 22px; }
+      .links a { text-decoration: none; font-weight: 600; font-size: 14.5px; }
+      .links a.navlink { padding-bottom: 2px; border-bottom: 2px solid transparent; }
+      .links a.navlink:hover { border-bottom-color: var(--ink); }
+      .links a.navlink[aria-current] { border-bottom-color: var(--accent); }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; text-decoration: none;
+        padding: 9px 16px; border: 2px solid var(--ink); background: var(--ink); color: var(--paper);
+        transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease, color 0.08s ease, border-color 0.08s ease;
+      }
+      .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+      .btn--ghost { background: var(--paper); color: var(--ink); }
+      .btn--ghost:hover { background: var(--ink); color: var(--paper); }
+      .btn--primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+      .btn--primary:hover { background: var(--ink); border-color: var(--ink); }
+      .btn--pop { box-shadow: 5px 5px 0 var(--ink); }
+      .btn--pop:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
+      .navbtn { padding: 7px 14px; }
+
+      /* ---- Section scaffolding ---- */
+      section { border-bottom: 2px solid var(--ink); }
+      .pad { padding-block: 64px; }
+      .seclabel { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+      .seclabel .num { font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px; background: var(--ink); color: var(--paper); padding: 3px 7px; letter-spacing: 0.1em; }
+
+      h1.display { font-weight: 900; letter-spacing: -0.03em; line-height: 0.98; font-size: clamp(44px, 8vw, 92px); margin: 14px 0 0; }
+      h2.head { font-weight: 800; letter-spacing: -0.02em; line-height: 1.04; font-size: clamp(30px, 4.4vw, 50px); margin: 0; }
+      h3.sub { font-weight: 700; letter-spacing: -0.01em; font-size: 21px; margin: 0; }
+      .accent { color: var(--accent); }
+      .lede { font-size: clamp(17px, 1.9vw, 20px); line-height: 1.55; max-width: 60ch; color: var(--ink); }
+      .muted { color: #5f5b4d; }
+
+      /* ---- Hero ---- */
+      .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0; }
+      .hero .left { padding: 64px 40px 64px 0; }
+      .hero .right { border-left: 2px solid var(--ink); padding: 64px 0 64px 40px; display: flex; align-items: center; }
+      .hero .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .hero .left { padding: 48px 0 40px; }
+        .hero .right { border-left: 0; border-top: 2px solid var(--ink); padding: 40px 0; }
+      }
+
+      /* ---- Readiness data chip ---- */
+      .record { border: 2px solid var(--ink); background: var(--paper); width: 100%; box-shadow: 6px 6px 0 var(--ink); }
+      .record .top { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--ink); padding: 12px 16px; }
+      .record .top .id { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; }
+      .record .verdict { font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; background: var(--r-bad); color: var(--paper); padding: 4px 9px; }
+      .dim { display: grid; grid-template-columns: 130px 1fr 54px; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 1px solid rgba(120,118,108,0.35); }
+      .dim:last-child { border-bottom: 0; }
+      .dim .name { font-weight: 600; font-size: 14px; }
+      .track { height: 12px; border: 1.5px solid var(--ink); background: var(--paper); position: relative; }
+      .track > span { display: block; height: 100%; background: var(--ink); }
+      .track.good > span { background: var(--r-ready); }
+      .track.fail > span { background: var(--r-bad); }
+      .track.mid > span { background: var(--r-mid); }
+      .dim .val { font-family: "Space Mono", monospace; font-weight: 700; text-align: right; font-size: 14px; font-variant-numeric: tabular-nums; }
+      .dim .val.fail { color: var(--r-bad); }
+      .record .foot { padding: 12px 16px; font-size: 12.5px; }
+
+      /* ---- Take banner ---- */
+      .take { background: var(--ink); color: var(--paper); }
+      .take h2 { font-weight: 900; letter-spacing: -0.025em; line-height: 1.0; font-size: clamp(32px, 5.5vw, 64px); margin: 0; }
+      .take .accent { color: var(--accent-dark); }
+
+      /* ---- Dimension grid ---- */
+      .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 2px solid var(--ink); }
+      .grid3 .cell { padding: 24px; border-right: 2px solid var(--ink); }
+      .grid3 .cell:last-child { border-right: 0; }
+      .grid3 .cell .k { font-family: "Space Mono", monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+      .grid3 .cell .d { margin-top: 10px; color: #5f5b4d; font-size: 15px; }
+      @media (max-width: 720px) { .grid3 { grid-template-columns: 1fr; } .grid3 .cell { border-right: 0; border-bottom: 2px solid var(--ink); } .grid3 .cell:last-child { border-bottom: 0; } }
+
+      /* ---- Work hybrid cards ---- */
+      .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      @media (max-width: 800px) { .cards { grid-template-columns: 1fr; } }
+      .card { border: 2px solid var(--ink); background: var(--paper); padding: 0; display: flex; flex-direction: column; }
+      .card.pop { box-shadow: 6px 6px 0 var(--ink); }
+      .card .ch { padding: 18px 20px; border-bottom: 2px solid var(--ink); display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+      .card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+      .tag { font-family: "Space Mono", monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; border: 1.5px solid var(--ink); padding: 2px 7px; }
+      .card .body { padding: 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+      .card .summary { font-size: 15px; line-height: 1.5; }
+      .kv { font-size: 13.5px; line-height: 1.45; }
+      .kv .lab { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); display: block; margin-bottom: 2px; }
+      .card .cardcta { margin-top: auto; padding: 14px 20px; border-top: 2px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+      .card .link { font-weight: 700; font-size: 14px; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+      .card .link:hover { background: var(--accent); color: var(--paper); border-bottom-color: var(--accent); }
+      .soontag { font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--paper-2); border: 1.5px solid var(--ink); padding: 3px 8px; }
+      .card.soon { background: repeating-linear-gradient(135deg, var(--paper) 0 11px, var(--paper-2) 11px 12px); }
+
+      /* ---- System swatches ---- */
+      .sysgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 2px solid var(--ink); }
+      .sw { border-right: 2px solid var(--ink); }
+      .sw:last-child { border-right: 0; }
+      .sw .chip { height: 84px; border-bottom: 2px solid var(--ink); }
+      .sw .lab2 { padding: 10px 12px; font-family: "Space Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+      @media (max-width: 720px) { .sysgrid { grid-template-columns: repeat(2, 1fr); } .sw:nth-child(2) { border-right: 0; } .sw:nth-child(1), .sw:nth-child(2) { border-bottom: 2px solid var(--ink); } }
+
+      /* ---- Readiness scale legend ---- */
+      .scale { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 2px solid var(--ink); }
+      .scale .step { border-right: 2px solid var(--ink); }
+      .scale .step:last-child { border-right: 0; }
+      .scale .bar { height: 40px; border-bottom: 2px solid var(--ink); }
+      .scale .lab3 { padding: 9px 11px; }
+      .scale .lab3 .nm { font-weight: 700; font-size: 13px; }
+      .scale .lab3 .bd { font-family: "Space Mono", monospace; font-size: 11px; color: #5f5b4d; }
+      @media (max-width: 720px) { .scale { grid-template-columns: 1fr; } .scale .step { border-right: 0; border-bottom: 2px solid var(--ink); } .scale .step:last-child { border-bottom: 0; } }
+
+      .btnrow { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+      .typescale > * { margin: 0 0 6px; }
+      .label-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+      footer.foot2 { background: var(--ink); color: var(--paper); }
+      footer.foot2 .wrap { padding-block: 40px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+      footer.foot2 a { color: var(--paper); text-decoration: none; border-bottom: 2px solid var(--accent); }
+    </style>
+  </head>
+
+  <body style={bodyVars}>
+    <!-- Top meta bar -->
+    <div class="meta">
+      <div class="wrap">
+        <span class="mono">PAGEFRIGNOCA.COM</span>
+        <span class="mono">CRM DATA QUALITY / GTM SYSTEMS</span>
+        <span class="mono">PROTOTYPE · BRUTALIST-SWISS</span>
+      </div>
+    </div>
+
+    <!-- Palette switcher -->
+    <div class="switch">
+      <div class="wrap">
+        <span class="lbl">Palette:</span>
+        <div class="opts">
+          {order.map((key) => (
+            <a href={`/proto?v=${key}`} aria-current={key === v ? 'true' : undefined}>
+              {key} · {themes[key].name}
+            </a>
+          ))}
+        </div>
+        <span class="desc">{t.note}</span>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="bar">
+      <div class="wrap">
+        <a class="brand" href={`/proto?v=${v}`}>
+          <span class="glyph">SF</span>
+          <span class="word">STEPHANIE FRIGNOCA</span>
+        </a>
+        <div class="links">
+          <a class="navlink" href="#">Scorecard</a>
+          <a class="navlink" href="#" aria-current="page">What I Build</a>
+          <a class="navlink" href="#">Work</a>
+          <a class="navlink" href="#">About</a>
+          <a class="btn navbtn" href="mailto:stephaniemariepage@gmail.com">Email</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section>
+      <div class="wrap">
+        <div class="hero">
+          <div class="left">
+            <div class="seclabel">
+              <span class="num">01</span>
+              <span class="mono">CRM DATA QUALITY, MEASURED HONESTLY</span>
+            </div>
+            <h1 class="display">Stop grading your CRM data <span class="accent">on a curve.</span></h1>
+            <p class="lede muted" style="margin-top:24px;">
+              A strong average hides the records that are quietly broken. Your routing,
+              scoring, reporting, and AI workflows act on those records one at a time,
+              not on the curve.
+            </p>
+            <div class="cta">
+              <a class="btn btn--primary btn--pop" href="#">Run the Scorecard</a>
+              <a class="btn btn--ghost" href="#">Read the case study</a>
+            </div>
+          </div>
+          <div class="right">
+            <div class="record">
+              <div class="top">
+                <span class="id">ACCT_04417</span>
+                <span class="verdict">NOT READY</span>
+              </div>
+              <div class="dim">
+                <span class="name">Completeness</span>
+                <span class="track good"><span style="width:95%"></span></span>
+                <span class="val">95</span>
+              </div>
+              <div class="dim">
+                <span class="name">Standardization</span>
+                <span class="track good"><span style="width:88%"></span></span>
+                <span class="val">88</span>
+              </div>
+              <div class="dim">
+                <span class="name">Accuracy</span>
+                <span class="track fail"><span style="width:20%"></span></span>
+                <span class="val fail">20</span>
+              </div>
+              <div class="foot mono">GATE: ACCURACY BELOW FLOOR → CLASSED BY WEAKEST DIMENSION</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The take banner -->
+    <section class="take">
+      <div class="wrap pad">
+        <div class="seclabel">
+          <span class="num" style="background:var(--paper);color:var(--ink);">02</span>
+          <span class="mono" style="color:var(--paper);">THE TAKE</span>
+        </div>
+        <h2>AI-ready data isn't a tooling problem.<br /><span class="accent">It's an honesty problem.</span></h2>
+        <p class="lede" style="color:var(--paper);opacity:0.85;margin-top:24px;">
+          A composite score can call a record healthy when one in five of its values is
+          wrong. Gated readiness refuses to average a fatal weakness away.
+        </p>
+      </div>
+    </section>
+
+    <!-- The framework: three dimensions -->
+    <section>
+      <div class="wrap pad">
+        <div class="seclabel">
+          <span class="num">03</span>
+          <span class="mono">THE FRAMEWORK</span>
+        </div>
+        <h2 class="head">Three dimensions. Each clears a floor, or the record is not ready.</h2>
+        <p class="lede muted" style="margin-top:20px;margin-bottom:32px;">
+          The honest alternative to a blended score is to measure each dimension on its
+          own and refuse to average them away.
+        </p>
+        <div class="grid3">
+          <div class="cell"><div class="k">01 / Completeness</div><div class="d">Is the field populated.</div></div>
+          <div class="cell"><div class="k">02 / Standardization</div><div class="d">Is the value in a consistent, usable format.</div></div>
+          <div class="cell"><div class="k">03 / Accuracy</div><div class="d">Is the value actually correct.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work hybrid cards -->
+    <section>
+      <div class="wrap pad">
+        <div class="seclabel">
+          <span class="num">04</span>
+          <span class="mono">FEATURED PROOF</span>
+        </div>
+        <h2 class="head" style="margin-bottom:32px;">What I build, and why it mattered.</h2>
+        <div class="cards">
+          <article class="card pop">
+            <div class="ch">
+              <div>
+                <h3 class="sub">Core Account Profile</h3>
+                <div class="tags">
+                  <span class="tag">Framework</span>
+                  <span class="tag">Salesforce</span>
+                  <span class="tag">GTM Governance</span>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <p class="summary">
+                A gated account-readiness framework for a Salesforce org with roughly
+                99,000 records. It measured Completeness, Standardization, and Accuracy
+                separately so one strong average could not hide an unusable record.
+              </p>
+              <div class="kv"><span class="lab">Key build</span>Tiered scoring model, readiness gates, vendor benchmark, hierarchy automation, monitoring layer.</div>
+              <div class="kv"><span class="lab">Why it mattered</span>Gave GTM teams a shared definition of ready before account data powered ICP, routing, segmentation, and AI workflows.</div>
+            </div>
+            <div class="cardcta">
+              <a class="link" href="#">Read the case study →</a>
+              <span class="mono" style="font-size:11px;">LIVE</span>
+            </div>
+          </article>
+
+          <article class="card soon">
+            <div class="ch">
+              <div>
+                <h3 class="sub">Core Account Profile Command Center</h3>
+                <div class="tags">
+                  <span class="tag">AI-built platform</span>
+                  <span class="tag">Claude Code</span>
+                </div>
+              </div>
+              <span class="soontag">Coming soon</span>
+            </div>
+            <div class="body">
+              <p class="summary">
+                A live internal platform that operationalized the framework: account
+                scoring, readiness tiers, monitoring, and filterable GTM usability
+                signals, built with an internal enterprise AI assistant powered by
+                Claude Code.
+              </p>
+              <div class="kv"><span class="lab">Key build</span>Monitoring product layered on top of the CAP framework.</div>
+              <div class="kv"><span class="lab">Why it mattered</span>Moved the framework from analysis into something teams could inspect, filter, and use.</div>
+            </div>
+            <div class="cardcta">
+              <span class="mono muted" style="font-size:11px;">WRITE-UP IN PROGRESS</span>
+              <span class="mono" style="font-size:11px;">SOON</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- System / tokens -->
+    <section>
+      <div class="wrap pad">
+        <div class="seclabel">
+          <span class="num">05</span>
+          <span class="mono">THE SYSTEM — {t.name.toUpperCase()}</span>
+        </div>
+
+        <div class="typescale" style="margin-bottom:36px;">
+          <p class="mono muted" style="margin-bottom:14px;">TYPE — ARCHIVO (DISPLAY/BODY) + SPACE MONO (LABELS/DATA)</p>
+          <h1 class="display" style="font-size:clamp(36px,6vw,68px);">Display 900</h1>
+          <h2 class="head">Heading 800</h2>
+          <h3 class="sub">Subhead 700</h3>
+          <p class="lede">Lede / body copy set in Archivo, 17 to 20px, comfortable measure.</p>
+          <p class="mono">SPACE MONO LABEL · TABULAR 0123456789</p>
+        </div>
+
+        <p class="mono muted" style="margin-bottom:14px;">CORE PALETTE</p>
+        <div class="sysgrid" style="margin-bottom:28px;">
+          {coreSwatches.map(([label, hex]) => (
+            <div class="sw"><div class="chip" style={`background:${hex}`}></div><div class="lab2">{label} {hex.toUpperCase()}</div></div>
+          ))}
+        </div>
+
+        <p class="mono muted" style="margin-bottom:14px;">READINESS SCALE — DIVERGING, GRAY MIDPOINT</p>
+        <div class="scale" style="margin-bottom:36px;">
+          {scaleSteps.map(([nm, band, hex]) => (
+            <div class="step"><div class="bar" style={`background:${hex}`}></div><div class="lab3"><div class="nm">{nm}</div><div class="bd">{band}</div></div></div>
+          ))}
+        </div>
+
+        <p class="mono muted" style="margin-bottom:14px;">BUTTONS — HARD BORDERS, OFFSET SHADOW, INVERT ON HOVER</p>
+        <div class="btnrow">
+          <a class="btn btn--primary btn--pop" href="#">Primary</a>
+          <a class="btn btn--pop" href="#">Ink</a>
+          <a class="btn btn--ghost" href="#">Ghost</a>
+          <span class="label-row"><span class="tag">TAG</span><span class="soontag">Coming soon</span></span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot2">
+      <div class="wrap">
+        <div>
+          <p class="mono" style="margin:0 0 8px;">STEPHANIE FRIGNOCA</p>
+          <p style="margin:0;opacity:0.8;font-size:14px;">CRM data quality · GTM systems · AI-ready revenue infrastructure</p>
+        </div>
+        <div class="mono" style="display:flex;gap:18px;align-items:center;">
+          <a href="#">EMAIL</a>
+          <a href="#">LINKEDIN</a>
+          <a href="#">WORK</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

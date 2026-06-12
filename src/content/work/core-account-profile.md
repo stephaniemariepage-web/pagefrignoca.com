@@ -127,7 +127,7 @@ builds:
         should nest under when more than one candidate existed.
       link:
         label: Read the full case study
-        href: /work/hg-insights-hierarchy-auto-population
+        href: /work/account-hierarchy-auto-population
     - title: Readiness, written back to Salesforce.
       body: >-
         The score and grade for each dimension and for overall readiness were

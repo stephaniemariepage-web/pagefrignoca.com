@@ -1,0 +1,21 @@
+{
+  "description": "pagefrignoca.com — Variant 1: Trusted Cobalt. Brutalist-Swiss palette. Brand/interactive color = the trusted-data cobalt (primary). Error = data-failure red. Extended colors carry the exact readiness data-viz scale plus the paper/ink base tones, set harmonized:false so they keep their true hue.",
+  "seed": "#15539E",
+  "coreColors": {
+    "primary": "#15539E",
+    "secondary": "#6F9FC7",
+    "tertiary": "#DE7257",
+    "neutral": "#8C8578",
+    "neutralVariant": "#8A8474",
+    "error": "#B0241F"
+  },
+  "extendedColors": [
+    { "name": "Ready", "color": "#15539E", "description": "Readiness 90-100 (best)", "harmonized": false },
+    { "name": "Near Ready", "color": "#6F9FC7", "description": "Readiness 70-89", "harmonized": false },
+    { "name": "Partial", "color": "#8F8B7F", "description": "Readiness 50-69 (gray midpoint)", "harmonized": false },
+    { "name": "Low", "color": "#DE7257", "description": "Readiness 30-49", "harmonized": false },
+    { "name": "Not Ready", "color": "#B0241F", "description": "Readiness 0-29 / gate failure (worst)", "harmonized": false },
+    { "name": "Paper", "color": "#EDEAE2", "description": "Background canvas (warm neutral)", "harmonized": false },
+    { "name": "Ink", "color": "#1A1A18", "description": "Text, borders, dark blocks", "harmonized": false }
+  ]
+}
