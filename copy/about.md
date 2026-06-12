@@ -3,7 +3,7 @@
 **Status:** Draft v1 for review, 2026-05-26
 **Page:** `/about`
 **Voice check:** no em dashes. Crisp, confident, slightly cheeky, enterprise-credible, operator-first.
-**Confidentiality (locked):** Names employers (Cockroach Labs, Lansweeper) as separate companies, never as continuous tenure. No internal data, no named individuals, no proprietary specifics, no headcount, revenue, or reporting-line claims.
+**Confidentiality (locked):** No employer names anywhere. Prior companies are abstracted (no company-category descriptions that identify them), never implied as continuous tenure. Vendor names may remain. No internal data, no named individuals, no proprietary specifics, no headcount, revenue, or reporting-line claims.
 
 Brackets `[ ]` are build/design notes, not copy.
 
@@ -63,13 +63,13 @@ It is the work that has to exist before AI workflows on top of CRM data become a
 Design school, then a decade in GTM systems.
 
 **Body**
-Most recently, I was a Senior Data Quality Specialist at Cockroach Labs, where I built the Core Account Profile program from the ground up: the framework, scoring model, vendor benchmark, hierarchy automation, and live monitoring layer. That work became the case study on this site. My role ended during a company-wide restructuring in May 2026.
+Most recently, I was a Senior Data Quality Specialist, where I built the Core Account Profile program from the ground up: the framework, scoring model, vendor benchmark, hierarchy automation, and live monitoring layer. That work became the case study on this site. My role ended during a company-wide restructuring in May 2026.
 
-Before that, I spent four-plus years at Lansweeper as a GTM Applications Analyst and Sales Operations Analyst, owning and operating across the GTM applications stack from the operator's seat: Salesforce administration, lead routing rebuilds, deduplication and matching, cleaner address collection, and the process work that makes CRM data usable in the first place. Earlier still, I worked in sales roles at Embarcadero Technologies, which is part of why I care so much about how GTM systems actually behave for the people using them.
+Before that, I spent four-plus years as a GTM Applications Analyst and Sales Operations Analyst, owning and operating across the GTM applications stack from the operator's seat: Salesforce administration, lead routing rebuilds, deduplication and matching, cleaner address collection, and the process work that makes CRM data usable in the first place. Earlier still, I worked in sales roles, which is part of why I care so much about how GTM systems actually behave for the people using them.
 
 I am a Salesforce Certified Administrator with a BFA in Communication Design from Texas State University, which is the reason this site reads like a product and not a template.
 
-[Build note: career arc stays short and abstracted. Cockroach Labs and Lansweeper are separate companies, never implied as continuous. No headcount, revenue, reporting-line, or quantified-outcome specifics.]
+[Build note: career arc stays short and abstracted. No employer names and no company-category descriptions that identify them; prior roles are never implied as continuous. No headcount, revenue, reporting-line, or quantified-outcome specifics.]
 
 ---
 
@@ -118,7 +118,7 @@ Every clickable element on the About page and where it goes:
 
 ## Open questions for review
 
-1. **Restructuring mention.** Section 3 names the May 2026 restructuring as the reason the Cockroach Labs role ended. Keep, soften, or remove. (Argument to keep: it is the honest, operator-first version and contextualizes why she is open to roles. Argument to remove: the site already says she is open; the date is enough.)
+1. **Restructuring mention.** Section 3 names the May 2026 restructuring as the reason the most recent role ended. Keep, soften, or remove. (Argument to keep: it is the honest, operator-first version and contextualizes why she is open to roles. Argument to remove: the site already says she is open; the date is enough.)
 2. **Photo.** Standfirst block currently allows for one real photo. Confirm whether one exists for v1 or the page stays type-led at launch.
 3. **Career break.** Background notes a 2016–2021 break for raising two sons, "not featured, not hidden." Current draft does not mention it. Confirm that's the right call for v1, or add a one-line acknowledgment.
 4. **Availability line.** Currently says "Based in Austin, TX." Nothing about remote / hybrid / on-site preference. Add a line, or leave it for the conversation.
