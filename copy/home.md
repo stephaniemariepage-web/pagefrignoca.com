@@ -130,7 +130,7 @@ I am Stephanie Frignoca, a GTM data quality and CRM systems strategist. I turn m
 Open to the right full-time role, and to consulting through Page Frignoca LLC.
 
 **Body**
-If your CRM data is not ready for the AI workflows you are about to point at it, that is the work I do. Let's talk.
+If your data is not ready for the AI workflows you are about to point at it, that is the work I do. Let's talk.
 
 [CTA button] Email Stephanie  →  opens `mailto:stephaniemariepage@gmail.com`
 [CTA link] Connect on LinkedIn  →  opens linkedin.com/in/stephaniepagefrignoca in a new tab

@@ -13,7 +13,7 @@ hero:
   eyebrow: Case study
   intro: >-
     This automation lifted known parent-account coverage from 6.4% to 10.2%
-    across an account base of approximately 100,000, a 59% relative increase, with
+    across an account base of approximately 99,000, a 59% relative increase, with
     zero records corrupted. I designed a governed n8n workflow to write
     Salesforce Parent Account relationships from enrichment hierarchy data,
     using no-overwrite safeguards, self-parent prevention, and a
@@ -125,8 +125,8 @@ builds:
 outcomes:
   headline: What changed.
   items:
-    - Across an account org of approximately 100,000, the share of accounts with a known parent relationship grew from 6.4% to 10.2% after the automation went live, a 59% lift in hierarchy coverage.
-    - Roughly 2,800 parent relationships matched and written on the first production run, against an account base of approximately 100,000, with the remainder correctly skipped by the safeguards.
+    - Across an account org of approximately 99,000, the share of accounts with a known parent relationship grew from 6.4% to 10.2% after the automation went live, a 59% lift in hierarchy coverage.
+    - Roughly 2,800 parent relationships matched and written on the first production run, against an account base of approximately 99,000, with the remainder correctly skipped by the safeguards.
     - The scheduled daily run continued to pick up between two and ten new or newly-enriched accounts each day for the following two weeks, exactly the long-tail pattern you would expect once the backlog cleared.
     - A production-ready automation built, tested, and documented in hours, compressing what would normally have been a multi-week build and learning curve.
     - A reusable safety pattern, no-overwrite, self-parent prevention, master-record waterfall, that applies to any future Salesforce write automation.

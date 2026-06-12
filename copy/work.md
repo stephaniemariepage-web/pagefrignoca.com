@@ -91,7 +91,7 @@ What I built.
 
 **Diagnostic slices.** The same scores cut by creation timeframe, creating team, and creation source, so data quality stopped being one number and became a map of where in the process quality was breaking down.
 
-**The Vendor Report Card.** A benchmark of the enrichment and prospecting vendors against a roughly 75-company reference sample, graded by field instead of by vendor reputation. The output was a Platinum, Gold, Silver, and Bronze hierarchy and a Best Source by Field model, which replaced assumption-based source-of-record decisions with evidence.
+**The Vendor Report Card.** A benchmark of the enrichment and prospecting vendors against a roughly 200-company reference sample, graded by field instead of by vendor reputation. The output was a Platinum, Gold, Silver, and Bronze hierarchy and a Best Source by Field model, which replaced assumption-based source-of-record decisions with evidence.
 
 **Parent Account auto-population.** An n8n workflow that populated account hierarchy from corporate-parent and global-headquarters identifiers, with self-parenting prevention, overwrite protection so existing values were never clobbered, and a master-record selection waterfall for when multiple accounts shared a parent.
 
@@ -154,5 +154,5 @@ Robots can run the motion once the data underneath them is trustworthy. They can
 ## Notes for the build (not copy)
 
 - This page stays Account-specific and factual. It is a true story about an Account-level program. The object-agnostic "record" framing belongs on Home and the Scorecard, not here.
-- Confidentiality scrub already applied: no vendor names, no named individuals, no internal field API names or acronyms, no exact field weights, no vendor-by-vendor grades. "Roughly 99,000" accounts and a "roughly 75-company" benchmark sample are approved as methodology scale, not sensitive data.
+- Confidentiality scrub already applied: no vendor names, no named individuals, no internal field API names or acronyms, no exact field weights, no vendor-by-vendor grades. "Roughly 99,000" accounts and a "roughly 200-company" benchmark sample are approved as methodology scale, not sensitive data.
 - Layout intent: reuse the design system from Home and the Scorecard. The five builds in Section 4 want a card treatment. No stock imagery.
