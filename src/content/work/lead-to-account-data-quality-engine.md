@@ -110,8 +110,8 @@ builds:
     - title: A deterministic Lead-to-Account matching waterfall.
       body: >-
         The Lead-to-Account pass evaluated six rule groups in order, with
-        progressive specificity. ZoomInfo Company ID exact match first,
-        when the enrichment vendor had already linked the lead to a known
+        progressive specificity. An enrichment vendor's company-ID exact
+        match first, when the vendor had already linked the lead to a known
         company entity. Corporate domain extracted from the lead's email,
         matched against the account's domain, next. Corporate domain plus
         account name tightened the match when one domain belonged to
@@ -145,8 +145,8 @@ builds:
         carried.
     - title: Sixteen always-on scheduled tasks.
       body: >-
-        A library of scheduled RingLead tasks ran the intake layer's
-        continuous governance, on cadences from hourly to daily. The set
+        A library of scheduled data-quality automation tasks ran the intake
+        layer's continuous governance, on cadences from hourly to daily. The set
         covered owner sync between contacts and account owners, forecast
         and currency hygiene on closed-won opportunities, ARR field
         maintenance across the opportunity types where a formula could not

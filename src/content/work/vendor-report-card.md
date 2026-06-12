@@ -81,8 +81,8 @@ builds:
         constant.
     - title: Field-level vendor grading.
       body: >-
-        Six vendors (ZoomInfo, Crunchbase, HG Insights, Lusha, LeadIQ, and
-        Clearbit) were scored for accuracy on five fields: Employees,
+        Six leading enrichment and prospecting vendors were scored for
+        accuracy on five fields: Employees,
         Revenue, Industry, Country, and State. The output was a grid,
         vendor by field, with each cell graded against the reference. No
         averaging, no overall vendor ranking. A vendor could be strong on
