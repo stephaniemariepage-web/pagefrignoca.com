@@ -1,6 +1,6 @@
 # pagefrignoca.com — Release Roadmap
 
-_Last updated: 2026-05-22_
+_Last updated: 2026-06-02_
 
 The site is a portfolio of frameworks and systems Stephanie Frignoca built from the
 ground up. Core Account Profile is the flagship and the V1 launch. Everything after
@@ -20,139 +20,162 @@ V1 is an incremental release to an already-live site.
 - Hosting: Cloudflare Pages. Registrar, DNS, and host all in one Cloudflare account.
 - Deploy connects a git repo to Cloudflare Pages; the custom domain is added in the
   Pages project and Cloudflare writes the DNS record automatically.
+- `public/_redirects` handles URL renames at the platform level (currently one
+  entry: the old HG Insights slug 301s to the title-aligned slug).
+
+## Status at a glance
+
+| Release | Status | Notes |
+|---|---|---|
+| R1 — V1 Launch | ✅ Shipped | Live on pagefrignoca.com |
+| R1.5 — Writing track | ⏸ Placeholder | Field Notes page exists with "First on the list" preview; no posts yet |
+| R2 — Portfolio index | ✅ Shipped | `/work` is the entry index; cards typed and tagged |
+| R3 — HG Insights Hierarchy Auto-Population | ✅ Shipped | URL aligned with title; 301 redirect for the old slug |
+| R4 — Salesforce Business Glossary | 🟡 Not started | Still a coming-soon tile on `/work` |
+| R5 — CAP Monitoring Dashboard | 🔁 Folded into CAP | Lives as build item 6 ("An AI-built Command Center") on the CAP case |
+| R6 — Systems and Process builds | 🟡 Partial | 1 of 3 planned entries shipped (Lead-to-Account); 2 remain |
+| R7 — Vendor Report Card | ✅ Shipped | Now anchored on a 200-company ground-truth reference set |
 
 ---
 
-## R1 — V1 Launch · "pagefrignoca.com goes live"
+## R1 — V1 Launch · "pagefrignoca.com goes live" · ✅ Shipped
 
-**Order:** 1. **Atomic:** ships as one complete site.
-**Already built:** Home, Scorecard.
-
-Ships in this release:
-
-- CAP case study — `copy/work.md`, then `work.astro`. Full Core Account Profile
-  story, confidentiality-scrubbed. Includes the automated Salesforce scoring-field
-  updates.
-- About page — `copy/about.md`, then `about.astro`.
-- Final pass — readiness-label consistency, production build check, scrub review.
-- Deploy — initialize git, create Cloudflare Pages project, connect pagefrignoca.com,
-  SSL.
-
-**Depends on:** nothing. Gates every release below.
+Built and live: Home, Scorecard, CAP case study, About, deployed via Cloudflare Pages
+with SSL.
 
 ---
 
-## R1.5 — Writing fast-follow · optional, post-launch
+## R1.5 — Writing fast-follow · ⏸ Placeholder
 
-**Order:** any time after R1. **Incremental.**
-
-Ships:
-
-- `/writing` blog (Astro content collection), seeded from LinkedIn posts.
-
-**Depends on:** R1 live. Independent of the V2 portfolio track. Timing is optional.
+`/field-notes` exists with a placeholder headline ("Field Notes are coming") and a
+short preview list of planned topics ("Why composite data quality scores lie," "What
+'AI-ready CRM data' actually requires," "Source of record is a hierarchy, not a
+vote"). No actual posts yet. Independent of the V2 portfolio track; timing optional.
 
 ---
 
-## R2 — V2 · Portfolio index · "the site becomes a portfolio"
+## R2 — V2 Portfolio index · ✅ Shipped
 
-**Order:** 2, first V2 release. **Atomic.**
-
-Ships:
-
-- `/work` converts from a single case study to an index of entries.
-- CAP moves to `/work/core-account-profile` as the featured flagship.
-- Astro content-collection scaffolding, so every later entry is a new file.
-- Entry cards tagged by type (Framework, AI build, Systems build) and employer.
-
-**Depends on:** R1. Must ship before any other V2 entry.
+`/work` is the live index. Featured (CAP) is separated from More entries. Cards tagged
+by type (Framework, AI-assisted automation, Systems build, Reference). Coming-soon
+tiles are visible but non-clickable.
 
 ---
 
-## R3 — V2 · HG Insights Hierarchy Auto-Population · AI-assisted build
+## R3 — V2 HG Insights Hierarchy Auto-Population · ✅ Shipped
 
-**Order:** 3. **Incremental.** Best-documented entry.
-
-Ships:
-
-- `/work/hg-insights-hierarchy` — the conversation-history story of building the
-  n8n workflow with Claude Code.
-
-**Scrub:** internal n8n URL, internal field API names, the named internal dedup
-framework, employer brand specifics.
-**Depends on:** R2.
+Live at `/work/hg-insights-hierarchy-auto-population`. URL was realigned with the
+title; the old `/work/hg-insights-hierarchy` URL 301-redirects via
+`public/_redirects`. Reframed so Stephanie owns the design and Claude Code is the
+implementation accelerator. Headline metric on the case: lift in known parent-account
+coverage from 6.4% to 10.2% across approximately 100,000 accounts (59% relative lift),
+with zero records corrupted. Absolute counts dropped from outcomes per the
+confidentiality pass.
 
 ---
 
-## R4 — V2 · Salesforce Business Glossary · interactive reference
+## R4 — V2 Salesforce Business Glossary · 🟡 Not started
 
-**Order:** 4. **Incremental.** Larger build than a case study.
+An interactive `/glossary` tool: A-to-Z index, filterable by section and by Current
+vs Legacy status. Still a coming-soon tile on `/work`. Most substantial unbuilt entry.
 
-Ships:
-
-- An interactive Salesforce glossary with an A-to-Z index, filterable by section
-  and by Current vs Legacy status. Likely a top-level tool (`/glossary`) alongside
-  the Scorecard, since it is a search-traffic asset.
-- Positioned as a modern Salesforce vocabulary reference: what each term used to
-  mean, whether it was retired, what it means now, what it became. A senior
-  practitioner's guide to current platform language.
-
-**Depends on:** R2, or can ship independently as a top-level tool.
+**Depends on:** nothing (can ship as a top-level tool).
 
 ---
 
-## R5 — V2 · CAP Monitoring Dashboard · AI-assisted build
+## R5 — V2 CAP Monitoring Dashboard · 🔁 Folded into CAP
 
-**Order:** 5. **Incremental.** Limited documentation.
-
-Ships:
-
-- `/work/cap-dashboard` — the dashboard built with the company's internal
-  Claude-powered assistant. If documentation stays thin, folds into the CAP case
-  study as a sub-section instead of a standalone entry.
-
-**Depends on:** R2.
+As the roadmap's own fallback predicted, documentation stayed thin and the entry
+folded into the CAP case study. Lives as build item 6 on the CAP page: "An AI-built
+Command Center." The AI-build positioning sits inside the flagship instead of on its
+own tile.
 
 ---
 
-## R6 — V2 · Systems and Process builds · RevOps engineering
+## R6 — V2 Systems and Process builds
 
-**Order:** 6. **Incremental.** Limited documentation. Suggested grouping into three
-entries:
+Originally grouped into three entries. Current state:
 
-- Lead and Account Matching and Deduplication (dedup on entry, ad hoc dedup,
-  lead-to-account mapping).
-- Lead Routing Rebuild (Lansweeper).
-- Zero-Friction Address Collection (Lansweeper).
+- **Lead-to-Account Data Quality Engine — ✅ Shipped.** Deepened with real specifics
+  from the source RevOps documentation: the six-group matching waterfall, Master
+  Record Rules, Surviving Field Value Rules, three-way matching (Contact → Lead →
+  Account), and the sixteen always-on scheduled tasks.
+- **Rebuilding Account Trust Across the GTM Stack — 🟡 Not started.** Best-sourced
+  of the unbuilt R6 entries: Section 13 (post-QtC GTM data updates), Section 17 (2026
+  Annual Planning impact with verifiable 86,115 / 68% account-revenue-refresh metric),
+  Section 21 (phased dedup approach).
+- **Pricing Operations at Renewal Scale — 🟡 Not started.** Sections 18, 23, 24, 25
+  (CPQ mass migration, finance segmentation, renewal owner flow, MSP/ISV
+  forecasting).
+- **Trial-to-Sales Lead Flow — ⏸ Hidden.** Tile pulled from `/work` coming-soon row;
+  can be re-added if/when written up.
+- **Zero Friction Customer Address Collection — 💡 Potential add.** Section 22 of
+  the source documentation. RACI shows Owner role across DocuSign + Salesforce flows
+  + RingLead + Rattle + VAT trigger. Not currently a tile.
 
-**Scrub:** Lansweeper entries attributed to Lansweeper, kept clearly separate from
-the Cockroach Labs work.
-**Depends on:** R2.
+**Scrub policy in force across R6:** vendor names stay (RingLead, ZoomInfo,
+DocuSign, etc.); internal field API names, internal product-line names, individual
+names, and Confluence URLs all scrubbed.
 
 ---
 
-## R7 — V3 · Enrichment-Vendor use case · the Vendor Report Card
+## R7 — V3 Vendor Report Card · ✅ Shipped
 
-**Order:** 7. **Incremental.** Not drafted enough yet, hence V3.
-
-Ships:
-
-- `/work/enrichment-vendor-strategy` — the Salesforce-to-enrichment-vendor document
-  and use case.
-
-**Depends on:** R2.
+Live at `/work/vendor-report-card`. Now grounded on a 200-company ground-truth
+reference set built from each company's own website (replaces the earlier
+75-company framing). Names six enrichment and prospecting providers (ZoomInfo,
+Crunchbase, HG Insights, Lusha, LeadIQ, Clearbit) per operator decision; this is
+the one remaining residual-risk item flagged for legal review.
 
 ---
 
 ## Portfolio roster at a glance
 
-| Entry | Type | Release | Docs |
+| Entry | Type | Status | URL |
 |---|---|---|---|
-| Core Account Profile | Framework | R1 (flagship) | Strong |
-| HG Insights Hierarchy Auto-Population | AI build | R3 | Strong |
-| Salesforce Business Glossary | Interactive reference | R4 | Real artifact |
-| CAP Monitoring Dashboard | AI build | R5 | Limited |
-| Lead and Account Matching and Dedup | Systems build | R6 | Limited |
-| Lead Routing Rebuild (Lansweeper) | Systems build | R6 | Limited |
-| Zero-Friction Address Collection (Lansweeper) | Systems build | R6 | Limited |
-| Enrichment-Vendor use case | Framework / use case | R7 | Draft pending |
+| Core Account Profile | Framework | ✅ Live (flagship) | `/work/core-account-profile` |
+| HG Insights Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/hg-insights-hierarchy-auto-population` |
+| Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
+| The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
+| Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
+| Rebuilding Account Trust Across the GTM Stack | Systems build | 🟡 Tile | (none yet) |
+| Pricing Operations at Renewal Scale | Systems build | 🟡 Tile | (none yet) |
+| Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
+| CAP Monitoring Dashboard | AI-assisted automation | 🔁 Folded into CAP | (none) |
+
+---
+
+## Cross-cutting concerns
+
+### Confidentiality posture
+
+- About page sector-abstracted for both employers (no company names).
+- Case studies use "the org where this program ran" framing; no employer attribution
+  in case-study bodies.
+- All case studies render a small Redaction note (template-level), signaling that
+  specific company names, customer data, internal field mappings, exact operational
+  telemetry, and proprietary implementation details have been removed or abstracted.
+- Metric posture: relative percentages and lift figures retained where they were
+  authorized; absolute operational counts dropped; account-base scale rounded to
+  "approximately 100,000" where it appeared.
+- Vendor names retained per operator decision (ZoomInfo, HG Insights, Crunchbase,
+  Lusha, LeadIQ, Clearbit, RingLead, DocuSign, etc.).
+- **Residual risk held for employment-lawyer review:** the HG Insights vendor name
+  in the case-study title and the six vendors named on Vendor Report Card both
+  create an inference chain from prior employment (named on LinkedIn) to vendor
+  procurement detail. Operator-credible but not airtight under a broad PIIA.
+
+### Source material
+
+26 Confluence pages of RevOps documentation (matching rules, master record rules,
+surviving field values, scheduled tasks, mass migration processes, address
+collection RACI, CPQ/usage forecasting, etc.) from prior employment unlocked the
+Lead-to-Account deepening and are available to source the remaining R6 entries
+and the potential Zero Friction tile.
+
+### Parked
+
+- **Aesthetic / palette redesign.** A self-contained brutalist-Swiss prototype at
+  `src/pages/proto.astro` with a 5-palette switcher; Material Theme Builder JSON
+  exports at `_design/figma/`. Both local-only, intentionally untracked.
+- **Trial-to-Sales Lead Flow tile.** Hidden from `/work` coming-soon row.
