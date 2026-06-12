@@ -76,14 +76,14 @@ I am a Salesforce Certified Administrator with a BFA in Communication Design fro
 ## Section 4 — How to work with me
 
 **Headline**
-Open to the right full-time role. Selective consulting through Page Frignoca LLC.
+Open to the right full-time role in GTM or product-side data quality. Selective consulting through Page Frignoca LLC.
 
 **Body**
-The strongest full-time fit is a company that treats data quality as infrastructure, not janitorial cleanup. That covers operator roles in RevOps, GTM Systems, Data Quality, and CRM Strategy, and it covers product-side work just as well: designing the quality gates, confidence scoring, and governance that decide whether data is trustworthy enough to move downstream into reporting, a workflow, or an AI agent. The best match is AI-curious and ready to fund the operating model, not just another cleanup ticket.
+The best fit is a company that treats data quality as infrastructure, not after-the-fact cleanup. My work sits at the intersection of GTM systems, product data, and AI readiness: defining the quality gates, source trust, confidence logic, and governance that determine whether data is reliable enough to move downstream into a report, workflow, customer-facing product, or AI agent.
 
-The frameworks are not platform-specific. I built and operationalized them on a Salesforce-centered stack, but the logic (tiered fields, gated readiness, vendor-source trust, cross-field accuracy) holds anywhere a record has to be trusted before a person or a system acts on it, including inside the data layer of a product itself.
+I've built these frameworks in Salesforce-centered GTM environments, but the logic is platform-agnostic. Tiered fields, gated readiness, vendor-source trust, cross-field accuracy, and explainable scoring apply anywhere a record, signal, or data product needs to be trusted before a person or system acts on it.
 
-I also take selective consulting and contract work through Page Frignoca LLC. A typical engagement looks like a defined data-quality assessment against a tiered, gated scoring model; a vendor benchmark; a governance design that names owners and cadence; and a monitoring layer that keeps the result honest after handoff. The same work applies to a data platform's own quality-gate layer, not only a CRM. Scoped in weeks, not quarters.
+I'm open to full-time roles across RevOps, GTM Systems, Data Quality, CRM Strategy, Data Governance, and product-side data quality. I also take selective consulting and contract work through Page Frignoca LLC, usually scoped around data-quality assessments, vendor and source benchmarks, quality-gate design, governance models, and monitoring layers that keep the system honest after handoff.
 
 **Pull line**
 If your data is not ready for the AI workflows you are about to point at it, that is the work I do.

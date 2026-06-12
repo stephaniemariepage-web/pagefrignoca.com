@@ -127,7 +127,7 @@ I am Stephanie Frignoca, a GTM data quality and CRM systems strategist. I turn m
 ## Section 8 — Contact / closing CTA
 
 **Headline**
-Open to the right full-time role, and to consulting through Page Frignoca LLC.
+Open to the right full-time role in GTM or product-side data quality. Selective consulting through Page Frignoca LLC.
 
 **Body**
 If your data is not ready for the AI workflows you are about to point at it, that is the work I do. Let's talk.

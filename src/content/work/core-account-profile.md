@@ -32,7 +32,7 @@ overview:
       around it. It defines which fields matter, how account quality is
       scored, which vendors to trust for which fields, and where in the
       process quality breaks down. It scored the full account base, roughly
-      100,000 records, against that standard.
+      99,000 records, against that standard.
   pullLine: A field having a value is not the same as a field you can run a GTM motion on.
 
 problem:
