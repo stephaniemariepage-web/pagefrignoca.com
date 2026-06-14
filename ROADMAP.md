@@ -1,6 +1,6 @@
 # pagefrignoca.com — Release Roadmap
 
-_Last updated: 2026-06-02_
+_Last updated: 2026-06-14_
 
 The site is a portfolio of frameworks and systems Stephanie Frignoca built from the
 ground up. Core Account Profile is the flagship and the V1 launch. Everything after
@@ -20,21 +20,23 @@ V1 is an incremental release to an already-live site.
 - Hosting: Cloudflare Pages. Registrar, DNS, and host all in one Cloudflare account.
 - Deploy connects a git repo to Cloudflare Pages; the custom domain is added in the
   Pages project and Cloudflare writes the DNS record automatically.
-- `public/_redirects` handles URL renames at the platform level (currently one
-  entry: the old HG Insights slug 301s to the title-aligned slug).
+- `public/_redirects` handles URL renames at the platform level. After the
+  2026-06-14 rename, both prior slugs (`/work/hg-insights-hierarchy` and the
+  intermediate `/work/hg-insights-hierarchy-auto-population`) 301 to the current
+  `/work/account-hierarchy-auto-population`.
 
 ## Status at a glance
 
 | Release | Status | Notes |
 |---|---|---|
 | R1 — V1 Launch | ✅ Shipped | Live on pagefrignoca.com |
-| R1.5 — Writing track | ⏸ Placeholder | Field Notes page exists with "First on the list" preview; no posts yet |
+| R1.5 — Writing track | ⏸ Placeholder | Page exists but de-linked from nav and footer until the first post lands; no posts yet |
 | R2 — Portfolio index | ✅ Shipped | `/work` is the entry index; cards typed and tagged |
-| R3 — HG Insights Hierarchy Auto-Population | ✅ Shipped | URL aligned with title; 301 redirect for the old slug |
+| R3 — Account Hierarchy Auto-Population | ✅ Shipped | Renamed from "HG Insights …" 2026-06-14; vendor name removed from title. Redirect now stale (see Hosting) |
 | R4 — Salesforce Business Glossary | 🟡 Not started | Still a coming-soon tile on `/work` |
 | R5 — CAP Monitoring Dashboard | 🔁 Folded into CAP | Lives as build item 6 ("An AI-built Command Center") on the CAP case |
 | R6 — Systems and Process builds | 🟡 Partial | 1 of 3 planned entries shipped (Lead-to-Account); 2 remain |
-| R7 — Vendor Report Card | ✅ Shipped | Now anchored on a 200-company ground-truth reference set |
+| R7 — Vendor Report Card | ✅ Shipped | 200-company ground-truth set; provider names now scrubbed (no longer named) |
 
 ---
 
@@ -50,7 +52,9 @@ with SSL.
 `/field-notes` exists with a placeholder headline ("Field Notes are coming") and a
 short preview list of planned topics ("Why composite data quality scores lie," "What
 'AI-ready CRM data' actually requires," "Source of record is a hierarchy, not a
-vote"). No actual posts yet. Independent of the V2 portfolio track; timing optional.
+vote"). No actual posts yet. As of 2026-06-14 the page is **de-linked from nav and
+footer** so nothing routes to the empty placeholder; the links return when the first
+post is live. Independent of the V2 portfolio track; timing optional.
 
 ---
 
@@ -62,15 +66,18 @@ tiles are visible but non-clickable.
 
 ---
 
-## R3 — V2 HG Insights Hierarchy Auto-Population · ✅ Shipped
+## R3 — V2 Account Hierarchy Auto-Population · ✅ Shipped
 
-Live at `/work/hg-insights-hierarchy-auto-population`. URL was realigned with the
-title; the old `/work/hg-insights-hierarchy` URL 301-redirects via
-`public/_redirects`. Reframed so Stephanie owns the design and Claude Code is the
-implementation accelerator. Headline metric on the case: lift in known parent-account
-coverage from 6.4% to 10.2% across approximately 100,000 accounts (59% relative lift),
-with zero records corrupted. Absolute counts dropped from outcomes per the
-confidentiality pass.
+Live at `/work/account-hierarchy-auto-population`. Renamed 2026-06-14 from "HG Insights
+Hierarchy Auto-Population" to a generic title; the vendor name was pulled from the
+title (and body) to close the residual-risk inference chain. Reframed so Stephanie owns
+the design and Claude Code is the implementation accelerator. Headline metric on the
+case: lift in known parent-account coverage from 6.4% to 10.2% across an account base
+of approximately 99,000 (59% relative lift), with zero records corrupted. Absolute
+counts dropped from outcomes per the confidentiality pass.
+
+Both prior slugs now 301 to `account-hierarchy-auto-population` via
+`public/_redirects` (see Hosting and domain).
 
 ---
 
@@ -110,22 +117,23 @@ Originally grouped into three entries. Current state:
 - **Trial-to-Sales Lead Flow — ⏸ Hidden.** Tile pulled from `/work` coming-soon row;
   can be re-added if/when written up.
 - **Zero Friction Customer Address Collection — 💡 Potential add.** Section 22 of
-  the source documentation. RACI shows Owner role across DocuSign + Salesforce flows
-  + RingLead + Rattle + VAT trigger. Not currently a tile.
+  the source documentation. RACI shows Owner role across the e-signature + Salesforce
+  flows + enrichment/routing tools + VAT trigger. Not currently a tile.
 
-**Scrub policy in force across R6:** vendor names stay (RingLead, ZoomInfo,
-DocuSign, etc.); internal field API names, internal product-line names, individual
-names, and Confluence URLs all scrubbed.
+**Scrub policy in force across R6 (updated 2026-06-14):** third-party vendor names
+are now scrubbed; only platform/tooling references kept (Salesforce, n8n). Internal
+field API names, internal product-line names, individual names, and Confluence URLs
+all scrubbed.
 
 ---
 
 ## R7 — V3 Vendor Report Card · ✅ Shipped
 
-Live at `/work/vendor-report-card`. Now grounded on a 200-company ground-truth
-reference set built from each company's own website (replaces the earlier
-75-company framing). Names six enrichment and prospecting providers (ZoomInfo,
-Crunchbase, HG Insights, Lusha, LeadIQ, Clearbit) per operator decision; this is
-the one remaining residual-risk item flagged for legal review.
+Live at `/work/vendor-report-card`. Grounded on a 200-company ground-truth reference
+set built from each company's own website (replaces the earlier 75-company framing).
+As of 2026-06-14 the named enrichment and prospecting providers were **scrubbed**; the
+card now speaks to enrichment vendors generically rather than by name. This closes the
+residual-risk item that was previously flagged for legal review.
 
 ---
 
@@ -134,7 +142,7 @@ the one remaining residual-risk item flagged for legal review.
 | Entry | Type | Status | URL |
 |---|---|---|---|
 | Core Account Profile | Framework | ✅ Live (flagship) | `/work/core-account-profile` |
-| HG Insights Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/hg-insights-hierarchy-auto-population` |
+| Account Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/account-hierarchy-auto-population` |
 | Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
 | The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
@@ -157,13 +165,16 @@ the one remaining residual-risk item flagged for legal review.
   telemetry, and proprietary implementation details have been removed or abstracted.
 - Metric posture: relative percentages and lift figures retained where they were
   authorized; absolute operational counts dropped; account-base scale rounded to
-  "approximately 100,000" where it appeared.
-- Vendor names retained per operator decision (ZoomInfo, HG Insights, Crunchbase,
-  Lusha, LeadIQ, Clearbit, RingLead, DocuSign, etc.).
-- **Residual risk held for employment-lawyer review:** the HG Insights vendor name
-  in the case-study title and the six vendors named on Vendor Report Card both
-  create an inference chain from prior employment (named on LinkedIn) to vendor
-  procurement detail. Operator-credible but not airtight under a broad PIIA.
+  "approximately 99,000" where it appeared.
+- **Vendor-name policy reversed (2026-06-14).** Third-party vendor names are now
+  scrubbed sitewide. The Account Hierarchy case lost the "HG Insights" name (title
+  and body); the Vendor Report Card no longer names ZoomInfo, Crunchbase, HG Insights,
+  Lusha, LeadIQ, or Clearbit; the R6 source notes lost RingLead, DocuSign, and Rattle.
+  Only platform/tooling references remain (Salesforce, n8n).
+- **Residual-risk items resolved.** Both legal-review flags (the HG Insights name in
+  the case title and the six vendors on the Vendor Report Card) were closed by the
+  scrub pass above. No vendor-inference chain from prior employment remains on the
+  public site.
 
 ### Source material
 
@@ -172,6 +183,12 @@ surviving field values, scheduled tasks, mass migration processes, address
 collection RACI, CPQ/usage forecasting, etc.) from prior employment unlocked the
 Lead-to-Account deepening and are available to source the remaining R6 entries
 and the potential Zero Friction tile.
+
+### Design
+
+- **Denser layout (2026-06-14).** Section vertical padding halved sitewide for a
+  tighter, more product-like rhythm; the About hero-to-Positioning gap was tightened
+  further (~96px → ~64px).
 
 ### Parked
 

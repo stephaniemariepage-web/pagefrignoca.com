@@ -1,5 +1,7 @@
 # Cloudflare Pages redirects
 # Format: <from> <to> <status>
 
-# Renamed 2026-06-02: align URL with the displayed title "HG Insights Hierarchy Auto-Population".
-/work/hg-insights-hierarchy /work/hg-insights-hierarchy-auto-population 301
+# Renamed 2026-06-14: case study retitled to the generic "Account Hierarchy Auto-Population".
+# Both prior slugs (original and the intermediate vendor-named one) 301 to the current slug.
+/work/hg-insights-hierarchy /work/account-hierarchy-auto-population 301
+/work/hg-insights-hierarchy-auto-population /work/account-hierarchy-auto-population 301
