@@ -1,5 +1,5 @@
 ---
-title: Rebuilding the Account Layer Behind Annual GTM Planning
+title: Rebuilding the Account Layer for GTM Planning
 summary: >-
   A 6 to 12 month rebuild of the Salesforce account layer at a mid-market SaaS
   company: e-commerce-to-CRM customer matching, ZoomInfo re-enrichment with
