@@ -175,6 +175,33 @@ const d = entry.data;
     </section>
   )}
 
+  {d.metrics && (
+    <section class="border-t border-line/60">
+      <div class="container-x py-10 lg:py-12">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Measured movement</p>
+          <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            {d.metrics.headline}
+          </h2>
+          {d.metrics.intro && (
+            <p class="mt-6 text-lg leading-relaxed text-muted">{d.metrics.intro}</p>
+          )}
+        </div>
+        <dl class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {d.metrics.items.map((m) => (
+            <div class="rounded-xl border border-line bg-surface p-5">
+              <dt class="text-3xl font-bold tracking-tight text-accent">{m.value}</dt>
+              <dd class="mt-2 text-sm leading-snug text-muted">{m.label}</dd>
+            </div>
+          ))}
+        </dl>
+        {d.metrics.note && (
+          <p class="mt-6 max-w-3xl text-xs leading-relaxed text-muted/80">{d.metrics.note}</p>
+        )}
+      </div>
+    </section>
+  )}
+
   {d.outcomes && (
     <section class="border-t border-line/60">
       <div class="container-x py-10 lg:py-12">

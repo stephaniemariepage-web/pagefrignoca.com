@@ -73,6 +73,20 @@ const workEntry = z.object({
     })
     .optional(),
 
+  metrics: z
+    .object({
+      headline: z.string(),
+      intro: z.string().optional(),
+      items: z.array(
+        z.object({
+          value: z.string(),
+          label: z.string(),
+        }),
+      ),
+      note: z.string().optional(),
+    })
+    .optional(),
+
   outcomes: z
     .object({
       headline: z.string(),
