@@ -26,7 +26,7 @@ hero:
     planning decisions downstream of it had something reliable to stand on.
 
 overview:
-  headline: The account record is a dependency graph, not a flat row.
+  headline: Every GTM system inherits the account. None of them check it.
   paragraphs:
     - >-
       Core GTM workflows treated the account as ground truth. Routing read
