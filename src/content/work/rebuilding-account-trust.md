@@ -179,8 +179,6 @@ metrics:
       label: GTM segment updated
     - value: 14%
       label: HQ state updated
-    - value: 12%
-      label: New-account segmentation updated
   note: >-
     Percentages are rounded and generalized from internal account-refresh impact
     analysis.
