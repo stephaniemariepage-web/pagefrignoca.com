@@ -1,6 +1,6 @@
 # pagefrignoca.com — Release Roadmap
 
-_Last updated: 2026-06-14_
+_Last updated: 2026-06-15_
 
 The site is a portfolio of frameworks and systems Stephanie Frignoca built from the
 ground up. Core Account Profile is the flagship and the V1 launch. Everything after
@@ -35,8 +35,19 @@ V1 is an incremental release to an already-live site.
 | R3 — Account Hierarchy Auto-Population | ✅ Shipped | Renamed from "HG Insights …" 2026-06-14; vendor name removed from title. Redirect now stale (see Hosting) |
 | R4 — Salesforce Business Glossary | 🟡 Not started | Still a coming-soon tile on `/work` |
 | R5 — CAP Monitoring Dashboard | 🔁 Folded into CAP | Lives as build item 6 ("An AI-built Command Center") on the CAP case |
-| R6 — Systems and Process builds | 🟡 Partial | 1 of 3 planned entries shipped (Lead-to-Account); 2 remain |
+| R6 — Systems and Process builds | ✅ Shipped | 3 of 3 core entries shipped (Lead-to-Account, Account Trust, Pricing Operations) |
 | R7 — Vendor Report Card | ✅ Shipped | 200-company ground-truth set; provider names now scrubbed (no longer named) |
+
+---
+
+## Priority queue
+
+Work to do next, ahead of the V2/V3 release order below.
+
+- **Add a photo of Stephanie to the portfolio — 🔝 Priority, blocked on asset.**
+  Stephanie will supply the image and say where to grab it. Likely homes: the About
+  page and/or a small headshot in the site header or footer. Pending: final image,
+  placement decision, and sizing/crop. No photo currently anywhere on the site.
 
 ---
 
@@ -107,13 +118,20 @@ Originally grouped into three entries. Current state:
   from the source RevOps documentation: the six-group matching waterfall, Master
   Record Rules, Surviving Field Value Rules, three-way matching (Contact → Lead →
   Account), and the sixteen always-on scheduled tasks.
-- **Rebuilding Account Trust Across the GTM Stack — 🟡 Not started.** Best-sourced
-  of the unbuilt R6 entries: Section 13 (post-QtC GTM data updates), Section 17 (2026
-  Annual Planning impact with verifiable 86,115 / 68% account-revenue-refresh metric),
-  Section 21 (phased dedup approach).
-- **Pricing Operations at Renewal Scale — 🟡 Not started.** Sections 18, 23, 24, 25
-  (CPQ mass migration, finance segmentation, renewal owner flow, MSP/ISV
-  forecasting).
+- **Rebuilding Account Trust Across the GTM Stack — ✅ Shipped (2026-06-15).** Live at
+  `/work/rebuilding-account-trust`. Sourced from Section 13 (post-QtC GTM data
+  updates), Section 17 (2026 Annual Planning enrichment, with the verifiable
+  86,115 / 68% account-revenue-refresh metric used as the one named absolute and the
+  rest of the field movement as percentages), and Section 21 (phased dedup of
+  duplicate active accounts). Framed around the account layer as a dependency graph:
+  refresh the firmographic roots, recalculate the derived GTM fields, fix the
+  logo/master/sub hierarchy, and govern the change.
+- **Pricing Operations at Renewal Scale — ✅ Shipped (2026-06-15).** Live at
+  `/work/pricing-operations-renewal-scale`. Internally the "upsell / mass migration"
+  work. Sourced from Sections 18 (price-book mass migration, the lead build item), 23
+  (finance segmentation gaps stalling invoices), 24 (renewal-owner-on-creation flow),
+  and 25 (usage-based revenue scheduling outside CPQ). Framed around building
+  controlled paths for the pricing motions standard automation could not safely carry.
 - **Trial-to-Sales Lead Flow — ⏸ Hidden.** Tile pulled from `/work` coming-soon row;
   can be re-added if/when written up.
 - **Zero Friction Customer Address Collection — 💡 Potential add.** Section 22 of
@@ -145,9 +163,9 @@ residual-risk item that was previously flagged for legal review.
 | Account Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/account-hierarchy-auto-population` |
 | Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
 | The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
+| Rebuilding Account Trust Across the GTM Stack | Systems build | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
+| Pricing Operations at Renewal Scale | Systems build | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
-| Rebuilding Account Trust Across the GTM Stack | Systems build | 🟡 Tile | (none yet) |
-| Pricing Operations at Renewal Scale | Systems build | 🟡 Tile | (none yet) |
 | Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
 | CAP Monitoring Dashboard | AI-assisted automation | 🔁 Folded into CAP | (none) |
 
@@ -157,7 +175,8 @@ residual-risk item that was previously flagged for legal review.
 
 ### Confidentiality posture
 
-- About page sector-abstracted for both employers (no company names).
+- About page names employers in its Experience timeline and Background (2026-06-29):
+  it functions as a resume. This is the only page that names employers.
 - Case studies use "the org where this program ran" framing; no employer attribution
   in case-study bodies.
 - All case studies render a small Redaction note (template-level), signaling that
@@ -166,15 +185,18 @@ residual-risk item that was previously flagged for legal review.
 - Metric posture: relative percentages and lift figures retained where they were
   authorized; absolute operational counts dropped; account-base scale rounded to
   "approximately 99,000" where it appeared.
-- **Vendor-name policy reversed (2026-06-14).** Third-party vendor names are now
-  scrubbed sitewide. The Account Hierarchy case lost the "HG Insights" name (title
-  and body); the Vendor Report Card no longer names ZoomInfo, Crunchbase, HG Insights,
-  Lusha, LeadIQ, or Clearbit; the R6 source notes lost RingLead, DocuSign, and Rattle.
-  Only platform/tooling references remain (Salesforce, n8n).
-- **Residual-risk items resolved.** Both legal-review flags (the HG Insights name in
-  the case title and the six vendors on the Vendor Report Card) were closed by the
-  scrub pass above. No vendor-inference chain from prior employment remains on the
-  public site.
+- **Vendor names allowed again (2026-06-29).** The hard line is employer names in
+  case studies: previous employers (Cockroach Labs, Lansweeper, Embarcadero
+  Technologies) are never named in a case study. The About page is the one exception
+  (it functions as a resume and names them). Naming third-party vendors and tools by
+  name (ZoomInfo, HG Insights, RingLead, Crunchbase, Lusha, LeadIQ, Clearbit,
+  DocuSign, Rattle, etc.) is fine anywhere. This reverses the 2026-06-14 sitewide
+  vendor scrub.
+- **Optional content backfill (not yet done).** Previously scrubbed vendor names can
+  be restored where it strengthens a case: the Vendor Report Card (six enrichment
+  vendors), the Account Hierarchy case body, and the R6 source notes. The Account
+  Hierarchy case *title* stays generic regardless; the rename was a clarity call, not
+  only a scrub. Re-add only where the employer cannot be inferred from the vendor.
 
 ### Source material
 

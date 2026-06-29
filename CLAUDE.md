@@ -58,15 +58,19 @@ daisyUI was trialed and removed in favor of the custom system.
   dataset. "Paste your own data" is a coming-soon button pending a legal review.
 - Scorecard gate: a single 60 floor; any dimension below it classes the record by
   its weakest dimension.
-- Case study (Work page) names the employer (Cockroach Labs); internal specifics
+- Case studies do not name previous employers. The About page may (it functions as
+  a resume). Third-party vendors and tools may be named by name. Internal specifics
   stay abstracted.
 
 ## Confidentiality
 
-The CAP material was internal to Cockroach Labs. The framework, methodology, and
-approach are publishable. Do not publish internal data, named individuals, vendor
-specifics tied to the employer, or anything not safe for a public site. See the
-confidentiality note in `PROJECT-KICKOFF.md`.
+The CAP material was internal to a prior employer. The framework, methodology, and
+approach are publishable. The hard line: do not name previous employers (Cockroach
+Labs, Lansweeper, Embarcadero Technologies) in any case study. The one exception is
+the About page, which functions as a resume and may name employers in its Experience
+timeline and Background. Naming third-party vendors and tools by name is fine
+anywhere. Still do not publish internal data, named individuals, or anything else
+not safe for a public site. See the confidentiality note in `PROJECT-KICKOFF.md`.
 
 ## CAP framework
 
