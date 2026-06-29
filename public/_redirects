@@ -5,3 +5,9 @@
 # Both prior slugs (original and the intermediate vendor-named one) 301 to the current slug.
 /work/hg-insights-hierarchy /work/account-hierarchy-auto-population 301
 /work/hg-insights-hierarchy-auto-population /work/account-hierarchy-auto-population 301
+
+# Landing page is now the portfolio index (2026-06-29). The former /work index
+# moved to the site root; the bare /work path 301s home. Case studies keep
+# living under /work/<slug>.
+/work / 301
+/work/ / 301

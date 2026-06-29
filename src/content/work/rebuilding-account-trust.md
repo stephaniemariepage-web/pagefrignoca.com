@@ -242,5 +242,5 @@ closing:
     href: /work/core-account-profile
   secondaryCta:
     label: See the rest of the work
-    href: /work
+    href: /
 ---

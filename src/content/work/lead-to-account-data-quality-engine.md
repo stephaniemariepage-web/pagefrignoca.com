@@ -213,5 +213,5 @@ closing:
     href: /scorecard
   secondaryCta:
     label: See the rest of the work
-    href: /work
+    href: /
 ---

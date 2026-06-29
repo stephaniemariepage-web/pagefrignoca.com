@@ -2,7 +2,7 @@
 const path = Astro.url.pathname;
 const links = [
   { href: '/scorecard', label: 'Scorecard' },
-  { href: '/work', label: 'Work' },
+  { href: '/', label: 'Work' },
   { href: '/about', label: 'About' },
 ];
 const isActive = (href: string) => path === href || path === href + '/';
