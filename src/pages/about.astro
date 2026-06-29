@@ -1,8 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const email = 'stephaniemariepage@gmail.com';
-const linkedin = 'https://linkedin.com/in/stephaniepagefrignoca';
+const experience = [
+  { role: 'Senior Data Quality Specialist', org: 'Cockroach Labs', dates: '2026' },
+  { role: 'GTM Applications, then Sales Operations Analyst', org: 'Lansweeper', dates: '2021 – 2026' },
+  { role: 'Sales', org: 'Embarcadero Technologies', dates: '2014 – 2016' },
+];
+
+const focusAreas = [
+  'CRM data quality',
+  'Data governance',
+  'Salesforce architecture',
+  'Enrichment strategy',
+  'RevOps / GTM systems',
+  'AI-ready data',
+];
+
+const credentials = [
+  'Salesforce Certified Administrator',
+  'BFA, Communication Design · Texas State University',
+];
 
 const laneItems = [
   'Defining what a complete, standardized, accurate record means for your business, at the field level, with tiers and weights that reflect what your GTM motion actually needs.',
@@ -10,196 +27,200 @@ const laneItems = [
   'Benchmarking enrichment vendors against each other on real records, by field, so source-of-record decisions stop being assumption-based.',
   'Automating the parts of the data foundation that are mechanical (hierarchy population, matching, deduplication, routing) so the humans can focus on the parts that are not.',
   'Designing the governance and process so the definition holds after launch. Ownership, review cadence, monitoring. The part that makes it durable.',
+  'Building controlled paths for the revenue motions standard automation cannot safely carry: CPQ price-book migrations, usage-based billing, and renewal ownership.',
 ];
 ---
 
 <Base title="About | Stephanie Frignoca">
-  <!-- Page header -->
   <section class="relative overflow-hidden">
     <div
       class="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
       style="background: radial-gradient(48% 50% at 50% -6%, rgba(79,209,165,0.10), transparent 72%)"
     >
     </div>
-    <div class="container-x relative pt-10 lg:pt-14 pb-3 lg:pb-4">
-      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">About</p>
-      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-        Stephanie Frignoca
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-        I build the quality gates that make raw data trustworthy enough for
-        the systems, customers, and AI workflows that depend on it.
-      </p>
-    </div>
-  </section>
 
-  <!-- Section 1 ·The positioning -->
-  <section class="border-t border-line/60">
-    <div class="container-x pt-3 lg:pt-4 pb-10 lg:pb-12">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Positioning</p>
-        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-          I work upstream of the dashboard that keeps breaking.
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-muted">
-          Most CRM data work is reactive. A report breaks, a vendor gets blamed, a
-          batch of records gets cleaned once, and then the next report breaks for the
-          same reason.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          Underneath it is usually the same issue: no shared definition of what a
-          usable record actually looks like.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          I work in the upstream layer: the frameworks, scoring models, field tiers,
-          gated readiness logic, vendor benchmarks, and governance systems that
-          decide whether the data behind routing, segmentation, reporting, and AI
-          workflows can actually be trusted.
-        </p>
-      </div>
-      <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
-        Quality is what you measure repeatedly, not what you clean up once.
-      </p>
-    </div>
-  </section>
+    <div class="container-x relative py-10 lg:py-14">
+      <div class="grid gap-10 lg:grid-cols-[300px_1fr] lg:gap-14">
+        <!-- LEFT PANEL -->
+        <aside class="space-y-8 self-start lg:sticky lg:top-24">
+          <div class="overflow-hidden rounded-2xl border border-line bg-surface">
+            <img
+              src="/stephanie-headshot.jpg"
+              alt="Stephanie Frignoca"
+              width="1206"
+              height="1180"
+              loading="eager"
+              decoding="async"
+              class="aspect-[4/5] w-full object-cover object-top"
+            />
+          </div>
 
-  <!-- Section 2 ·The lane -->
-  <section class="border-t border-line/60">
-    <div class="container-x py-10 lg:py-12">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">The lane</p>
-        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-          Not data cleanup. Operational definitions of ready.
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-muted">
-          The work is specific. It looks like:
-        </p>
-      </div>
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Experience</h2>
+            <ul class="mt-4 space-y-4">
+              {experience.map((e) => (
+                <li>
+                  <p class="text-sm font-medium leading-snug text-fg">{e.role}</p>
+                  <p class="text-sm text-muted">{e.org}</p>
+                  <p class="mt-0.5 text-xs text-muted/70">{e.dates}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <ul class="mt-8 grid gap-3 lg:grid-cols-2">
-        {laneItems.map((item) => (
-          <li class="flex gap-3 rounded-xl border border-line bg-surface p-5">
-            <span class="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent"></span>
-            <span class="text-muted">{item}</span>
-          </li>
-        ))}
-      </ul>
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Focus areas</h2>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              {focusAreas.map((f) => (
+                <li class="rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <p class="mt-10 max-w-3xl text-lg font-medium leading-relaxed">
-        It is the work that has to exist before AI workflows on top of CRM data
-        become anything more than expensive, very confident guesswork.
-      </p>
-    </div>
-  </section>
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Credentials</h2>
+            <ul class="mt-4 space-y-2">
+              {credentials.map((c) => (
+                <li class="text-sm leading-snug text-muted">{c}</li>
+              ))}
+            </ul>
+          </div>
+        </aside>
 
-  <!-- Section 3 ·Background -->
-  <section class="border-t border-line/60">
-    <div class="container-x py-10 lg:py-12">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Background</p>
-        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-          Design school, then a decade in GTM systems.
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-muted">
-          Most recently, I was a Senior Data Quality Specialist, where I led CRM
-          data quality and AI-ready account governance work. The frameworks
-          featured on this site are generalized from patterns I have built
-          across SaaS GTM environments, with company-specific details removed.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          Before that, I spent four-plus years in GTM Applications and Sales
-          Operations at a B2B SaaS company, operating from the Salesforce seat
-          across the GTM stack: account restructuring, lead
-          routing, deduplication and matching, enrichment governance, cleaner
-          address collection, CPQ and renewal support, and the process work
-          that makes CRM data usable in the first place. Earlier still, I
-          worked in sales roles, which is part of why I care so much about how
-          GTM systems actually behave for the people using them.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          I am a Salesforce Certified Administrator with a BFA in Communication
-          Design from Texas State University, which is why this site reads more
-          like a product than a resume.
-        </p>
-      </div>
-    </div>
-  </section>
+        <!-- MAIN COLUMN -->
+        <div class="max-w-2xl">
+          <!-- Header -->
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">About</p>
+          <h1 class="mt-4 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl">
+            Stephanie Frignoca
+          </h1>
+          <p class="mt-6 text-lg leading-relaxed text-muted">
+            I build the quality gates that make raw data trustworthy enough for the
+            systems, customers, and AI workflows that depend on it.
+          </p>
 
-  <!-- Section 4 ·How to work with me -->
-  <section class="border-t border-line/60">
-    <div class="container-x py-10 lg:py-12">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">How to work with me</p>
-        <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-          Open to the right full-time role in GTM or product-side data quality.
-          Selective consulting through Page Frignoca LLC.
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-muted">
-          The best fit is a company that treats data quality as infrastructure,
-          not after-the-fact cleanup. My work sits at the intersection of GTM
-          systems, product data, and AI readiness: defining the quality gates,
-          source trust, confidence logic, and governance that determine whether
-          data is reliable enough to move downstream into a report, workflow,
-          customer-facing product, or AI agent.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          I've built these frameworks in Salesforce-centered GTM environments,
-          but the logic is platform-agnostic. Tiered fields, gated readiness,
-          vendor-source trust, cross-field accuracy, and explainable scoring
-          apply anywhere a record, signal, or data product needs to be trusted
-          before a person or system acts on it.
-        </p>
-        <p class="mt-4 text-lg leading-relaxed text-muted">
-          I'm open to full-time roles across RevOps, GTM Systems, Data Quality,
-          CRM Strategy, Data Governance, and product-side data quality. I also
-          take selective consulting and contract work through Page Frignoca LLC,
-          usually scoped around data-quality assessments, vendor and source
-          benchmarks, quality-gate design, governance models, and monitoring
-          layers that keep the system honest after handoff.
-        </p>
-      </div>
-      <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
-        If your data is not ready for the AI workflows you are about to point at
-        it, that is the work I do.
-      </p>
-    </div>
-  </section>
+          <!-- Positioning -->
+          <div class="mt-14">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Positioning</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              I work upstream of the dashboard that keeps breaking.
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-muted">
+              Most CRM data work is reactive. A report breaks, a vendor gets blamed, a
+              batch of records gets cleaned once, and then the next report breaks for the
+              same reason.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              Underneath it is usually the same issue: no shared definition of what a
+              usable record actually looks like.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              I work in the upstream layer: the frameworks, scoring models, field tiers,
+              gated readiness logic, vendor benchmarks, and governance systems that
+              decide whether the data behind routing, segmentation, reporting, and AI
+              workflows can actually be trusted.
+            </p>
+            <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
+              Quality is what you measure repeatedly, not what you clean up once.
+            </p>
+          </div>
 
-  <!-- Section 5 ·Contact -->
-  <section class="border-t border-line/60">
-    <div class="container-x py-10 lg:py-14">
-      <div
-        class="rounded-2xl border border-line p-8 sm:p-14"
-        style="background: linear-gradient(180deg, #0f1214 0%, #08090b 100%)"
-      >
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Contact</p>
-        <h2 class="mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
-          Best ways to reach me.
-        </h2>
-        <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-          Based in Austin, TX.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href={`mailto:${email}`}
-            class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
-          >
-            Email Stephanie
-          </a>
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-fg transition hover:border-accent hover:text-accent"
-          >
-            Connect on LinkedIn
-          </a>
-          <a
-            href={`mailto:${email}?subject=pagefrignoca.com%20feedback`}
-            class="inline-flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-semibold text-muted transition hover:border-accent hover:text-accent"
-          >
-            See something useful, weird, or worth arguing with? Tell me.
-          </a>
+          <!-- The lane -->
+          <div class="mt-14">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">The lane</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Not data cleanup. Operational definitions of ready.
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-muted">
+              The work is specific. It looks like:
+            </p>
+            <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+              {laneItems.map((item) => (
+                <li class="flex gap-3 rounded-xl border border-line bg-surface p-5">
+                  <span class="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent"></span>
+                  <span class="text-muted">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="mt-10 text-lg font-medium leading-relaxed">
+              It is the work that has to exist before AI workflows on top of CRM data
+              become anything more than expensive, very confident guesswork.
+            </p>
+          </div>
+
+          <!-- Background -->
+          <div class="mt-14">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Background</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Design school, then a decade in GTM systems.
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-muted">
+              Most recently, I was a Senior Data Quality Specialist at Cockroach Labs,
+              where I led CRM data quality and AI-ready account governance work. The
+              frameworks featured on this site are generalized from patterns I have built
+              across SaaS GTM environments, with company-specific details removed.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              Before that, I spent four-plus years in GTM Applications and Sales
+              Operations at Lansweeper, operating from the Salesforce seat across the GTM
+              stack: account restructuring, lead routing, deduplication and matching,
+              enrichment governance, cleaner address collection, CPQ and renewal support,
+              and the process work that makes CRM data usable in the first place. Earlier
+              still, I worked in sales roles at Embarcadero Technologies, which is part of
+              why I care so much about how GTM systems actually behave for the people
+              using them.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              I am a Salesforce Certified Administrator with a BFA in Communication Design
+              from Texas State University, which is why this site reads more like a product
+              than a resume.
+            </p>
+          </div>
+
+          <!-- How to work with me -->
+          <div class="mt-14">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">How to work with me</p>
+            <h2 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+              Open to the right full-time role in GTM or product-side data quality.
+              Selective consulting through Page Frignoca LLC.
+            </h2>
+            <p class="mt-6 text-lg leading-relaxed text-muted">
+              The best fit is a company that treats data quality as infrastructure, not
+              after-the-fact cleanup. My work sits at the intersection of GTM systems,
+              product data, and AI readiness: defining the quality gates, source trust,
+              confidence logic, and governance that determine whether data is reliable
+              enough to move downstream into a report, workflow, customer-facing product,
+              or AI agent.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              I've built these frameworks in Salesforce-centered GTM environments, but the
+              logic is platform-agnostic. Tiered fields, gated readiness, vendor-source
+              trust, cross-field accuracy, and explainable scoring apply anywhere a record,
+              signal, or data product needs to be trusted before a person or system acts
+              on it.
+            </p>
+            <p class="mt-4 text-lg leading-relaxed text-muted">
+              I'm open to full-time roles across RevOps, GTM Systems, Data Quality, CRM
+              Strategy, Data Governance, and product-side data quality. I also take
+              selective consulting and contract work through Page Frignoca LLC, usually
+              scoped around data-quality assessments, vendor and source benchmarks,
+              quality-gate design, governance models, and monitoring layers that keep the
+              system honest after handoff.
+            </p>
+            <p class="mt-10 border-l-2 border-accent pl-5 text-xl font-semibold leading-snug sm:text-2xl">
+              If your data is not ready for the AI workflows you are about to point at it,
+              that is the work I do.
+            </p>
+            <a
+              href="/contact"
+              class="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-[#06231b] transition hover:brightness-110"
+            >
+              Get in touch
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
