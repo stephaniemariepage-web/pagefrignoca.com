@@ -17,6 +17,8 @@ _source-material/
 CAP_Exec Summary*.jpg
 CAP Slide Deck Video*.mov
 *.docx
+# Cloudflare account exports / security insights (contain account details)
+*.xlsx
 
 # early scratch (pre-Astro)
 portfolio/
