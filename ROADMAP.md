@@ -35,7 +35,7 @@ V1 is an incremental release to an already-live site.
 | R3 — Account Hierarchy Auto-Population | ✅ Shipped | Renamed from "HG Insights …" 2026-06-14; vendor name removed from title. Redirect now stale (see Hosting) |
 | R4 — Salesforce Business Glossary | 🟡 Not started | Still a coming-soon tile on `/work` |
 | R5 — CAP Monitoring Dashboard | 🔁 Folded into CAP | Lives as build item 6 ("An AI-built Command Center") on the CAP case |
-| R6 — Systems and Process builds | ✅ Shipped | 3 of 3 core entries shipped (Lead-to-Account, Account Trust, Renewal Pricing) |
+| R6 — Systems and Process builds | ✅ Shipped | 3 of 3 core entries shipped (Lead-to-Account, Account Layer, Renewal Pricing) |
 | R7 — Vendor Report Card | ✅ Shipped | 200-company ground-truth set; provider names now scrubbed (no longer named) |
 
 ---
@@ -44,10 +44,9 @@ V1 is an incremental release to an already-live site.
 
 Work to do next, ahead of the V2/V3 release order below.
 
-- **Add a photo of Stephanie to the portfolio — 🔝 Priority, blocked on asset.**
-  Stephanie will supply the image and say where to grab it. Likely homes: the About
-  page and/or a small headshot in the site header or footer. Pending: final image,
-  placement decision, and sizing/crop. No photo currently anywhere on the site.
+- **Add a photo of Stephanie to the portfolio — ✅ Done (2026-07-07).** Headshot lives
+  in the About left panel (`public/stephanie-headshot.jpg`), 4:5 framed. Optional
+  follow-on: a small header/footer headshot (not built).
 
 ---
 
@@ -118,8 +117,9 @@ Originally grouped into three entries. Current state:
   from the source RevOps documentation: the six-group matching waterfall, Master
   Record Rules, Surviving Field Value Rules, three-way matching (Contact → Lead →
   Account), and the sixteen always-on scheduled tasks.
-- **Rebuilding Account Trust Across the GTM Stack — ✅ Shipped (2026-06-15).** Live at
-  `/work/rebuilding-account-trust`. Sourced from Section 13 (post-QtC GTM data
+- **Rebuilding the Account Layer for GTM Planning — ✅ Shipped (2026-06-15).** Live at
+  `/work/rebuilding-account-trust` (slug retained; internal shorthand "Account Trust";
+  card type "GTM data strategy"). Sourced from Section 13 (post-QtC GTM data
   updates), Section 17 (2026 Annual Planning enrichment, with the verifiable
   86,115 / 68% account-revenue-refresh metric used as the one named absolute and the
   rest of the field movement as percentages), and Section 21 (phased dedup of
@@ -165,7 +165,7 @@ residual-risk item that was previously flagged for legal review.
 | Account Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/account-hierarchy-auto-population` |
 | Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
 | The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
-| Rebuilding Account Trust Across the GTM Stack | GTM data strategy | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
+| Rebuilding the Account Layer for GTM Planning | GTM data strategy | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
 | Migrating Renewal Pricing Under Pressure | Revenue data migration | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
 | Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
