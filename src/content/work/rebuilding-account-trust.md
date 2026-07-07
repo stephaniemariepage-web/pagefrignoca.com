@@ -2,12 +2,10 @@
 title: Rebuilding the Account Layer for GTM Planning
 summary: >-
   A 6 to 12 month rebuild of the Salesforce account layer at a mid-market SaaS
-  company: e-commerce-to-CRM customer matching, ZoomInfo re-enrichment with
-  dependent-field recalculation, RingLead workflows for governed mass updates,
-  corporate-family hierarchy cleanup, rollback-safe owner transfers, and a
-  phased merge of duplicate active accounts. The work that gave annual GTM
-  planning an account record it could finally trust.
-type: Systems build
+  company: re-enrichment, corporate-hierarchy cleanup, governed mass updates,
+  and a phased merge of duplicate accounts, so annual GTM planning finally had
+  an account record it could trust.
+type: GTM data strategy
 featured: false
 order: 5
 

@@ -4,7 +4,7 @@ import { glob } from 'astro/loaders';
 const workEntry = z.object({
   title: z.string(),
   summary: z.string(),
-  type: z.enum(['Framework', 'AI-assisted automation', 'Systems build', 'Reference']),
+  type: z.enum(['Framework', 'AI-assisted automation', 'Systems build', 'GTM data strategy', 'Revenue data migration', 'Reference']),
   employer: z.string().optional(),
   featured: z.boolean().default(false),
   order: z.number().default(99),

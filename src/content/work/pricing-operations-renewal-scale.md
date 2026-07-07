@@ -7,7 +7,7 @@ summary: >-
   scheduling, an enrich-and-retrigger fix for invoices stalled on missing
   segmentation, and automated-but-validated renewal-owner assignment. Pricing
   accuracy held at the seams between CRM, CPQ, and billing.
-type: Systems build
+type: Revenue data migration
 featured: false
 order: 6
 

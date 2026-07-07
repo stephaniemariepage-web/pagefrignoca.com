@@ -163,8 +163,8 @@ residual-risk item that was previously flagged for legal review.
 | Account Hierarchy Auto-Population | AI-assisted automation | ✅ Live | `/work/account-hierarchy-auto-population` |
 | Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
 | The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
-| Rebuilding Account Trust Across the GTM Stack | Systems build | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
-| Pricing Operations at Renewal Scale | Systems build | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
+| Rebuilding Account Trust Across the GTM Stack | GTM data strategy | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
+| Pricing Operations at Renewal Scale | Revenue data migration | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
 | Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
 | CAP Monitoring Dashboard | AI-assisted automation | 🔁 Folded into CAP | (none) |
