@@ -35,7 +35,7 @@ V1 is an incremental release to an already-live site.
 | R3 — Account Hierarchy Auto-Population | ✅ Shipped | Renamed from "HG Insights …" 2026-06-14; vendor name removed from title. Redirect now stale (see Hosting) |
 | R4 — Salesforce Business Glossary | 🟡 Not started | Still a coming-soon tile on `/work` |
 | R5 — CAP Monitoring Dashboard | 🔁 Folded into CAP | Lives as build item 6 ("An AI-built Command Center") on the CAP case |
-| R6 — Systems and Process builds | ✅ Shipped | 3 of 3 core entries shipped (Lead-to-Account, Account Trust, Pricing Operations) |
+| R6 — Systems and Process builds | ✅ Shipped | 3 of 3 core entries shipped (Lead-to-Account, Account Trust, Renewal Pricing) |
 | R7 — Vendor Report Card | ✅ Shipped | 200-company ground-truth set; provider names now scrubbed (no longer named) |
 
 ---
@@ -126,8 +126,10 @@ Originally grouped into three entries. Current state:
   duplicate active accounts). Framed around the account layer as a dependency graph:
   refresh the firmographic roots, recalculate the derived GTM fields, fix the
   logo/master/sub hierarchy, and govern the change.
-- **Pricing Operations at Renewal Scale — ✅ Shipped (2026-06-15).** Live at
-  `/work/pricing-operations-renewal-scale`. Internally the "upsell / mass migration"
+- **Migrating Renewal Pricing Under Pressure — ✅ Shipped (2026-06-15).** Live at
+  `/work/pricing-operations-renewal-scale` (slug retained; retitled 2026-07-07 from
+  "Pricing Operations at Renewal Scale," type now "Revenue data migration").
+  Internally the "upsell / mass migration"
   work. Sourced from Sections 18 (price-book mass migration, the lead build item), 23
   (finance segmentation gaps stalling invoices), 24 (renewal-owner-on-creation flow),
   and 25 (usage-based revenue scheduling outside CPQ). Framed around building
@@ -164,7 +166,7 @@ residual-risk item that was previously flagged for legal review.
 | Lead-to-Account Data Quality Engine | Systems build | ✅ Live (deepened 2026-06-02) | `/work/lead-to-account-data-quality-engine` |
 | The Vendor Report Card | Framework | ✅ Live | `/work/vendor-report-card` |
 | Rebuilding Account Trust Across the GTM Stack | GTM data strategy | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
-| Pricing Operations at Renewal Scale | Revenue data migration | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
+| Migrating Renewal Pricing Under Pressure | Revenue data migration | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
 | Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
 | CAP Monitoring Dashboard | AI-assisted automation | 🔁 Folded into CAP | (none) |
