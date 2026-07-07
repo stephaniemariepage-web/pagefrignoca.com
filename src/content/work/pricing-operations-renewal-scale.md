@@ -1,12 +1,10 @@
 ---
-title: Pricing Operations at Renewal Scale
+title: Migrating Renewal Pricing Under Pressure
 summary: >-
-  Controlled execution paths for the pricing and renewal motions standard
-  automation could not safely carry: batched quote recalculation for a mass
-  price-book migration, a guarded non-CPQ path for usage-based revenue
-  scheduling, an enrich-and-retrigger fix for invoices stalled on missing
-  segmentation, and automated-but-validated renewal-owner assignment. Pricing
-  accuracy held at the seams between CRM, CPQ, and billing.
+  Controlled paths for the pricing and renewal motions standard automation could
+  not safely carry: a batched price-book migration, a non-CPQ path for usage
+  revenue, a fix for invoices stalled on a missing field, and validated
+  renewal-owner assignment.
 type: Revenue data migration
 featured: false
 order: 6
