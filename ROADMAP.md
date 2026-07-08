@@ -136,9 +136,10 @@ Originally grouped into three entries. Current state:
   controlled paths for the pricing motions standard automation could not safely carry.
 - **Trial-to-Sales Lead Flow — ⏸ Hidden.** Tile pulled from `/work` coming-soon row;
   can be re-added if/when written up.
-- **Zero Friction Customer Address Collection — 💡 Potential add.** Section 22 of
-  the source documentation. RACI shows Owner role across the e-signature + Salesforce
-  flows + enrichment/routing tools + VAT trigger. Not currently a tile.
+- **Zero Friction Customer Address Collection — 🟡 Coming-soon tile (2026-07-08).**
+  Section 22 of the source documentation. RACI shows Owner role across the e-signature
+  + Salesforce flows + enrichment/routing tools + VAT trigger. Coming-soon tile is live
+  on `/`; case study not yet written.
 
 **Scrub policy in force across R6 (updated 2026-06-14):** third-party vendor names
 are now scrubbed; only platform/tooling references kept (Salesforce, n8n). Internal
@@ -168,7 +169,7 @@ residual-risk item that was previously flagged for legal review.
 | Rebuilding the Account Layer for GTM Planning | GTM data strategy | ✅ Live (2026-06-15) | `/work/rebuilding-account-trust` |
 | Migrating Renewal Pricing Under Pressure | Revenue data migration | ✅ Live (2026-06-15) | `/work/pricing-operations-renewal-scale` |
 | Salesforce Business Glossary | Reference / interactive | 🟡 Tile | (none yet) |
-| Zero Friction Customer Address Collection | Systems build | 💡 Potential | (no tile yet) |
+| Zero Friction Customer Address Collection | Systems build | 🟡 Coming-soon tile | (case study not yet written) |
 | CAP Monitoring Dashboard | AI-assisted automation | 🔁 Folded into CAP | (none) |
 
 ---
